@@ -826,6 +826,8 @@ a.article-title:hover {
   position: absolute;
   display: none;
   background: #fff;
+  -webkit-box-shadow: 20px 20px rgba(0,0,0,0.125);
+  box-shadow: 20px 20px rgba(0,0,0,0.125);
   border-radius: 12px;
   margin-left: -145px;
   overflow: hidden;
@@ -1118,7 +1120,6 @@ a.article-title:hover {
 }
 .article-entry code {
   background: #fbf6d9;
-  border: 1px solid #000;
   padding: 0 0.3em;
 }
 .article-entry pre code {
