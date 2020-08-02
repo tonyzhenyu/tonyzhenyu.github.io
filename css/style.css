@@ -501,8 +501,8 @@ body {
 .article-inner {
   overflow: hidden;
   border: outset 1.3px #fff;
-  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.169);
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.169);
+  -webkit-box-shadow: 5px 5px rgba(0,0,0,0.25);
+  box-shadow: 5px 5px rgba(0,0,0,0.25);
   overflow: hidden;
   background-color: #d3d0cb;
   border: outset 2.5px #fff;
@@ -1335,6 +1335,9 @@ pre .javascript .function {
   line-height: 1.6em;
   word-wrap: break-word;
   font-size: 0.9em;
+  background: #fbf6d9;
+  border: 1px solid #000;
+  padding: 3px 15px;
 }
 .widget ul,
 .widget ol {
