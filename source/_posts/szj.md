@@ -1,7 +1,0 @@
----
-title: szj = sz
----
-
-#
-abc
-#
