@@ -5,19 +5,20 @@
   
 
   
-  <title>友情连接 | Ho&#39;s Website</title>
+  <title>unity中的常见矩阵 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="让我看看是谁在线？  😊XINIX👀Fortune-Space👀这谁啊？ 另外一些有用处的网站  表格转换 图片压缩tinyPNG shader玩具  我只能说用hexo建blog 写markdown真香  markdown图床 markdown语法">
+  <meta name="description" content="在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。  内置矩阵 支持的矩阵（float4x4）： UNITY_MATRIX_MVP              当前模型视图投影矩阵  UNITY_MATRIX_MV               当前模型视图矩阵  UNITY_MATRIX_V                当前视图矩阵。  UNITY_MATR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="友情连接">
-<meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/02/blogroll/index.html">
+<meta property="og:title" content="unity中的常见矩阵">
+<meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="让我看看是谁在线？  😊XINIX👀Fortune-Space👀这谁啊？ 另外一些有用处的网站  表格转换 图片压缩tinyPNG shader玩具  我只能说用hexo建blog 写markdown真香  markdown图床 markdown语法">
+<meta property="og:description" content="在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。  内置矩阵 支持的矩阵（float4x4）： UNITY_MATRIX_MVP              当前模型视图投影矩阵  UNITY_MATRIX_MV               当前模型视图矩阵  UNITY_MATRIX_V                当前视图矩阵。  UNITY_MATR">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-02T12:24:29.000Z">
+<meta property="article:published_time" content="2020-08-03T00:00:00.000Z">
 <meta property="article:modified_time" content="2020-08-03T17:25:06.460Z">
 <meta property="article:author" content="Tony Ho">
-<meta property="article:tag" content="links">
+<meta property="article:tag" content="shader">
+<meta property="article:tag" content="unity">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Ho&#39;s Website" type="application/atom+xml">
@@ -67,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-blogroll" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-unity常见矩阵" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/08/02/blogroll/" class="article-date">
-  <time datetime="2020-08-02T12:24:29.000Z" itemprop="datePublished">2020-08-02</time>
+    <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" class="article-date">
+  <time datetime="2020-08-03T00:00:00.000Z" itemprop="datePublished">2020-08-03</time>
 </a>
     
   </div>
@@ -81,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      友情连接
+      unity中的常见矩阵
     </h1>
   
 
@@ -89,28 +90,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center>让我看看是谁在线？</center>
-
-<p>😊<a target="_blank" rel="noopener" href="http://xinix.xyz/">XINIX</a><br>👀<a target="_blank" rel="noopener" href="http://john097.github.io/Frotune-Space/">Fortune-Space</a><br>👀<a target="_blank" rel="noopener" href="https://ahhhhhchiu.github.io/">这谁啊？</a></p>
-<p>另外一些有用处的网站</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="http://tableconvert.com/">表格转换</a></li>
-<li><a href="www.tinypng.com">图片压缩tinyPNG</a></li>
-<li><a href="www.shadertoy.com">shader玩具</a></li>
-</ol>
-<p>我只能说用hexo建blog 写markdown真香</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
+        <p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
+<hr>
+<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
+<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
+</li>
+<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
+<font color="lighgrey"> </li>
+<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
+</font>
+</li>
+<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
+</li>
+<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
+</li>
+<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
+</li>
 </ul>
+<hr>
+<h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<hr>
+<p>另外附上：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27339998">发现的宝贝渲染中的47张map</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/02/blogroll/" data-id="ckdesax2j00003shh1c8h7x59" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" data-id="ckdesax2s00033shh3iuv6e9b" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/links/" rel="tag">links</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
 
     </footer>
   </div>
@@ -118,19 +132,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/03/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">新文章</strong>
       <div class="article-nav-title">
         
-          unity中的常见矩阵
+          资源整理【表格】
         
       </div>
     </a>
   
   
-    <a href="/2020/08/01/index/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/02/blogroll/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">旧的</strong>
-      <div class="article-nav-title">小何客栈-</div>
+      <div class="article-nav-title">友情连接</div>
     </a>
   
 </nav>

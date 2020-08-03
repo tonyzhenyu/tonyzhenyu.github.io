@@ -64,8 +64,58 @@
       </tags>
   </entry>
   <entry>
+    <title>unity中的常见矩阵</title>
+    <url>/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/</url>
+    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
+<hr>
+<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
+<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
+</li>
+<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
+<font color="lighgrey"> </li>
+<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
+</font>
+</li>
+<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
+</li>
+<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
+</li>
+<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
+</li>
+</ul>
+<hr>
+<h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<hr>
+<p>另外附上：<a href="https://zhuanlan.zhihu.com/p/27339998">发现的宝贝渲染中的47张map</a></p>
+]]></content>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学之我学废了</title>
+    <url>/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/</url>
+    <content><![CDATA[<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><ul>
+<li>matcap</li>
+<li>height base blend texture</li>
+<li>mask map</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/08/02/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
+    <url>/2020/08/03/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
