@@ -103,9 +103,16 @@
     <title>图形学之我学废了</title>
     <url>/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/</url>
     <content><![CDATA[<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><ul>
-<li>matcap</li>
-<li>height base blend texture</li>
-<li>mask map</li>
+<li>matcap 材质捕获 三维空间与二维空间之间的转换</li>
+<li>height base blend texture 基于高度的材质混合</li>
+<li>splatmap 地形材质混合</li>
+<li>world position textrue(xyz) 基于世界坐标的无限延展贴图</li>
+<li>view position parallex 基于视图空间的视差效果</li>
+</ul>
+<hr>
+<ul>
+<li>maskmap </li>
+<li>rgba channel mask 单通道贴图控制</li>
 </ul>
 ]]></content>
       <tags>
@@ -115,7 +122,7 @@
   </entry>
   <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/08/03/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
+    <url>/2020/08/04/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
