@@ -7,15 +7,15 @@
   
   <title>图形学之我学废了 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我学废了！ matcap 材质捕获 三维空间与二维空间之间的转换 height base blend texture 基于高度的材质混合 splatmap 地形材质混合 world position textrue(xyz) 基于世界坐标的无限延展贴图 view position parallex 基于视图空间的视差效果    maskmap  rgba channel mask 单通道贴图控制">
+  <meta name="description" content="我学废了！ matcap 材质捕获 三维空间与二维空间之间的转换 cubemap reflection 静态的cubemap反射，贴图比matcap大，效果比matcap好 height base blend texture 基于高度的材质混合 splatmap 地形材质混合 world align textrue(xyz) 基于世界坐标的无限延展贴图 view position parallex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图形学之我学废了">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="我学废了！ matcap 材质捕获 三维空间与二维空间之间的转换 height base blend texture 基于高度的材质混合 splatmap 地形材质混合 world position textrue(xyz) 基于世界坐标的无限延展贴图 view position parallex 基于视图空间的视差效果    maskmap  rgba channel mask 单通道贴图控制">
+<meta property="og:description" content="我学废了！ matcap 材质捕获 三维空间与二维空间之间的转换 cubemap reflection 静态的cubemap反射，贴图比matcap大，效果比matcap好 height base blend texture 基于高度的材质混合 splatmap 地形材质混合 world align textrue(xyz) 基于世界坐标的无限延展贴图 view position parallex">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-22T16:16:31.318Z">
+<meta property="article:modified_time" content="2020-08-23T01:56:08.125Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="shader">
 <meta property="article:tag" content="unity">
@@ -92,15 +92,18 @@
       
         <h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><ul>
 <li>matcap 材质捕获 三维空间与二维空间之间的转换</li>
+<li>cubemap reflection 静态的cubemap反射，贴图比matcap大，效果比matcap好</li>
 <li>height base blend texture 基于高度的材质混合</li>
 <li>splatmap 地形材质混合</li>
-<li>world position textrue(xyz) 基于世界坐标的无限延展贴图</li>
+<li>world align textrue(xyz) 基于世界坐标的无限延展贴图</li>
 <li>view position parallex 基于视图空间的视差效果</li>
+<li>transparency 透射效果</li>
 </ul>
 <hr>
 <ul>
 <li>maskmap </li>
 <li>rgba channel mask 单通道贴图控制</li>
+<li>ramp map 渐变式贴图</li>
 </ul>
 <hr>
 <ul>
@@ -111,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="cke5v7tsn000521hk7q4w1msr" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="cke6fxdzi000827hoe0lxbjm3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -153,7 +156,11 @@
       <ul>
         
           <li>
-            <a href="/2020/08/22/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+            <a href="/2020/08/23/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/23/Transparency/">Transparency in Defered Lighting</a>
           </li>
         
           <li>
@@ -168,10 +175,6 @@
             <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/">unity中的常见矩阵</a>
           </li>
         
-          <li>
-            <a href="/2020/08/02/blogroll/">友情连接</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -184,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a>
+      <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 15px;">unity</a>
     </div>
   </div>
 
