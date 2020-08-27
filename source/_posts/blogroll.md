@@ -13,6 +13,8 @@ tags: links
 1. [表格转换](http://tableconvert.com/)
 2. [图片压缩tinyPNG](www.tinypng.com)
 3. [shader玩具](www.shadertoy.com)
+4. [catlikecoding](www.catlikecoding.com)
+5. [BlenderAddonQuickShape](www.gumroad.com/I/tOWta)
 
 我只能说用hexo建blog 写markdown真香
 
