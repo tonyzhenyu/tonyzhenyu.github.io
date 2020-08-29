@@ -1,243 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Transparency in Defered Lighting</title>
-    <url>/2020/08/23/Transparency/</url>
-    <content><![CDATA[<p>在defered lighting 中实现transparency 透射效果.</p>
-<pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
-    float2 texCoord = float2(
-         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
-         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
-    );
+  
+  <title>资源整理【表格】 | Ho&#39;s Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="编号 名称 类型 文件名 时间 物件数量 可直接使用 导出文件 动画 贴图 重置计划    1 宿舍 模型 dormitory 2 2018-04-24 1        3 飞行器 模型 aircraft 2018-04-01 1        4 太刀 模型 blader 2018-04-02 1        5 桥 模型 bridge 2018-05-04 1        6 匕首">
+<meta property="og:type" content="article">
+<meta property="og:title" content="资源整理【表格】">
+<meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/index.html">
+<meta property="og:site_name" content="Ho&#39;s Website">
+<meta property="og:description" content="编号 名称 类型 文件名 时间 物件数量 可直接使用 导出文件 动画 贴图 重置计划    1 宿舍 模型 dormitory 2 2018-04-24 1        3 飞行器 模型 aircraft 2018-04-01 1        4 太刀 模型 blader 2018-04-02 1        5 桥 模型 bridge 2018-05-04 1        6 匕首">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-29T15:19:44.275Z">
+<meta property="article:modified_time" content="2020-08-29T15:19:44.275Z">
+<meta property="article:author" content="Tony Ho">
+<meta property="article:tag" content="data">
+<meta property="article:tag" content="tables">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Ho&#39;s Website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
+<meta name="generator" content="Hexo 5.0.0"></head>
 
-    float4 sampledNormals = tex2D(normalSampler, texCoord);
-    if (sampledNormals.a == 0)
-        clip(-1);
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ho&#39;s Website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://tonyzhenyu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-模型资源" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/" class="article-date">
+  <time datetime="2020-08-29T15:19:44.275Z" itemprop="datePublished">2020-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      资源整理【表格】
+    </h1>
+  
 
-    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
-    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
-    //Thickness is easy to calculate.
-
-    float backDepth = input.Depth;
-    float frontDepth = tex2D(depthSampler, texCoord);
-    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
-
-    //This is the surface colour of the transparent object
-
-    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
-
-    //This is the colour of the scene behind the object
-
-    float3 background = tex2D(lightbufferSample, texCoord).rgb;
-
-    //now blend them. Blending function varies per material
-
-    return Blend(opaque, background, thickness);</code></pre>
-]]></content>
-      <tags>
-        <tag>shader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>友情连接</title>
-    <url>/2020/08/02/blogroll/</url>
-    <content><![CDATA[<center>让我看看是谁在线？</center>
-
-<p>😊<a href="http://xinix.xyz/">XINIX</a><br>👀<a href="http://john097.github.io/Frotune-Space/">Fortune-Space</a><br>👀<a href="https://ahhhhhchiu.github.io/">这谁啊？</a></p>
-<p>另外一些有用处的网站</p>
-<ol>
-<li><a href="http://tableconvert.com/">表格转换</a></li>
-<li><a href="www.tinypng.com">图片压缩tinyPNG</a></li>
-<li><a href="www.shadertoy.com">shader玩具</a></li>
-<li><a href="www.catlikecoding.com">catlikecoding</a></li>
-<li><a href="www.gumroad.com/I/tOWta">BlenderAddonQuickShape</a></li>
-</ol>
-<p>我只能说用hexo建blog 写markdown真香</p>
-<ul>
-<li><a href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
-<li><a href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>links</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我入侵了何镇宇的</title>
-    <url>/2020/08/09/hezhenyu/</url>
-    <content><![CDATA[<h1 id="入侵成功"><a href="#入侵成功" class="headerlink" title="入侵成功"></a>入侵成功</h1><blockquote>
-<p>河镇鱼的电脑被我控制了</p>
-</blockquote>
-<blockquote>
-<p>方LOL呀！！！</p>
-</blockquote>
-<p><span style="font-size:409px">河镇鱼生日快乐！</span></p>
-<p><a href="http://www.pornhub.com" style="font-size:44px">方呢</a></p>
-]]></content>
-      <tags>
-        <tag>hezhenyu</tag>
-        <tag>fang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小何客栈-</title>
-    <url>/2020/08/01/index/</url>
-    <content><![CDATA[<h1 id="欢迎光临！小何客栈！"><a href="#欢迎光临！小何客栈！" class="headerlink" title="欢迎光临！小何客栈！"></a>欢迎光临！小何客栈！</h1><p>小何客栈，做吃的我们是认真的！请感受环境认真休息！</p>
-<hr>
-<p>客栈今日</p>
-<ul>
-<li>坐席【空】 </li>
-<li>人次【1】 </li>
-<li>大堂【2人】 </li>
-<li>客房【15间】</li>
-</ul>
-<hr>
-<pre><code>餐点如下所示，图片不代表最终质量哦
-小点 9¥
-中点 12¥
-大点 16¥
-特点 18¥
-顶点 24¥
-臻点 32¥
-
-+ 番茄炒蛋还不错
-+ 冬瓜汤也挺香的
-+ 玉米排骨汤好喝
-+ 猪扒包</code></pre>
-<hr>
-<p>这是小何客栈的第一篇文章<br>❤🧡💛💚💙💜🤎🖤🤍<br>写点日常的的东西在这里。<br>无论是饭菜香味还是舒适的环境享受，富丽堂皇的总统套房，还有水天一色的游泳池，你想得到的东西在这里，你想不到的东西不在这里，欢迎下次游玩哦。<br>❤🧡💛💚💙💜🤎🖤🤍</p>
-<hr>
-<h3 id="学习指南"><a href="#学习指南" class="headerlink" title="学习指南"></a>学习指南</h3><ul>
-<li>LOL</li>
-<li>DNF</li>
-<li>CF</li>
-</ul>
-<hr>
-<h3 id="预订电话"><a href="#预订电话" class="headerlink" title="预订电话"></a>预订电话</h3><p>tel: 13231323188<br>wechat 同号</p>
-]]></content>
-      <tags>
-        <tag>post</tag>
-        <tag>life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity中的常见矩阵</title>
-    <url>/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/</url>
-    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
-<hr>
-<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
-<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
-</li>
-<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
-<font color="lighgrey"> </li>
-<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
-</font>
-</li>
-<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
-</li>
-<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
-</li>
-<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
-</li>
-</ul>
-<hr>
-<h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
-<hr>
-<p>另外附上：<a href="https://zhuanlan.zhihu.com/p/27339998">发现的宝贝渲染中的47张map</a></p>
-]]></content>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>voxelrendering</title>
-    <url>/2020/08/27/voxelrendering/</url>
-    <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。</p>
-<p>voxel rendering<br>point cloud</p>
-<p>模型转换体素<br>体素转换成模型</p>
-<p>图片转换成点阵云<br>点阵云转换成体素<br>体素转换成模型</p>
-]]></content>
-      <tags>
-        <tag>rendering</tag>
-        <tag>voxel</tag>
-        <tag>future</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图形学之我学废了</title>
-    <url>/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/</url>
-    <content><![CDATA[<style type="text/css">
-r {color:red; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识<br>学废的请举手！</p>
-<ul>
-<li><g>学废了的</g></li>
-<li><r>在学了别催</r></li>
-</ul>
-<hr>
-<h2 id="基本光照模型"><a href="#基本光照模型" class="headerlink" title="基本光照模型"></a>基本光照模型</h2><ul>
-<li></li>
-<li></li>
-</ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
-</ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
-</ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>transparency 透射效果</li>
-<li>refraction 折射效果</li>
-</ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-</ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>评优</title>
-    <url>/2020/08/23/%E8%AF%84%E4%BC%98/</url>
-    <content><![CDATA[<p>评选失败</p>
-<p>这是我第一次参与工作，已经107天。<br>实习期间工作认真负责，能够按时完成导师分发下来的工作任务。在不需要提交日报的情况下能够保持按时编写日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结，积极参加公司内部培训课程，并认真独立完成课后习题。<br>与同事沟通上认真听取他人意见和建议，遇到问题积极向同事请教，查阅相关资料加以结合进行深入研究和拓展，争取花费更短的时间解决问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。<br>在我参与的小游戏项目中，需要非常多的技术素养，抱着试一试的心态学习图形编程和C#代码编写，在学校也修读过计算机相关课程所以有一定基础，但深知自己技术不强，还得请教同事和查阅中英文资料进行学习并加以应用。实际例子就如本次小游戏中的无尽关卡效果和家园场景效果，除了每日任务和调用场景物件的一些功能其他功能基本上是自己独立完成的。家园中的日夜循环，无尽关卡中的平面反射，还有家园物件中的贴图规范。<br>重要的不是技术手段，更重要的是同事们的反馈和网上的资料才能够让整个工程加以完善。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>资源整理【表格】</title>
-    <url>/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
-    <content><![CDATA[<table>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
 <thead>
 <tr>
 <th>编号</th>
@@ -2893,10 +2746,128 @@ g {color:green;font-weight: 700;}
 <td></td>
 </tr>
 </tbody></table>
-]]></content>
-      <tags>
-        <tag>data</tag>
-        <tag>tables</tag>
-      </tags>
-  </entry>
-</search>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tonyzhenyu.github.io/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/" data-id="ckeft9yv4000wzfhebnfq1oy0" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tables/" rel="tag">tables</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/27/voxelrendering/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">旧的</strong>
+      <div class="article-nav-title">voxelrendering</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近文</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/27/voxelrendering/">voxelrendering</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/23/Transparency/">Transparency in Defered Lighting</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/23/%E8%AF%84%E4%BC%98/">评优</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/09/hezhenyu/">我入侵了何镇宇的</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/future/" style="font-size: 10px;">future</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/rendering/" style="font-size: 10px;">rendering</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 15px;">unity</a> <a href="/tags/voxel/" style="font-size: 10px;">voxel</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Tony Ho<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
