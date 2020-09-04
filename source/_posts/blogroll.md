@@ -7,7 +7,7 @@ tags: links
 
 😊[XINIX](http://xinix.xyz/)
 👀[Fortune-Space](http://john097.github.io/Frotune-Space/)
-👀[这谁啊？](https://ahhhhhchiu.github.io/)
+👀[这谁啊？小方人](https://ahhhhhchiu.github.io/)
 
 另外一些有用处的网站
 1. [表格转换](http://tableconvert.com/)
@@ -15,6 +15,8 @@ tags: links
 3. [shader玩具](www.shadertoy.com)
 4. [catlikecoding](www.catlikecoding.com)
 5. [BlenderAddonQuickShape](www.gumroad.com/I/tOWta)
+6. [vuepress写文档啊](https://www.vuepress.cn/)
+7. [blender白嫖网](https://www.blendswap.com/)
 
 我只能说用hexo建blog 写markdown真香
 
