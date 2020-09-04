@@ -47,7 +47,7 @@
     <url>/2020/08/02/blogroll/</url>
     <content><![CDATA[<center>让我看看是谁在线？</center>
 
-<p>😊<a href="http://xinix.xyz/">XINIX</a><br>👀<a href="http://john097.github.io/Frotune-Space/">Fortune-Space</a><br>👀<a href="https://ahhhhhchiu.github.io/">这谁啊？</a></p>
+<p>😊<a href="http://xinix.xyz/">XINIX</a><br>👀<a href="http://john097.github.io/Frotune-Space/">Fortune-Space</a><br>👀<a href="https://ahhhhhchiu.github.io/">这谁啊？小方人</a></p>
 <p>另外一些有用处的网站</p>
 <ol>
 <li><a href="http://tableconvert.com/">表格转换</a></li>
@@ -55,6 +55,8 @@
 <li><a href="www.shadertoy.com">shader玩具</a></li>
 <li><a href="www.catlikecoding.com">catlikecoding</a></li>
 <li><a href="www.gumroad.com/I/tOWta">BlenderAddonQuickShape</a></li>
+<li><a href="https://www.vuepress.cn/">vuepress写文档啊</a></li>
+<li><a href="https://www.blendswap.com/">blender白嫖网</a></li>
 </ol>
 <p>我只能说用hexo建blog 写markdown真香</p>
 <ul>
@@ -189,7 +191,7 @@ g {color:green;font-weight: 700;}
 </ul>
 <hr>
 <h2 id="基本光照模型"><a href="#基本光照模型" class="headerlink" title="基本光照模型"></a>基本光照模型</h2><ul>
-<li></li>
+<li>简单光照模型</li>
 <li></li>
 </ul>
 <hr>
@@ -228,6 +230,95 @@ g {color:green;font-weight: 700;}
       </tags>
   </entry>
   <entry>
+    <title>简单光照模型和阴影匹配</title>
+    <url>/2020/09/04/%E7%AE%80%E5%8D%95%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<style type="text/css">
+r {color:red; font-weight: 700;}
+g {color:green;font-weight: 700;}
+y {color:yellow;font-weight: 700;}
+</style>
+
+<h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>简单光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
+<p>实现思路：</p>
+<h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照"></a>实现光照</h3><p>需要以下的核心操作</p>
+<ul>
+<li>包含库 Lighting.cginc</li>
+<li>包含库 UnityCG.cginc</li>
+<li>顶点着色器提供 worldNormal</li>
+<li>顶点着色器提供 worldPos</li>
+</ul>
+<p>暴露的参数：</p>
+<ul>
+<li>_DiffuseColor</li>
+<li>_SpecularColor</li>
+<li>_GlossColor</li>
+</ul>
+<p>外部调用的：</p>
+<ul>
+<li>_LightColor0</li>
+<li>_WorldSpaceCameraPos</li>
+<li>UNITY_LIGHTMODEL_AMBIENT</li>
+</ul>
+<p>渲染路径会用到forwardBase和forwardAdd</p>
+<ul>
+<li>通俗的逐顶点<g>ForwardBase 会计算平行光和环境光逐顶点/SH光照和Lightmaps</g></li>
+<li>通俗的逐像素<y>ForwardAdd 会计算额外的逐像素光源，每个Pass对应一个光源</y></li>
+</ul>
+<h3 id="只考虑平行光的情况下简单光照模型的基础实现是："><a href="#只考虑平行光的情况下简单光照模型的基础实现是：" class="headerlink" title="只考虑平行光的情况下简单光照模型的基础实现是："></a>只考虑平行光的情况下简单光照模型的基础实现是：</h3><pre><code>    fixed3 worldNormal = normalize(i.worldNormal);
+    fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
+    fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+
+    fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
+    fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * max(0, dot(worldNormal, worldLightDir));    
+
+    fixed3 halfDir = normalize(worldLightDir + viewDir);
+    fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0, dot(worldNormal, halfDir)), _Gloss);
+
+    fixed atten = 1;
+    fixed4 finnalColor = fixed4(ambient + (diffuse + specular) * atten, 1.0);</code></pre>
+<h3 id="考虑其他光照情况下的光照模型是："><a href="#考虑其他光照情况下的光照模型是：" class="headerlink" title="考虑其他光照情况下的光照模型是："></a>考虑其他光照情况下的光照模型是：</h3><p>通常会放在逐像素的渲染路径下</p>
+<pre><code>    #ifdef USING_DIRECTIONAL_LIGHT
+                fixed atten = 1.0;
+    #else
+        //点光源的光照计算 通常会用在逐像素的光照路径下
+        #if defined (POINT)
+            float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
+            fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+        //聚光灯的光照计算 通常会用在逐像素的光照路径下
+        #elif defined (SPOT)
+            float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
+            fixed atten = (lightCoord.z &gt; 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoor.rr).UNITY_ATTEN_CHANNEL;
+        #else
+            fixed atten = 1.0;
+        #endif
+    #endif</code></pre>
+<p>光照计算完成之后，效果只有光线没有影子，这时候需要捕获unity渲染好的影子叠加到渲染结果上。</p>
+<h3 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h3><p>影子实现需要的包含库文件：</p>
+<ul>
+<li><p>autolight.cginc</p>
+</li>
+<li><p>lighting.cginc</p>
+</li>
+<li><p>UnityCG.cginc</p>
+<pre><code>  struct v2f
+      SHADOW_COORDS(1)    //宏表示为定义一个float4的采样坐标，放到编号为1的寄存器中
+  v2f vert (appdata_base v)           
+      TRANSFER_SHADOW(o)  //根据变换求解上面结构体中的float4坐标，unity5中采用的是屏幕空间阴影贴图
+  fixed4 frag (v2f i) : SV_Target
+      fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采样得到shadow值。</code></pre>
+</li>
+</ul>
+<p>获取到的shadow 其中可以做任何操作，最终叠加到渲染结果上。</p>
+<p>所以最后的光照加上影子的运算结果应该是：</p>
+<pre><code>finalcolor = difuse * shadow + specular</code></pre>
+<p>以后可以做一些简单的逐像素或者逐顶点的通用着色器了。</p>
+]]></content>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>评优</title>
     <url>/2020/08/23/%E8%AF%84%E4%BC%98/</url>
     <content><![CDATA[<p>评选失败</p>
@@ -236,7 +327,7 @@ g {color:green;font-weight: 700;}
   </entry>
   <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/08/29/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
+    <url>/2020/09/04/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
