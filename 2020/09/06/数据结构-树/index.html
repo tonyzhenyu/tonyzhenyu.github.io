@@ -5,20 +5,19 @@
   
 
   
-  <title>unity中的常见矩阵 | Ho&#39;s Website</title>
+  <title>各种树形数据结构 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。  内置矩阵 支持的矩阵（float4x4）： UNITY_MATRIX_MVP              当前模型视图投影矩阵  UNITY_MATRIX_MV               当前模型视图矩阵  UNITY_MATRIX_V                当前视图矩阵。  UNITY_MATR">
+  <meta name="description" content="二叉树 一次等分存储 一阶储存器  四叉树 二维图像储存 二次等分细分  八叉树 三维空间数据储存体素 三次等分细分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unity中的常见矩阵">
-<meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/index.html">
+<meta property="og:title" content="各种树形数据结构">
+<meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。  内置矩阵 支持的矩阵（float4x4）： UNITY_MATRIX_MVP              当前模型视图投影矩阵  UNITY_MATRIX_MV               当前模型视图矩阵  UNITY_MATRIX_V                当前视图矩阵。  UNITY_MATR">
+<meta property="og:description" content="二叉树 一次等分存储 一阶储存器  四叉树 二维图像储存 二次等分细分  八叉树 三维空间数据储存体素 三次等分细分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-03T00:00:00.000Z">
+<meta property="article:published_time" content="2020-09-06T00:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-06T15:55:12.272Z">
 <meta property="article:author" content="Tony Ho">
-<meta property="article:tag" content="shader">
-<meta property="article:tag" content="unity">
+<meta property="article:tag" content="dataarchitecture">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Ho&#39;s Website" type="application/atom+xml">
@@ -68,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-unity常见矩阵" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-数据结构-树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" class="article-date">
-  <time datetime="2020-08-03T00:00:00.000Z" itemprop="datePublished">2020-08-03</time>
+    <a href="/2020/09/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" class="article-date">
+  <time datetime="2020-09-06T00:00:00.000Z" itemprop="datePublished">2020-09-06</time>
 </a>
     
   </div>
@@ -82,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      unity中的常见矩阵
+      各种树形数据结构
     </h1>
   
 
@@ -90,41 +89,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
-<hr>
-<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
-<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
-</li>
-<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
-<font color="lighgrey"> </li>
-<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
-</font>
-</li>
-<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
-</li>
-<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
-</li>
-<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
-</li>
+        <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
 </ul>
-<hr>
-<h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
-<hr>
-<p>另外附上：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27339998">发现的宝贝渲染中的47张map</a></p>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" data-id="ckera26f70005a5hedzwrgz3p" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" data-id="ckera26fd000da5hed2bia05u" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dataarchitecture/" rel="tag">dataarchitecture</a></li></ul>
 
     </footer>
   </div>
@@ -132,19 +116,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/06/%E4%BD%A0%E4%B8%8D%E6%87%82%E7%BB%91%E9%AA%A8%E7%9A%84%E7%97%9B/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">新文章</strong>
       <div class="article-nav-title">
         
-          图形学之我学废了
+          你不懂绑骨的痛
         
       </div>
     </a>
   
   
-    <a href="/2020/08/02/blogroll/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/04/%E7%AE%80%E5%8D%95%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">旧的</strong>
-      <div class="article-nav-title">友情连接</div>
+      <div class="article-nav-title">简单光照模型和阴影匹配</div>
     </a>
   
 </nav>
