@@ -7,15 +7,15 @@
   
   <title>图形学之我学废了 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型 简单光照模型    变换 Transform 纹理贴合 Texturing world align textrue(xyz) 基于世界坐标的无限延展贴图 heig">
+  <meta name="description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD  冯氏光照">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图形学之我学废了">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型 简单光照模型    变换 Transform 纹理贴合 Texturing world align textrue(xyz) 基于世界坐标的无限延展贴图 heig">
+<meta property="og:description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD  冯氏光照">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-04T12:47:46.222Z">
+<meta property="article:modified_time" content="2020-09-06T06:12:00.586Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="shader">
 <meta property="article:tag" content="unity">
@@ -92,6 +92,7 @@
       
         <style type="text/css">
 r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
 g {color:green;font-weight: 700;}
 </style>
 
@@ -101,12 +102,34 @@ g {color:green;font-weight: 700;}
 <li><r>在学了别催</r></li>
 </ul>
 <hr>
-<h2 id="基本光照模型"><a href="#基本光照模型" class="headerlink" title="基本光照模型"></a>基本光照模型</h2><ul>
+<h2 id="基本光照模型"><a href="#基本光照模型" class="headerlink" title="基本光照模型"></a>基本光照模型</h2><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<ul>
+<li>冯氏光照模型</li>
+<li>兰伯特光照模型</li>
+<li><h1 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型"></a>半兰伯特光照模型</h1></li>
 <li>简单光照模型</li>
-<li></li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>1d321ebbf0d93c5038b0b454895dfcede89c23c2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
 </ul>
 <hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><hr>
+<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
+<li>Vertex Offset 顶点变换</li>
+</ul>
+<hr>
 <h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
 <li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
 <li><g>height base blend texture 基于高度的材质混合</g></li>
@@ -121,6 +144,7 @@ g {color:green;font-weight: 700;}
 <h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
 <li>transparency 透射效果</li>
 <li>refraction 折射效果</li>
+<li>渲染队列</li>
 </ul>
 <hr>
 <h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
@@ -131,14 +155,19 @@ g {color:green;font-weight: 700;}
 </ul>
 <hr>
 <h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
 <li>percentage closed soft shadow(pcss 阴影)</li>
 <li>方差阴影</li>
+</ul>
+<hr>
+<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
+<li>NDC重建世界坐标</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="ckeo8hg1d000966ho05hdf4h1" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="ckeqp8iuk0009zkhl74bl2i7z" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -180,7 +209,7 @@ g {color:green;font-weight: 700;}
       <ul>
         
           <li>
-            <a href="/2020/09/04/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+            <a href="/2020/09/06/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
           </li>
         
           <li>
