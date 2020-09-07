@@ -79,6 +79,25 @@
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
+      <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" class="archive-article-date">
+  <time datetime="2020-08-03T00:00:00.000Z" itemprop="datePublished">8月 3</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/">unity中的常见矩阵</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       <a href="/2020/08/02/blogroll/" class="archive-article-date">
   <time datetime="2020-08-02T12:24:29.000Z" itemprop="datePublished">8月 2</time>
 </a>
@@ -124,6 +143,71 @@
 
 
 <!-- 
+  
+    <article id="post-unity常见矩阵" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" class="article-date">
+  <time datetime="2020-08-03T00:00:00.000Z" itemprop="datePublished">2020-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/">unity中的常见矩阵</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
+<hr>
+<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
+<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
+</li>
+<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
+<font color="lighgrey"> </li>
+<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
+</font>
+</li>
+<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
+</li>
+<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
+</li>
+<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
+</li>
+</ul>
+<hr>
+<h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<hr>
+<p>另外附上：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27339998">发现的宝贝渲染中的47张map</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tonyzhenyu.github.io/2020/08/03/unity%E5%B8%B8%E8%A7%81%E7%9F%A9%E9%98%B5/" data-id="ckerwdkgr00057ahe2la2c8oj" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-blogroll" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -187,6 +271,8 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/Seneral/Node_Editor_Framework">节点编辑器插件</a></li>
 </ol>
 <hr>
+<h3 id="一些学习资料"><a href="#一些学习资料" class="headerlink" title="一些学习资料"></a>一些学习资料</h3><p><a target="_blank" rel="noopener" href="https://github.com/QianMo/X-PostProcessing-Library">故障屏幕后处理</a><br>[实时全局光照基于IBL模式下的PRT预渲染]<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102397700">实时光追</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20286038/answer/779162419">什么是BRDF（双向反射分布函数）</a></p>
+<hr>
 <h3 id="我只能说用hexo建blog-写markdown真香"><a href="#我只能说用hexo建blog-写markdown真香" class="headerlink" title="我只能说用hexo建blog 写markdown真香"></a>我只能说用hexo建blog 写markdown真香</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
@@ -195,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/02/blogroll/" data-id="ckera26f10001a5heffgy1d2a" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/02/blogroll/" data-id="ckerwdkgg00017ahe1o3o30xp" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/links/" rel="tag">links</a></li></ul>
@@ -265,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/01/index/" data-id="ckera26f60004a5he8njx1fu5" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/01/index/" data-id="ckerwdkgp00047ahe49t34mjf" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/post/" rel="tag">post</a></li></ul>
@@ -295,7 +381,11 @@
       <ul>
         
           <li>
-            <a href="/2020/09/06/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+            <a href="/2020/09/07/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/">资源整理【表格】</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/07/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/">理想的游戏结构</a>
           </li>
         
           <li>
@@ -310,10 +400,6 @@
             <a href="/2020/09/04/%E7%AE%80%E5%8D%95%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/">简单光照模型和阴影匹配</a>
           </li>
         
-          <li>
-            <a href="/2020/08/27/voxelrendering/">voxelrendering</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -326,7 +412,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Character/" style="font-size: 10px;">Character</a> <a href="/tags/Rig/" style="font-size: 10px;">Rig</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/dataarchitecture/" style="font-size: 10px;">dataarchitecture</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/future/" style="font-size: 10px;">future</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/rendering/" style="font-size: 10px;">rendering</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/voxel/" style="font-size: 10px;">voxel</a>
+      <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Character/" style="font-size: 10px;">Character</a> <a href="/tags/GameDesign/" style="font-size: 10px;">GameDesign</a> <a href="/tags/Rig/" style="font-size: 10px;">Rig</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/dataarchitecture/" style="font-size: 10px;">dataarchitecture</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/future/" style="font-size: 10px;">future</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/rendering/" style="font-size: 10px;">rendering</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/voxel/" style="font-size: 10px;">voxel</a>
     </div>
   </div>
 

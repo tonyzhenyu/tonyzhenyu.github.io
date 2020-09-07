@@ -85,6 +85,8 @@
 <li><a href="https://github.com/Seneral/Node_Editor_Framework">节点编辑器插件</a></li>
 </ol>
 <hr>
+<h3 id="一些学习资料"><a href="#一些学习资料" class="headerlink" title="一些学习资料"></a>一些学习资料</h3><p><a href="https://github.com/QianMo/X-PostProcessing-Library">故障屏幕后处理</a><br>[实时全局光照基于IBL模式下的PRT预渲染]<br><a href="https://zhuanlan.zhihu.com/p/102397700">实时光追</a><br><a href="https://www.zhihu.com/question/20286038/answer/779162419">什么是BRDF（双向反射分布函数）</a></p>
+<hr>
 <h3 id="我只能说用hexo建blog-写markdown真香"><a href="#我只能说用hexo建blog-写markdown真香" class="headerlink" title="我只能说用hexo建blog 写markdown真香"></a>我只能说用hexo建blog 写markdown真香</h3><ul>
 <li><a href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
 <li><a href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
@@ -307,6 +309,23 @@ g {color:green;font-weight: 700;}
       </tags>
   </entry>
   <entry>
+    <title>理想的游戏结构</title>
+    <url>/2020/09/07/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><ul>
+<li>泰拉瑞亚的装备库</li>
+<li>想要换装（黑魂3那种）翅膀（QQ三国的那种）移动速度表现（LOL那种，数值表现QQ三国那种）</li>
+<li>想要建造系统（paralives那种）</li>
+<li>想要背包系统（SAO那种）</li>
+<li>想要日夜循环和天气季节系统</li>
+<li>想要程序化生成模型（更改数量，高低，长短，队列）</li>
+<li>想要交互式场景（神界原罪中的火焰油电等环境影响）</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>GameDesign</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单光照模型和阴影匹配</title>
     <url>/2020/09/04/%E7%AE%80%E5%8D%95%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<style type="text/css">
@@ -404,7 +423,7 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
   </entry>
   <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/09/06/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
+    <url>/2020/09/07/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
