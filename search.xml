@@ -62,6 +62,7 @@
 <li><a href="https://me.csdn.net/tjw02241035621611">tanjiepeng的shader博客</a></li>
 <li><a href="https://ethanbecker70.tumblr.com/">ethanbecker的画画博客</a></li>
 <li><a href="https://blog.csdn.net/qq_26999509">静风霁的CSDN</a></li>
+<li><a href="https://gustavolsson.com/">gustavolsson Unity轮子哥</a> </li>
 </ol>
 <h3 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h3><ol>
 <li><a href="https://www.easyicon.net/iconsearch/icon/">图标-ICON</a></li>
@@ -91,6 +92,7 @@
 <li><a href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
 <li><a href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
 </ul>
+<p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);</p>
 ]]></content>
       <tags>
         <tag>links</tag>
