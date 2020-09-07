@@ -23,6 +23,7 @@ tags: links
 3. [tanjiepeng的shader博客](https://me.csdn.net/tjw02241035621611)
 4. [ethanbecker的画画博客](https://ethanbecker70.tumblr.com/)
 5. [静风霁的CSDN](https://blog.csdn.net/qq_26999509)
+6. [gustavolsson Unity轮子哥](https://gustavolsson.com/) 
 
 ### 素材网站
 1. [图标-ICON](https://www.easyicon.net/iconsearch/icon/)
@@ -62,4 +63,5 @@ tags: links
 - [markdown图床](https://www.jianshu.com/p/ea1eb11db63f)
 - [markdown语法](https://www.jianshu.com/p/191d1e21f7ed/)
 
-
+unity 读取文件时
+    Assestdatabase.LoadAssetsAtPath<Type>("Assets/..");
