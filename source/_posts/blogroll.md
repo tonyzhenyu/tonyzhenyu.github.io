@@ -16,6 +16,7 @@ tags: links
 4. [BlenderAddon-QuickShape](www.gumroad.com/I/tOWta)
 5. [vuepress写文档啊](https://www.vuepress.cn/)
 6. [blender白嫖网](https://www.blendswap.com/)
+7. [sketchfab白嫖](http://sketchfab.com/)
    
 ### 大佬的博客
 1. [猫爱编程](www.catlikecoding.com)
@@ -25,6 +26,15 @@ tags: links
 5. [静风霁的CSDN](https://blog.csdn.net/qq_26999509)
 6. [gustavolsson Unity轮子哥](https://gustavolsson.com/) 
 7. [程序化生成城市](https://andrewmanq.github.io/)
+8. [IQ大佬的干货文章](https://www.iquilezles.org/www/index.htm)
+9. [Atrix256](https://blog.demofox.org/)
+10. [Mike Bostock](https://bost.ocks.org/mike/)
+11. [Filmic Worlds](http://filmicworlds.com/)
+
+### 文档网
++ [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
++ [HLSL](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl)
++ [GLSL](http://www.opengl.org/sdk/docs/man/)
 
 ### 素材网站
 1. [图标-ICON](https://www.easyicon.net/iconsearch/icon/)
@@ -34,7 +44,6 @@ tags: links
 5. [Facebook Ads 3d-图片显示转换器](https://www.omnivirt.com/3d-photo-ads)
 6. [Textures Haven](https://texturehaven.com/)
 7. [免费高清商业素材 pxhere](https://pxhere.com/)
-
 
 ### 看书
 1. [谷歌学术镜像](https://ac.scmor.com/)
