@@ -30,6 +30,7 @@ tags: links
 9. [Atrix256](https://blog.demofox.org/)
 10. [Mike Bostock](https://bost.ocks.org/mike/)
 11. [Filmic Worlds](http://filmicworlds.com/)
+12. [Nathan Bowman](https://coffeefuelledcode.co.uk/author/nathan/)
 
 ### 文档网
 + [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
