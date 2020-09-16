@@ -75,8 +75,9 @@
 <li><a href="https://developer.download.nvidia.cn/cg/">CGPROGRAM</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl">HLSL</a></li>
 <li><a href="http://www.opengl.org/sdk/docs/man/">GLSL</a></li>
+<li><a href="http://gameprogrammingpatterns.com/">GameProgrammingPatterns</a> <h3 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h3></li>
 </ul>
-<h3 id="素材网站"><a href="#素材网站" class="headerlink" title="素材网站"></a>素材网站</h3><ol>
+<ol>
 <li><a href="https://www.easyicon.net/iconsearch/icon/">图标-ICON</a></li>
 <li><a href="https://www.mixamo.com/#/">Mixamo角色动画</a></li>
 <li><a href="https://www.poliigon.com/search">Polligon-实拍照片素材</a></li>
@@ -464,7 +465,7 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
   </entry>
   <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/09/15/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
+    <url>/2020/09/16/%E6%A8%A1%E5%9E%8B%E8%B5%84%E6%BA%90/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
