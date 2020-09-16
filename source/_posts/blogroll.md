@@ -36,7 +36,7 @@ tags: links
 + [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
 + [HLSL](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl)
 + [GLSL](http://www.opengl.org/sdk/docs/man/)
-
++ [GameProgrammingPatterns](http://gameprogrammingpatterns.com/) 
 ### 素材网站
 1. [图标-ICON](https://www.easyicon.net/iconsearch/icon/)
 2. [Mixamo角色动画](https://www.mixamo.com/#/)
