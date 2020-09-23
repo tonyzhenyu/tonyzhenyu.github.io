@@ -8,6 +8,7 @@ tags: links
 😊[XINIX](http://xinix.xyz/)
 👀[Fortune-Space](http://john097.github.io/Frotune-Space/)
 👀[这谁啊？小方人](https://ahhhhhchiu.github.io/)
+👀[yukang师兄](https://meteorahyk.github.io)
 
 ### 另外一些有用处的网站
 1. [表格转换](http://tableconvert.com/)
@@ -36,7 +37,8 @@ tags: links
 + [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
 + [HLSL](https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl)
 + [GLSL](http://www.opengl.org/sdk/docs/man/)
-+ [GameProgrammingPatterns](http://gameprogrammingpatterns.com/) 
+
+
 ### 素材网站
 1. [图标-ICON](https://www.easyicon.net/iconsearch/icon/)
 2. [Mixamo角色动画](https://www.mixamo.com/#/)
@@ -49,6 +51,8 @@ tags: links
 ### 看书
 1. [谷歌学术镜像](https://ac.scmor.com/)
 2. [鸠摩搜索](https://www.jiumodiary.com/)
+3. [GameProgrammingPatterns](http://gameprogrammingpatterns.com/) 
+4. 
 
 ------
 

@@ -1,5 +1,5 @@
 ---
-title : voxelrendering
+title : 体素渲染 voxel Rendering
 date : 2020.8.27
 tags : [rendering , voxel , future]
 ---
