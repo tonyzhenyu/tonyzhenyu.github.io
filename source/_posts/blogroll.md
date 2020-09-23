@@ -1,6 +1,6 @@
 ---
 title: 友情连接
-date: 2020-08-02 12:24:29
+date: 2020/08/02 12:24:29
 tags: links
 ---
 <center>让我看看是谁在线？</center>

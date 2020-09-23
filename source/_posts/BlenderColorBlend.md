@@ -1,6 +1,6 @@
 ---
 title: Blender 混合不同模型颜色
-date: 2020-09-23 
+date: 2020/09/23 
 tags: Shader, Blend
 ---
 
