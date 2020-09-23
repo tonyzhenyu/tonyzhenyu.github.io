@@ -21,7 +21,9 @@ tags: links
 5. [vuepress写文档啊](https://www.vuepress.cn/)
 6. [blender白嫖网](https://www.blendswap.com/)
 7. [sketchfab白嫖](http://sketchfab.com/)
-   
+8. [polycount](https://polycount.com/)
+9. [blenderartist](https://blenderartists.org/c/artwork/8)
+
 ### 大佬的博客
 1. [猫爱编程](www.catlikecoding.com)
 2. [BookOfSahders](https://thebookofshaders.com/)
