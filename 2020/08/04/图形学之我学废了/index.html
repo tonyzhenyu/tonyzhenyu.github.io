@@ -7,15 +7,15 @@
   
   <title>图形学之我学废了 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 简单光照模型    变换 T">
+  <meta name="description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   光照模型 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 基于物理渲染 IBL基于图片光照">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图形学之我学废了">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   基本光照模型 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 简单光照模型    变换 T">
+<meta property="og:description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识学废的请举手！  学废了的 在学了别催   光照模型 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 基于物理渲染 IBL基于图片光照">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-23T11:20:46.661Z">
+<meta property="article:modified_time" content="2020-09-23T11:33:52.357Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="shader">
 <meta property="article:tag" content="unity">
@@ -102,12 +102,13 @@ g {color:green;font-weight: 700;}
 <li><r>在学了别催</r></li>
 </ul>
 <hr>
-<h2 id="基本光照模型"><a href="#基本光照模型" class="headerlink" title="基本光照模型"></a>基本光照模型</h2><ul>
+<h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
 <li>冯氏光照模型</li>
 <li>兰伯特光照模型</li>
 <li>半兰伯特光照模型</li>
-<li>简单光照模型</li>
-<li></li>
+<li>基于物理渲染</li>
+<li>IBL基于图片光照着色</li>
+<li>利用渐变纹理实现伪BRDF</li>
 </ul>
 <hr>
 <h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
@@ -151,7 +152,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="ckffaqrdj000d3wheair04pt7" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/04/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B9%8B%E6%88%91%E5%AD%A6%E5%BA%9F%E4%BA%86/" data-id="ckffb7tew000c3xhe59se2atk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -224,7 +225,7 @@ g {color:green;font-weight: 700;}
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Character/" style="font-size: 10px;">Character</a> <a href="/tags/Data-Architecture/" style="font-size: 10px;">Data Architecture</a> <a href="/tags/GameDesign/" style="font-size: 10px;">GameDesign</a> <a href="/tags/ProgramDesign/" style="font-size: 10px;">ProgramDesign</a> <a href="/tags/Rig/" style="font-size: 10px;">Rig</a> <a href="/tags/Shader-Blend/" style="font-size: 10px;">Shader, Blend</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/dataarchitecture/" style="font-size: 10px;">dataarchitecture</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/future/" style="font-size: 10px;">future</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/rendering/" style="font-size: 10px;">rendering</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/voxel/" style="font-size: 10px;">voxel</a>
+      <a href="/tags/Blend/" style="font-size: 10px;">Blend</a> <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Character/" style="font-size: 10px;">Character</a> <a href="/tags/Data-Architecture/" style="font-size: 10px;">Data Architecture</a> <a href="/tags/GameDesign/" style="font-size: 10px;">GameDesign</a> <a href="/tags/ProgramDesign/" style="font-size: 10px;">ProgramDesign</a> <a href="/tags/Rig/" style="font-size: 10px;">Rig</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/dataarchitecture/" style="font-size: 10px;">dataarchitecture</a> <a href="/tags/fang/" style="font-size: 10px;">fang</a> <a href="/tags/future/" style="font-size: 10px;">future</a> <a href="/tags/hezhenyu/" style="font-size: 10px;">hezhenyu</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/links/" style="font-size: 10px;">links</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/rendering/" style="font-size: 10px;">rendering</a> <a href="/tags/shader/" style="font-size: 20px;">shader</a> <a href="/tags/tables/" style="font-size: 10px;">tables</a> <a href="/tags/unity/" style="font-size: 20px;">unity</a> <a href="/tags/voxel/" style="font-size: 10px;">voxel</a>
     </div>
   </div>
 
