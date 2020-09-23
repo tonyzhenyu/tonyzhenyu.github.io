@@ -5,9 +5,12 @@ tags: links
 ---
 <center>让我看看是谁在线？</center>
 
+### 友情链接
+
 😊[XINIX](http://xinix.xyz/)
 👀[Fortune-Space](http://john097.github.io/Frotune-Space/)
 👀[这谁啊？小方人](https://ahhhhhchiu.github.io/)
+👀[qnyd:szj](http://47.112.250.242:5000/)]
 👀[yukang师兄](https://meteorahyk.github.io)
 
 ### 另外一些有用处的网站

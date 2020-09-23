@@ -16,3 +16,4 @@ tags: [Rig,unity,Blender,Character]
 - ik骨骼和fk骨骼控制器的制作 customize visibility type
 
 
+角色绑定只要把每次
