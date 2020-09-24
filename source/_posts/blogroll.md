@@ -63,9 +63,9 @@ tags: links
 
 ### 一些学习资料
 [故障屏幕后处理](https://github.com/QianMo/X-PostProcessing-Library)
-[实时全局光照基于IBL模式下的PRT预渲染]
+实时全局光照基于IBL模式下的PRT预渲染
 [实时光追](https://zhuanlan.zhihu.com/p/102397700)
-[什么是BRDF（双向反射分布函数）](https://www.zhihu.com/question/20286038/answer/779162419)
+[什么是BRDF双向反射分布函数](https://www.zhihu.com/question/20286038/answer/779162419)
 
 ----
 
