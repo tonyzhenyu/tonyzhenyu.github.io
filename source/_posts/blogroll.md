@@ -15,17 +15,18 @@ tags: links
 
 ### 另外一些有用处的网站
 1. [表格转换](http://tableconvert.com/)
-2. [图片压缩tinyPNG](www.tinypng.com)
-3. [shader玩具](www.shadertoy.com)
-4. [BlenderAddon-QuickShape](www.gumroad.com/I/tOWta)
+2. [图片压缩tinyPNG](http://www.tinypng.com)
+3. [shader玩具](http://www.shadertoy.com)
+4. [BlenderAddon-QuickShape](http://www.gumroad.com/I/tOWta)
 5. [vuepress写文档啊](https://www.vuepress.cn/)
 6. [blender白嫖网](https://www.blendswap.com/)
 7. [sketchfab白嫖](http://sketchfab.com/)
 8. [polycount](https://polycount.com/)
-9. [blenderartist](https://blenderartists.org/c/artwork/8)
+9. [polycountwiki](http://wiki.polycount.com/wiki/)
+10. [blenderartist](https://blenderartists.org/c/artwork/8)
 
 ### 大佬的博客
-1. [猫爱编程](www.catlikecoding.com)
+1. [猫爱编程](http://www.catlikecoding.com)
 2. [BookOfSahders](https://thebookofshaders.com/)
 3. [tanjiepeng的shader博客](https://me.csdn.net/tjw02241035621611)
 4. [ethanbecker的画画博客](https://ethanbecker70.tumblr.com/)
@@ -37,6 +38,8 @@ tags: links
 10. [Mike Bostock](https://bost.ocks.org/mike/)
 11. [Filmic Worlds](http://filmicworlds.com/)
 12. [Nathan Bowman](https://coffeefuelledcode.co.uk/author/nathan/)
+13. https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/
+14. https://www.youtube.com/watch?v=AZEvrn9C0X0
 
 ### 文档网
 + [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
