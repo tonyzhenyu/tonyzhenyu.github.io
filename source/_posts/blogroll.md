@@ -38,8 +38,6 @@ tags: links
 10. [Mike Bostock](https://bost.ocks.org/mike/)
 11. [Filmic Worlds](http://filmicworlds.com/)
 12. [Nathan Bowman](https://coffeefuelledcode.co.uk/author/nathan/)
-13. https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/
-14. https://www.youtube.com/watch?v=AZEvrn9C0X0
 
 ### 文档网
 + [CGPROGRAM](https://developer.download.nvidia.cn/cg/)
