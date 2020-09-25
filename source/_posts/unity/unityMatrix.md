@@ -30,4 +30,4 @@ tags: [shader , unity]
 如果需要转换以上矩阵，应该使用transform 节点进行转换为最好
 
 ---
-另外附上：[发现的宝贝渲染中的47张map](https://zhuanlan.zhihu.com/p/27339998)
+另外附上：[47张map](https://zhuanlan.zhihu.com/p/27339998)

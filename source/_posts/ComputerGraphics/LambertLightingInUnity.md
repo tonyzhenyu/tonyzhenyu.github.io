@@ -12,15 +12,15 @@ g {color:green;font-weight: 700;}
 y {color:yellow;font-weight: 700;}
 </style>
 
+# 兰伯特光照模型
+
 ## 简单光照模型和阴影匹配
+光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。
+### 兰伯特光照模型：
+#### max(0,dot(N,L))
 
-简单光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。
-
-## 兰伯特光照模型：
-### max(0,dot(N,L))
-
-## 半兰伯特光照模型:
-### dot(N,L) * 0.5 +0.5
+### 半兰伯特光照模型:
+#### dot(N,L) * 0.5 +0.5
 
 调整后的曲线：
 
@@ -42,7 +42,7 @@ y {color:yellow;font-weight: 700;}
 - _WorldSpaceCameraPos
 - UNITY_LIGHTMODEL_AMBIENT
 
-渲染路径会用到forwardBase和forwardAdd
+渲染路径会用到ForwardBase和ForwardAdd
 - 通俗的逐顶点<g>ForwardBase 会计算平行光和环境光逐顶点/SH光照和Lightmaps</g>
 - 通俗的逐像素<y>ForwardAdd 会计算额外的逐像素光源，每个Pass对应一个光源</y>
 

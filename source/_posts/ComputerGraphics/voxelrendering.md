@@ -9,9 +9,10 @@ categories:
 
 ## 体素渲染
 体素渲染是未来渲染趋势，随着硬件性能越发强大。
+建场，建8叉树
 
-voxel rendering 
-point cloud
+    voxel rendering 
+    point cloud
 
 模型转换体素
 体素转换成模型

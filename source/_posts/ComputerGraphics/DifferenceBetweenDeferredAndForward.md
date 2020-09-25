@@ -8,3 +8,8 @@ categories:
 ---
 
 # 渲染路径的区别
+
+先看看两个渲染路径本身的一些属性。
+## Forward
+
+## Deferred
