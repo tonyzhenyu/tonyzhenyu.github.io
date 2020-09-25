@@ -1,11 +1,10 @@
 ---
 title : Transparency in Defered Lighting 
 date : 2020/8/23
-tags : shader
+tags : [shader , unity]
 ---
 
-在defered lighting 中实现transparency 透射效果.
-
+## 在defered lighting 中实现transparency 透射效果.
 
         //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
 

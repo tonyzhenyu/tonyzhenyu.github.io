@@ -1,5 +1,5 @@
 ---
-title: 图形学之我学废了
+title: 图形学自我总结
 date: 2020/8/4
 tags: [shader,unity]
 ---
@@ -11,20 +11,21 @@ g {color:green;font-weight: 700;}
 
 # 我学废了！
 
-总结一些关于实时渲染的坑和知识
-学废的请举手！
-+ <g>学废了的</g>
-+ <r>在学了别催</r>
+总结一些关于实时渲染的坑和知识，学废的请举手！
 
 ---
-## 光照模型
+## 光照模型 光影不分家
 + 冯氏光照模型
 + 兰伯特光照模型
 + 半兰伯特光照模型
 + 基于物理渲染
 + IBL基于图片光照着色
 + 利用渐变纹理实现伪BRDF
-
+---
+## shadow 阴影
++ 自定义阴影贴图
++ percentage closed soft shadow(pcss 阴影)
++ 方差阴影
 ---
 ## 变换 Transform 
 + Vertex Offset 顶点变换
@@ -40,10 +41,11 @@ g {color:green;font-weight: 700;}
 
 ---
 ## 透明相关
-+ transparency 透射效果
-+ refraction 折射效果
++ Transparency 透射效果
++ Refraction 折射效果
 + 渲染队列
-
++ Alpha Test (透明裁剪)
++ Alpha Blend(透明融合)
 ---
 ## map相关
 + <r>maskmap </r>
@@ -51,12 +53,8 @@ g {color:green;font-weight: 700;}
 + ramp map 渐变式贴图
 + <r>splatmap 地形材质混合</r>
 
----
-## shadow 阴影
-+ 自定义阴影贴图
-+ percentage closed soft shadow(pcss 阴影)
-+ 方差阴影
 
 ---
 ## 后处理相关
 + NDC重建世界坐标
++ 屏幕空间深度图
