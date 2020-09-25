@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2020/09/25/unity/DifferenceBetweenDeferredAndForward/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>友情连接</title>
     <url>/2020/08/02/blogroll/</url>
     <content><![CDATA[<center>让我看看是谁在线？</center>
@@ -36,8 +31,6 @@
 <li><a href="https://bost.ocks.org/mike/">Mike Bostock</a></li>
 <li><a href="http://filmicworlds.com/">Filmic Worlds</a></li>
 <li><a href="https://coffeefuelledcode.co.uk/author/nathan/">Nathan Bowman</a></li>
-<li><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a></li>
-<li><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></li>
 </ol>
 <h3 id="文档网"><a href="#文档网" class="headerlink" title="文档网"></a>文档网</h3><ul>
 <li><a href="https://developer.download.nvidia.cn/cg/">CGPROGRAM</a></li>
@@ -122,30 +115,10 @@
       </tags>
   </entry>
   <entry>
-    <title>各种树形数据结构</title>
-    <url>/2020/09/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>一次等分存储</li>
-<li>一阶储存器</li>
-</ul>
-<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
-<li>二维图像储存</li>
-<li>二次等分细分</li>
-</ul>
-<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
-<li>三维空间数据储存体素</li>
-<li>三次等分细分</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>dataarchitecture</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Blender 混合不同模型颜色</title>
     <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
     <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
-<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。</p>
+<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在unity中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">inresin</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
 <h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>Blender 的底层是OpenGL底层代码会跟大多数主流游戏引擎稍有区别。<br>blender中修改模型数据并不会出现在Node Editor中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
 <h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
 DataTransfer
@@ -160,9 +133,9 @@ vertex color : PaintMap</code></pre>
 <li>给混合物体添加动态绘制修改器，把混合物体的动态绘制属性调整为画布，并且设置输出纹理到顶点颜色 PaintMap中</li>
 <li>接着修改混合物体的法线，添加VertexWeightProximity，DataTransfer 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。</li>
 <li>下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合</li>
-<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"><br>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。</li>
+<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"></li>
 </ol>
-<p>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
+<p>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。<br>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
 <h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
 <li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
 </ul>
@@ -170,6 +143,81 @@ vertex color : PaintMap</code></pre>
       <tags>
         <tag>Shader</tag>
         <tag>Blend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学自我总结</title>
+    <url>/2020/08/04/ComputerGraphics/ComputerGraphics/</url>
+    <content><![CDATA[<style type="text/css">
+r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
+g {color:green;font-weight: 700;}
+</style>
+
+<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
+<hr>
+<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
+<li>冯氏光照模型</li>
+<li>兰伯特光照模型</li>
+<li>半兰伯特光照模型</li>
+<li>基于物理渲染</li>
+<li>IBL基于图片光照着色</li>
+<li>利用渐变纹理实现伪BRDF</li>
+</ul>
+<hr>
+<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
+<li>percentage closed soft shadow(pcss 阴影)</li>
+<li>方差阴影</li>
+</ul>
+<hr>
+<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
+<li>Vertex Offset 顶点变换</li>
+</ul>
+<hr>
+<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
+<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
+<li><g>height base blend texture 基于高度的材质混合</g></li>
+<li><r>view position parallex 基于视图空间的视差效果</r></li>
+</ul>
+<hr>
+<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
+<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
+<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
+</ul>
+<hr>
+<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
+<li>Transparency 透射效果</li>
+<li>Refraction 折射效果</li>
+<li>渲染队列</li>
+<li>Alpha Test (透明裁剪)</li>
+<li>Alpha Blend(透明融合)</li>
+</ul>
+<hr>
+<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
+<li><r>maskmap </r></li>
+<li><g>RGBA channel mask 单通道贴图控制</g></li>
+<li>ramp map 渐变式贴图</li>
+<li><r>splatmap 地形材质混合</r></li>
+</ul>
+<hr>
+<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
+<li>NDC重建世界坐标</li>
+<li>屏幕空间深度图</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>渲染路径 Deferred Forward 区别</title>
+    <url>/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/</url>
+    <content><![CDATA[<h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1>]]></content>
+      <tags>
+        <tag>shader</tag>
+        <tag>render</tag>
       </tags>
   </entry>
   <entry>
@@ -182,11 +230,8 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>简单光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<p>兰伯特光照模型：<br>max(0,dot(N,L))</p>
-<p>半兰伯特光照模型<br>dot(N,L) * 0.5 +0.5</p>
-<p>调整后的曲线：</p>
-<p>实现思路：</p>
-<h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照"></a>实现光照</h3><p>需要以下的核心操作</p>
+<h2 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h2><h3 id="max-0-dot-N-L"><a href="#max-0-dot-N-L" class="headerlink" title="max(0,dot(N,L))"></a>max(0,dot(N,L))</h3><h2 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h2><h3 id="dot-N-L-0-5-0-5"><a href="#dot-N-L-0-5-0-5" class="headerlink" title="dot(N,L) * 0.5 +0.5"></a>dot(N,L) * 0.5 +0.5</h3><p>调整后的曲线：</p>
+<h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照:"></a>实现光照:</h3><p>需要以下的核心操作</p>
 <ul>
 <li>包含库 Lighting.cginc</li>
 <li>包含库 UnityCG.cginc</li>
@@ -370,72 +415,6 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
 ]]></content>
   </entry>
   <entry>
-    <title>图形学自我总结</title>
-    <url>/2020/08/04/unity/ComputerGraphics/</url>
-    <content><![CDATA[<style type="text/css">
-r {color:red; font-weight: 700;}
-yellow {color: yellow ; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
-<hr>
-<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
-<li>冯氏光照模型</li>
-<li>兰伯特光照模型</li>
-<li>半兰伯特光照模型</li>
-<li>基于物理渲染</li>
-<li>IBL基于图片光照着色</li>
-<li>利用渐变纹理实现伪BRDF</li>
-</ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
-<li>Vertex Offset 顶点变换</li>
-</ul>
-<hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
-</ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
-</ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>Transparency 透射效果</li>
-<li>Refraction 折射效果</li>
-<li>渲染队列</li>
-<li>Alpha Test (透明裁剪)</li>
-<li>Alpha Blend(透明融合)</li>
-</ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-</ul>
-<hr>
-<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
-<li>NDC重建世界坐标</li>
-<li>屏幕空间深度图</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>你不懂绑骨的痛</title>
     <url>/2020/09/06/unity/RiggingExp/</url>
     <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
@@ -533,6 +512,26 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种树形数据结构</title>
+    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
+</ul>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>dataarchitecture</tag>
       </tags>
   </entry>
   <entry>
