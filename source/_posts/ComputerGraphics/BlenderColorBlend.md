@@ -39,16 +39,13 @@ blender中修改模型数据并不会出现在Node Editor中，工作原理会�
 4. 接着修改混合物体的法线，添加VertexWeightProximity，DataTransfer 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。
 5. 下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合
 6. 最后在按照自己的要求新增一些节点就可以完成了
-    ![修改器](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/19BE7968A484430EBF90650745D09CAE/41)
-    ![修改法线3](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCE4fe5b2ef8f01333c48a496b4edb52379/23)
-    ![材质节点](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/AB86CD3B14774EB3A89D08CF8EE43A55/39)
-    ![效果1](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCEa48fd395ac6e7fe478fc92cd5435b034/14)
+    ![modifer3.png](https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png)
+    ![render3.png](https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png)
+    ![shadernode.png](https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png)
 ### 添加了高度混合的物体混合
 ## TADAA!!
-![以下是我实现的效果](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCE7248ef4d9b27f41275c4e62d415327b9/12.jpg)
-![效果2](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCEe3b9a00dbd4e5595f777e08c4af8d029/17)
-![效果3](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCE037d3a3b52ac6cdfe128ce43790b9343/20)
-![效果4](http://note.youdao.com/yws/public/resource/44930ab81b34013e973e4f9853746df8/xmlnote/WEBRESOURCEa0d620afd9b40ae892ea939285b7febc/25)
+![render8-1.png](https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png)
+![render9-2.png](https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png)
 注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。
 
 修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。
