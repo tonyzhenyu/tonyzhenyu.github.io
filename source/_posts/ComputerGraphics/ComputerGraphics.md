@@ -2,6 +2,9 @@
 title: 图形学自我总结
 date: 2020/8/4
 tags: [shader,unity]
+categories: 
+- Graphics
+
 ---
 <style type="text/css">
 r {color:red; font-weight: 700;}

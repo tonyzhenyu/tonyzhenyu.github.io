@@ -2,6 +2,9 @@
 title: 简单光照模型和阴影匹配
 date: 2020/9/4
 tags: [shader,unity]
+categories: 
+- Graphics
+
 ---
 <style type="text/css">
 r {color:red; font-weight: 700;}

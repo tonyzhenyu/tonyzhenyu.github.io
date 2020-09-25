@@ -2,6 +2,9 @@
 title: Blender 混合不同模型颜色
 date: 2020/09/23 
 tags: [Shader, Blend]
+categories: 
+- Graphics
+
 ---
 
 #### 当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。
