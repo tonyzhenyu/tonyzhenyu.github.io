@@ -13,7 +13,7 @@ categories:
 
 为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。
 在unity中实现的话，网友提供的思路是这样的：
-[inresin](https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/)
+https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/
 https://www.youtube.com/watch?v=AZEvrn9C0X0
 
 ### 混合不同模型颜色
