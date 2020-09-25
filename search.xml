@@ -45,7 +45,7 @@
     <title>Blender 混合不同模型颜色</title>
     <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
     <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
-<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在unity中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">inresin</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
+<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在unity中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
 <h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
 <h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
 DataTransfer
