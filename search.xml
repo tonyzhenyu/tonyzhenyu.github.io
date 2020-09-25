@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2020/09/25/unity/DifferenceBetweenDeferredAndForward/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>友情连接</title>
     <url>/2020/08/02/blogroll/</url>
     <content><![CDATA[<center>让我看看是谁在线？</center>
@@ -76,23 +81,6 @@
       </tags>
   </entry>
   <entry>
-    <title>我入侵了何镇宇的</title>
-    <url>/2020/08/09/hezhenyu/</url>
-    <content><![CDATA[<h1 id="入侵成功"><a href="#入侵成功" class="headerlink" title="入侵成功"></a>入侵成功</h1><blockquote>
-<p>河镇鱼的电脑被我控制了</p>
-</blockquote>
-<blockquote>
-<p>方LOL呀！！！</p>
-</blockquote>
-<p><span style="font-size:409px">河镇鱼生日快乐！</span></p>
-<p><a href="http://www.pornhub.com" style="font-size:44px">方呢</a></p>
-]]></content>
-      <tags>
-        <tag>hezhenyu</tag>
-        <tag>fang</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小何客栈-</title>
     <url>/2020/08/01/index/</url>
     <content><![CDATA[<h1 id="欢迎光临！小何客栈！"><a href="#欢迎光临！小何客栈！" class="headerlink" title="欢迎光临！小何客栈！"></a>欢迎光临！小何客栈！</h1><p>小何客栈，做吃的我们是认真的！请感受环境认真休息！</p>
@@ -132,49 +120,6 @@
         <tag>post</tag>
         <tag>life</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>工作上的申请事项</title>
-    <url>/2020/08/23/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h3 id="评选失败-实习期不够3个月"><a href="#评选失败-实习期不够3个月" class="headerlink" title="评选失败(实习期不够3个月)"></a>评选失败(实习期不够3个月)</h3><p>这是我第一次参与工作，已经107天。<br>实习期间工作认真负责，能够按时完成导师分发下来的工作任务。在不需要提交日报的情况下能够保持按时编写日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结，积极参加公司内部培训课程，并认真独立完成课后习题。<br>与同事沟通上认真听取他人意见和建议，遇到问题积极向同事请教，查阅相关资料加以结合进行深入研究和拓展，争取花费更短的时间解决问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。<br>在我参与的小游戏项目中，需要非常多的技术素养，抱着试一试的心态学习图形编程和C#代码编写，在学校也修读过计算机相关课程所以有一定基础，但深知自己技术不强，还得请教同事和查阅中英文资料进行学习并加以应用。实际例子就如本次小游戏中的无尽关卡效果和家园场景效果，除了每日任务和调用场景物件的一些功能其他功能基本上是自己独立完成的。家园中的日夜循环，无尽关卡中的平面反射，还有家园物件中的贴图规范。<br>重要的不是技术手段，更重要的是同事们的反馈和网上的资料才能够让整个工程加以完善。</p>
-<h3 id="转正申请"><a href="#转正申请" class="headerlink" title="转正申请"></a>转正申请</h3><p>姓名：    zhenyuhe(何镇宇)    部门：    美术组    岗位：    3D美术设计师<br>入职日期：    2020-06-29    试用期到期日期：    2020-09-28    部门主管经理：    ###</p>
-<p>请列出试用期的3-5项重点工作：</p>
-<ol>
-<li>独立完成小游戏家园场景的实现，其中包括模型制作、贴图绘制、着色器编写、材质制作、灯光烘焙和日夜循环系统。</li>
-<li>完成了小游戏中无尽关卡的效果实现，其中是镜面反射的解决方案、世界空间的纹理贴合着色器、制定无尽关卡制作规则。</li>
-<li>与同组人员共同完成搭建110个关卡，并把整体工作效率提升到每关1.5天产出。</li>
-<li>独立完成编写工具关卡路线生成器，为后续的路线匹配工作效率又有提升，并且保证角色脚步不会与地面穿插。</li>
-</ol>
-<p>自我评价：<br>工作认真负责，能够按时完成导师分发下来的工作任务。保持按时提交日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结。积极参加公司内部培训课程，并认真独立完成课后习题。沟通上认真听取他人意见和建议，遇到问题积极向同事请教，并自主查阅相关资料加以结合进行深入研究和拓展，争取在短时间解决相应问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。</p>
-<p>遇到的疑惑：<br>有时候并不能很好的与同事沟通，或发生小矛盾等。</p>
-<p>建议：<br>建议人事方面加强新人培训和线下交流。</p>
-<h3 id="新员工辅导表"><a href="#新员工辅导表" class="headerlink" title="新员工辅导表"></a>新员工辅导表</h3><h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p>掌握制作达标的的关卡及基础贴图绘制    </p>
-<ol>
-<li>掌握关卡布局及基础构成，了解初级光影节奏，在关卡整合上有完整的气氛表达，空间感，有一定的叙事性。</li>
-<li>可以绘制简单贴图并应用于项目组。</li>
-</ol>
-<p>完成shader向TA初级目标设定</p>
-<ol>
-<li>熟悉C#，了解shader基础算法；</li>
-<li>熟悉3D渲染管线及shader工作流及shaderlab的API；</li>
-<li>熟悉了解shader（CG，GLSL,HLSL至少一项），对卡通渲染一定了解;</li>
-<li>熟悉unity性能检测工具（Profiler,Frame debugger,UWA/UPA）。</li>
-<li>对项目组有一定技术向支撑作用。</li>
-<li>对基础场景动效，动画原理有一定了解，并可以产生对项目组的支撑。</li>
-</ol>
-<p>沟通协作及责任承担    </p>
-<p>有责任，有担当，可与各组各部门能产生有效的沟通协作，并达成相应目的，理解他人意思，并付诸行动解决问题。且有一定的抗压能力。</p>
-<h4 id="实际完成情况："><a href="#实际完成情况：" class="headerlink" title="实际完成情况："></a>实际完成情况：</h4><p>独立完成小游戏家园场景的实现，其中包括模型制作、贴图绘制、着色器编写、材质制作、灯光烘焙和日夜循环系统。并且在基础关卡中，与同组人员共同完成搭建110个关卡，并把整体工作效率提升到每关1.5天产出。</p>
-<ol>
-<li>熟悉C#，独立完成使用C#编写工具关卡路线生成器，为后续的路线匹配工作效率又有提升，并且保证角色脚步不会与地面穿插。</li>
-<li>熟悉CG语言和shader基础算法，并编写了相关效果shader，做了对应设备性能的优化。</li>
-<li>对卡通渲染一定了解，优化了角色的卡通渲染着色器，并增加了相应的颜色选择功能。</li>
-<li>完成了小游戏中无尽关卡的效果实现，其中是镜面反射的解决方案、世界空间的纹理贴合着色器、制定无尽关卡制作规范。初步达到了性能和画面的一个平衡点。</li>
-<li>了解动画运动规律，制作了相应的场景动效，如火苗油桶，爆头肢解的特效。</li>
-<li>能够承担实际项目技术支撑的作用。</li>
-</ol>
-<p>工作认真负责，能够按时完成导师分发下来的工作任务。保持按时提交日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结。积极参加公司内部培训课程，并认真独立完成课后习题。沟通上认真听取他人意见和建议，遇到问题积极向同事请教，并自主查阅相关资料加以结合进行深入研究和拓展，争取在短时间解决相应问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。</p>
-]]></content>
   </entry>
   <entry>
     <title>各种树形数据结构</title>
@@ -237,9 +182,9 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>简单光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<p>数学表达式：<br>//显然我的markdown renderer没有支持数学表达式</p>
-<p>$\int_0^1$</p>
-<p>dot(N,L)max(0,1)</p>
+<p>兰伯特光照模型：<br>max(0,dot(N,L))</p>
+<p>半兰伯特光照模型<br>dot(N,L) * 0.5 +0.5</p>
+<p>调整后的曲线：</p>
 <p>实现思路：</p>
 <h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照"></a>实现光照</h3><p>需要以下的核心操作</p>
 <ul>
@@ -365,7 +310,67 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       </tags>
   </entry>
   <entry>
-    <title>图形学之我学废了</title>
+    <title>我入侵了何镇宇的</title>
+    <url>/2020/08/09/Others/hezhenyu/</url>
+    <content><![CDATA[<h1 id="入侵成功"><a href="#入侵成功" class="headerlink" title="入侵成功"></a>入侵成功</h1><blockquote>
+<p>河镇鱼的电脑被我控制了</p>
+</blockquote>
+<blockquote>
+<p>方LOL呀！！！</p>
+</blockquote>
+<p><span style="font-size:409px">河镇鱼生日快乐！</span></p>
+<p><a href="http://www.pornhub.com" style="font-size:44px">方呢</a></p>
+]]></content>
+      <tags>
+        <tag>hezhenyu</tag>
+        <tag>fang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工作上的申请事项</title>
+    <url>/2020/08/23/Others/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h3 id="评选失败-实习期不够3个月"><a href="#评选失败-实习期不够3个月" class="headerlink" title="评选失败(实习期不够3个月)"></a>评选失败(实习期不够3个月)</h3><p>这是我第一次参与工作，已经107天。<br>实习期间工作认真负责，能够按时完成导师分发下来的工作任务。在不需要提交日报的情况下能够保持按时编写日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结，积极参加公司内部培训课程，并认真独立完成课后习题。<br>与同事沟通上认真听取他人意见和建议，遇到问题积极向同事请教，查阅相关资料加以结合进行深入研究和拓展，争取花费更短的时间解决问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。<br>在我参与的小游戏项目中，需要非常多的技术素养，抱着试一试的心态学习图形编程和C#代码编写，在学校也修读过计算机相关课程所以有一定基础，但深知自己技术不强，还得请教同事和查阅中英文资料进行学习并加以应用。实际例子就如本次小游戏中的无尽关卡效果和家园场景效果，除了每日任务和调用场景物件的一些功能其他功能基本上是自己独立完成的。家园中的日夜循环，无尽关卡中的平面反射，还有家园物件中的贴图规范。<br>重要的不是技术手段，更重要的是同事们的反馈和网上的资料才能够让整个工程加以完善。</p>
+<h3 id="转正申请"><a href="#转正申请" class="headerlink" title="转正申请"></a>转正申请</h3><p>姓名：    zhenyuhe(何镇宇)    部门：    美术组    岗位：    3D美术设计师<br>入职日期：    2020-06-29    试用期到期日期：    2020-09-28    部门主管经理：    ###</p>
+<p>请列出试用期的3-5项重点工作：</p>
+<ol>
+<li>独立完成小游戏家园场景的实现，其中包括模型制作、贴图绘制、着色器编写、材质制作、灯光烘焙和日夜循环系统。</li>
+<li>完成了小游戏中无尽关卡的效果实现，其中是镜面反射的解决方案、世界空间的纹理贴合着色器、制定无尽关卡制作规则。</li>
+<li>与同组人员共同完成搭建110个关卡，并把整体工作效率提升到每关1.5天产出。</li>
+<li>独立完成编写工具关卡路线生成器，为后续的路线匹配工作效率又有提升，并且保证角色脚步不会与地面穿插。</li>
+</ol>
+<p>自我评价：<br>工作认真负责，能够按时完成导师分发下来的工作任务。保持按时提交日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结。积极参加公司内部培训课程，并认真独立完成课后习题。沟通上认真听取他人意见和建议，遇到问题积极向同事请教，并自主查阅相关资料加以结合进行深入研究和拓展，争取在短时间解决相应问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。</p>
+<p>遇到的疑惑：<br>有时候并不能很好的与同事沟通，或发生小矛盾等。</p>
+<p>建议：<br>建议人事方面加强新人培训和线下交流。</p>
+<h3 id="新员工辅导表"><a href="#新员工辅导表" class="headerlink" title="新员工辅导表"></a>新员工辅导表</h3><h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p>掌握制作达标的的关卡及基础贴图绘制    </p>
+<ol>
+<li>掌握关卡布局及基础构成，了解初级光影节奏，在关卡整合上有完整的气氛表达，空间感，有一定的叙事性。</li>
+<li>可以绘制简单贴图并应用于项目组。</li>
+</ol>
+<p>完成shader向TA初级目标设定</p>
+<ol>
+<li>熟悉C#，了解shader基础算法；</li>
+<li>熟悉3D渲染管线及shader工作流及shaderlab的API；</li>
+<li>熟悉了解shader（CG，GLSL,HLSL至少一项），对卡通渲染一定了解;</li>
+<li>熟悉unity性能检测工具（Profiler,Frame debugger,UWA/UPA）。</li>
+<li>对项目组有一定技术向支撑作用。</li>
+<li>对基础场景动效，动画原理有一定了解，并可以产生对项目组的支撑。</li>
+</ol>
+<p>沟通协作及责任承担    </p>
+<p>有责任，有担当，可与各组各部门能产生有效的沟通协作，并达成相应目的，理解他人意思，并付诸行动解决问题。且有一定的抗压能力。</p>
+<h4 id="实际完成情况："><a href="#实际完成情况：" class="headerlink" title="实际完成情况："></a>实际完成情况：</h4><p>独立完成小游戏家园场景的实现，其中包括模型制作、贴图绘制、着色器编写、材质制作、灯光烘焙和日夜循环系统。并且在基础关卡中，与同组人员共同完成搭建110个关卡，并把整体工作效率提升到每关1.5天产出。</p>
+<ol>
+<li>熟悉C#，独立完成使用C#编写工具关卡路线生成器，为后续的路线匹配工作效率又有提升，并且保证角色脚步不会与地面穿插。</li>
+<li>熟悉CG语言和shader基础算法，并编写了相关效果shader，做了对应设备性能的优化。</li>
+<li>对卡通渲染一定了解，优化了角色的卡通渲染着色器，并增加了相应的颜色选择功能。</li>
+<li>完成了小游戏中无尽关卡的效果实现，其中是镜面反射的解决方案、世界空间的纹理贴合着色器、制定无尽关卡制作规范。初步达到了性能和画面的一个平衡点。</li>
+<li>了解动画运动规律，制作了相应的场景动效，如火苗油桶，爆头肢解的特效。</li>
+<li>能够承担实际项目技术支撑的作用。</li>
+</ol>
+<p>工作认真负责，能够按时完成导师分发下来的工作任务。保持按时提交日报的习惯。出勤方面每天争取早到晚归，利用好公司资源完成自身工作的总结。积极参加公司内部培训课程，并认真独立完成课后习题。沟通上认真听取他人意见和建议，遇到问题积极向同事请教，并自主查阅相关资料加以结合进行深入研究和拓展，争取在短时间解决相应问题。向同事传递信息做到信息不漏传，多次核对同步，解决相应问题最后达成工作闭环。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>图形学自我总结</title>
     <url>/2020/08/04/unity/ComputerGraphics/</url>
     <content><![CDATA[<style type="text/css">
 r {color:red; font-weight: 700;}
@@ -373,19 +378,21 @@ yellow {color: yellow ; font-weight: 700;}
 g {color:green;font-weight: 700;}
 </style>
 
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识<br>学废的请举手！</p>
-<ul>
-<li><g>学废了的</g></li>
-<li><r>在学了别催</r></li>
-</ul>
+<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
 <hr>
-<h2 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h2><ul>
+<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
 <li>冯氏光照模型</li>
 <li>兰伯特光照模型</li>
 <li>半兰伯特光照模型</li>
 <li>基于物理渲染</li>
 <li>IBL基于图片光照着色</li>
 <li>利用渐变纹理实现伪BRDF</li>
+</ul>
+<hr>
+<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
+<li>percentage closed soft shadow(pcss 阴影)</li>
+<li>方差阴影</li>
 </ul>
 <hr>
 <h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
@@ -404,9 +411,11 @@ g {color:green;font-weight: 700;}
 </ul>
 <hr>
 <h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>transparency 透射效果</li>
-<li>refraction 折射效果</li>
+<li>Transparency 透射效果</li>
+<li>Refraction 折射效果</li>
 <li>渲染队列</li>
+<li>Alpha Test (透明裁剪)</li>
+<li>Alpha Blend(透明融合)</li>
 </ul>
 <hr>
 <h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
@@ -416,14 +425,9 @@ g {color:green;font-weight: 700;}
 <li><r>splatmap 地形材质混合</r></li>
 </ul>
 <hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-<hr>
 <h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
 <li>NDC重建世界坐标</li>
+<li>屏幕空间深度图</li>
 </ul>
 ]]></content>
       <tags>
@@ -434,14 +438,17 @@ g {color:green;font-weight: 700;}
   <entry>
     <title>你不懂绑骨的痛</title>
     <url>/2020/09/06/unity/RiggingExp/</url>
-    <content><![CDATA[<p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
+    <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
 <h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
 <li>绑定骨骼定位</li>
 <li>蒙皮skining</li>
 <li>骨骼权重</li>
 <li>ik骨骼和fk骨骼控制器的制作 customize visibility type</li>
 </ul>
-<p>角色绑定只要把每次</p>
+<h1 id="角色骨骼绑定方案设计"><a href="#角色骨骼绑定方案设计" class="headerlink" title="角色骨骼绑定方案设计"></a>角色骨骼绑定方案设计</h1><ul>
+<li>提供初始裸模</li>
+<li>检查模型后进行绑定，</li>
+</ul>
 ]]></content>
       <tags>
         <tag>unity</tag>
@@ -453,8 +460,7 @@ g {color:green;font-weight: 700;}
   <entry>
     <title>Transparency in Defered Lighting</title>
     <url>/2020/08/23/unity/Transparency/</url>
-    <content><![CDATA[<p>在defered lighting 中实现transparency 透射效果.</p>
-<pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
+    <content><![CDATA[<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
 
     float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
     float2 texCoord = float2(
@@ -490,6 +496,7 @@ g {color:green;font-weight: 700;}
 ]]></content>
       <tags>
         <tag>shader</tag>
+        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
@@ -530,7 +537,7 @@ g {color:green;font-weight: 700;}
   </entry>
   <entry>
     <title>资源整理【表格】</title>
-    <url>/2020/08/02/Models/</url>
+    <url>/2020/08/02/Resources/Models/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
