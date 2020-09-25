@@ -140,6 +140,9 @@ vertex color : PaintMap</code></pre>
 <li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
       <tags>
         <tag>Shader</tag>
         <tag>Blend</tag>
@@ -206,6 +209,9 @@ g {color:green;font-weight: 700;}
 <li>屏幕空间深度图</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
@@ -215,6 +221,9 @@ g {color:green;font-weight: 700;}
     <title>渲染路径 Deferred Forward 区别</title>
     <url>/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/</url>
     <content><![CDATA[<h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1>]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
       <tags>
         <tag>shader</tag>
         <tag>render</tag>
@@ -301,6 +310,9 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
 <pre><code>finalcolor = difuse * shadow + specular</code></pre>
 <p>以后可以做一些简单的逐像素或者逐顶点的通用着色器了。</p>
 ]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
@@ -314,6 +326,9 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
 <p>模型转换体素<br>体素转换成模型</p>
 <p>图片转换成点阵云<br>点阵云转换成体素<br>体素转换成模型</p>
 ]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
       <tags>
         <tag>rendering</tag>
         <tag>voxel</tag>
