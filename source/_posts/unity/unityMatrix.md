@@ -27,7 +27,7 @@ tags: [shader , unity]
 
 [47张map](https://zhuanlan.zhihu.com/p/27339998)
 ---
-### 在amplify shader editor 里的坑
+### 在Amplify shader editor 里的坑
 
 如果需要转换以上矩阵，应该使用transform 节点进行转换为最好
 

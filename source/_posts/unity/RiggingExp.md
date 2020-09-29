@@ -1,5 +1,5 @@
 ---
-title: 你不懂绑骨的痛
+title: 绑骨的痛
 date: 2020/9/6
 tags: [Rig,unity,Blender,Character]
 ---
