@@ -9,7 +9,19 @@ categories:
 
 # 渲染路径的区别
 
-先看看两个渲染路径本身的一些属性。
+两个渲染路径本身结构。
+
 ## Forward
+PerLight
+Depth
+ShadowCaster
+DrawMesh
 
 ## Deferred
+
+G-Buffer
+    Albedo
+    Specular
+    Roughness
+    Normal
+PerObject

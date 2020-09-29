@@ -12,7 +12,7 @@ categories:
 ![混合效果](https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg)
 
 为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。
-在unity中实现的话，网友提供的思路是这样的：
+在`unity`中实现的话，网友提供的思路是这样的：
 https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/
 https://www.youtube.com/watch?v=AZEvrn9C0X0
 

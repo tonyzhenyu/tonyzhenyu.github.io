@@ -17,10 +17,16 @@ y {color:yellow;font-weight: 700;}
 ## 简单光照模型和阴影匹配
 光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。
 ### 兰伯特光照模型：
-#### max(0,dot(N,L))
+#### lambert = max(0,dot(N,L))
 
 ### 半兰伯特光照模型:
-#### dot(N,L) * 0.5 +0.5
+#### lambert = dot(N,L) * 0.5 +0.5
+
+### RimLight边缘光
+#### Rim = View * Vertex.Normal;
+
+用于作为渐变纹理的索引会是这样：
+uv = float2(Rim,Rim);
 
 调整后的曲线：
 
@@ -82,7 +88,7 @@ y {color:yellow;font-weight: 700;}
 
 光照计算完成之后，效果只有光线没有影子，这时候需要捕获unity渲染好的影子叠加到渲染结果上。
 
-### 影子的实现：
+## 影子的实现：
 影子实现需要的包含库文件：
 - autolight.cginc
 - lighting.cginc
@@ -103,3 +109,5 @@ y {color:yellow;font-weight: 700;}
     finalcolor = difuse * shadow + specular
         
 以后可以做一些简单的逐像素或者逐顶点的通用着色器了。
+
+可以做成通用着色器后做可复用的叠加的一些效果。

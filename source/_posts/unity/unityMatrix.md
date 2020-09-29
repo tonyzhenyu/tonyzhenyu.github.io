@@ -1,5 +1,5 @@
 ---
-title: unity中的常见矩阵
+title: unity的经验（杂）
 date: 2020/8/3
 tags: [shader , unity]
 ---
@@ -24,10 +24,16 @@ tags: [shader , unity]
     UNITY_MATRIX_TEXTURE3            
 + UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色
 
+
+[47张map](https://zhuanlan.zhihu.com/p/27339998)
 ---
 ### 在amplify shader editor 里的坑
 
 如果需要转换以上矩阵，应该使用transform 节点进行转换为最好
 
+
 ---
-另外附上：[47张map](https://zhuanlan.zhihu.com/p/27339998)
+
+unity 读取文件时
+    Assestdatabase.LoadAssetsAtPath<Type>("Assets/..");
+    Resources.Load<Type>("Assets/Resources/..");
