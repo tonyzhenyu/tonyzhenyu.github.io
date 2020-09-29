@@ -184,8 +184,22 @@ g {color:green;font-weight: 700;}
     <title>渲染路径 Deferred Forward 区别</title>
     <url>/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/</url>
     <content><![CDATA[<h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1><p>两个渲染路径本身结构。</p>
-<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><p>PerLight<br>Depth<br>ShadowCaster<br>DrawMesh</p>
-<h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2><p>G-Buffer<br>    Albedo<br>    Specular<br>    Roughness<br>    Normal<br>PerObject</p>
+<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><ul>
+<li>PerLight</li>
+<li>Depth</li>
+<li>ShadowCaster</li>
+<li>DrawMesh</li>
+</ul>
+<h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2><ul>
+<li>G-Buffer<ul>
+<li>Albedo</li>
+<li>Specular</li>
+<li>Roughness</li>
+<li>Normal</li>
+</ul>
+</li>
+<li>PerObject</li>
+</ul>
 ]]></content>
       <categories>
         <category>Graphics</category>
@@ -205,7 +219,7 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h1 id="兰伯特光照模型"><a href="#兰伯特光照模型" class="headerlink" title="兰伯特光照模型"></a>兰伯特光照模型</h1><h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a>lambert = max(0,dot(N,L))</h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a>lambert = dot(N,L) * 0.5 +0.5</h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal;"></a>Rim = View * Vertex.Normal;</h4><p>用于作为渐变纹理的索引会是这样：<br>uv = float2(Rim,Rim);</p>
+<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a><code>lambert = max(0,dot(N,L))</code></h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a><code>lambert = dot(N,L) * 0.5 +0.5</code></h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal"></a><code>Rim = View * Vertex.Normal</code></h4><p>用于作为渐变纹理的索引会是这样：<br>uv = float2(Rim,Rim);</p>
 <p>调整后的曲线：</p>
 <h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照:"></a>实现光照:</h3><p>需要以下的核心操作</p>
 <ul>
@@ -216,15 +230,15 @@ y {color:yellow;font-weight: 700;}
 </ul>
 <p>暴露的参数：</p>
 <ul>
-<li>_DiffuseColor</li>
-<li>_SpecularColor</li>
-<li>_GlossColor</li>
+<li><code>_DiffuseColor</code></li>
+<li><code>_SpecularColor</code></li>
+<li><code>_GlossColor</code></li>
 </ul>
 <p>外部调用的：</p>
 <ul>
-<li>_LightColor0</li>
-<li>_WorldSpaceCameraPos</li>
-<li>UNITY_LIGHTMODEL_AMBIENT</li>
+<li><code>_LightColor0</code></li>
+<li><code>_WorldSpaceCameraPos</code></li>
+<li><code>UNITY_LIGHTMODEL_AMBIENT</code></li>
 </ul>
 <p>渲染路径会用到ForwardBase和ForwardAdd</p>
 <ul>
@@ -262,9 +276,9 @@ fixed4 finnalColor = fixed4(ambient + (diffuse + specular) * atten, 1.0);</code>
 <p>光照计算完成之后，效果只有光线没有影子，这时候需要捕获unity渲染好的影子叠加到渲染结果上。</p>
 <h2 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h2><p>影子实现需要的包含库文件：</p>
 <ul>
-<li>autolight.cginc</li>
-<li>lighting.cginc</li>
-<li>UnityCG.cginc</li>
+<li><code>autolight.cginc</code></li>
+<li><code>lighting.cginc</code></li>
+<li><code>UnityCG.cginc</code></li>
 </ul>
 <pre><code>struct v2f
 SHADOW_COORDS(1)    //宏表示为定义一个float4的采样坐标，放到编号为1的寄存器中       
@@ -290,7 +304,7 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
     <title>体素渲染 voxel Rendering</title>
     <url>/2020/08/27/ComputerGraphics/voxelrendering/</url>
     <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。</p>
-<p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树</p>
+<p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树。</p>
 <pre><code>voxel rendering 
 point cloud</code></pre>
 <p>模型转换体素<br>体素转换成模型</p>
@@ -338,7 +352,7 @@ point cloud</code></pre>
 <li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
 <li>随机身份和随机世界、随机种子定型</li>
 <li>以20分钟为一局的游戏</li>
-<li>排位式成长</li>
+<li>段位式游戏成长</li>
 <li></li>
 </ul>
 ]]></content>
@@ -515,6 +529,23 @@ point cloud</code></pre>
         <tag>unity</tag>
         <tag>Rig</tag>
         <tag>Character</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>总结Unity中的材质节点工具</title>
+    <url>/2020/09/06/unity/SummaryUnityShaderNodeEditor/</url>
+    <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
+<h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
+<h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
+<h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
+<h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
+<h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
+<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年</p>
+]]></content>
+      <tags>
+        <tag>unity</tag>
+        <tag>Editor</tag>
+        <tag>Summary</tag>
       </tags>
   </entry>
   <entry>

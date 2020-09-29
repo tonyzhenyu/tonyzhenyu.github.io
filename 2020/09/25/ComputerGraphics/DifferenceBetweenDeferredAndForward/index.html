@@ -7,15 +7,15 @@
   
   <title>渲染路径 Deferred Forward 区别 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="渲染路径的区别两个渲染路径本身结构。 ForwardPerLightDepthShadowCasterDrawMesh DeferredG-Buffer    Albedo    Specular    Roughness    NormalPerObject">
+  <meta name="description" content="渲染路径的区别两个渲染路径本身结构。 Forward PerLight Depth ShadowCaster DrawMesh  Deferred G-Buffer Albedo Specular Roughness Normal   PerObject">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渲染路径 Deferred Forward 区别">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="渲染路径的区别两个渲染路径本身结构。 ForwardPerLightDepthShadowCasterDrawMesh DeferredG-Buffer    Albedo    Specular    Roughness    NormalPerObject">
+<meta property="og:description" content="渲染路径的区别两个渲染路径本身结构。 Forward PerLight Depth ShadowCaster DrawMesh  Deferred G-Buffer Albedo Specular Roughness Normal   PerObject">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-29T12:35:03.238Z">
+<meta property="article:modified_time" content="2020-09-29T14:16:15.401Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="shader">
 <meta property="article:tag" content="render">
@@ -95,13 +95,27 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1><p>两个渲染路径本身结构。</p>
-<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><p>PerLight<br>Depth<br>ShadowCaster<br>DrawMesh</p>
-<h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2><p>G-Buffer<br>    Albedo<br>    Specular<br>    Roughness<br>    Normal<br>PerObject</p>
+<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><ul>
+<li>PerLight</li>
+<li>Depth</li>
+<li>ShadowCaster</li>
+<li>DrawMesh</li>
+</ul>
+<h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2><ul>
+<li>G-Buffer<ul>
+<li>Albedo</li>
+<li>Specular</li>
+<li>Roughness</li>
+<li>Normal</li>
+</ul>
+</li>
+<li>PerObject</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/" data-id="ckfny1g0m000639hmd2gk6civ" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/" data-id="ckfo1nlo200064ehefehegnbm" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/render/" rel="tag">render</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li></ul>
