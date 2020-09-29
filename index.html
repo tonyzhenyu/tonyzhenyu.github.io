@@ -515,12 +515,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1><p>先看看两个渲染路径本身的一些属性。</p>
-<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2>
+        <h1 id="渲染路径的区别"><a href="#渲染路径的区别" class="headerlink" title="渲染路径的区别"></a>渲染路径的区别</h1><p>两个渲染路径本身结构。</p>
+<h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><p>PerLight<br>Depth<br>ShadowCaster<br>DrawMesh</p>
+<h2 id="Deferred"><a href="#Deferred" class="headerlink" title="Deferred"></a>Deferred</h2><p>G-Buffer<br>    Albedo<br>    Specular<br>    Roughness<br>    Normal<br>PerObject</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/" data-id="ckfhy77nu000640he7mwr6wfy" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/" data-id="ckfnxdow900066lhkfajjbsde" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/render/" rel="tag">render</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li></ul>
@@ -559,7 +561,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
-<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在unity中实现的话，网友提供的思路是这样的：<br><a target="_blank" rel="noopener" href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
+<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a target="_blank" rel="noopener" href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
 <h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
 <h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
 DataTransfer
@@ -584,7 +586,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/23/ComputerGraphics/BlenderColorBlend/" data-id="ckfhy77no000140he6ghzbefi" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/23/ComputerGraphics/BlenderColorBlend/" data-id="ckfnxdow100016lhkea4q4e5p" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blend/" rel="tag">Blend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -649,7 +651,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/" data-id="ckfhy77nr000340he1ylt6s8w" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/" data-id="ckfnxdow500036lhkacz6a1m0" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -699,7 +701,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E5%AE%B6%E5%9B%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E9%80%A0/" data-id="ckfhy77o0000c40hegk3d4j53" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E5%AE%B6%E5%9B%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E9%80%A0/" data-id="ckfnxdowf000c6lhked700rlq" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Architecture/" rel="tag">Data Architecture</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ProgramDesign/" rel="tag">ProgramDesign</a></li></ul>
@@ -737,20 +739,24 @@ vertex color : PaintMap</code></pre>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><ul>
-<li>泰拉瑞亚的装备库</li>
-<li>想要换装（黑魂3那种）翅膀（QQ三国的那种）移动速度表现（LOL那种，数值表现QQ三国那种）</li>
-<li>想要建造系统（paralives那种）</li>
-<li>想要背包系统（SAO那种）</li>
-<li>想要日夜循环和天气季节系统</li>
-<li>想要程序化生成模型（更改数量，高低，长短，队列）</li>
-<li>想要交互式场景（神界原罪中的火焰油电等环境影响）</li>
+        <h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
+<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
+<li>换装（黑魂3那种）翅膀、移动速度表现（QQ三国）)</li>
+<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
+<li>背包系统（SAO）</li>
+<li>日夜循环和天气季节系统（实现了一点点）</li>
+<li>程序化生成模型（更改数量，高低，长短，队列）</li>
+<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
+<li>随机身份和随机世界、随机种子定型</li>
+<li>以20分钟为一局的游戏</li>
+<li>排位式成长</li>
+<li></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/" data-id="ckfhy77o2000g40heds027l3v" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/" data-id="ckfnxdowh000g6lhkgo32f8jt" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameDesign/" rel="tag">GameDesign</a></li></ul>
@@ -803,7 +809,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/RiggingExp/" data-id="ckfhy77o9000u40hecraa45fx" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/RiggingExp/" data-id="ckfnxdowo000u6lhkf4ca4rah" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Character/" rel="tag">Character</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rig/" rel="tag">Rig</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -853,7 +859,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" data-id="ckfhy77od001240he4n7sa9cj" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" data-id="ckfnxdowt00126lhkcpy75gb2" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dataarchitecture/" rel="tag">dataarchitecture</a></li></ul>
@@ -898,7 +904,8 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h1 id="兰伯特光照模型"><a href="#兰伯特光照模型" class="headerlink" title="兰伯特光照模型"></a>兰伯特光照模型</h1><h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="max-0-dot-N-L"><a href="#max-0-dot-N-L" class="headerlink" title="max(0,dot(N,L))"></a>max(0,dot(N,L))</h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="dot-N-L-0-5-0-5"><a href="#dot-N-L-0-5-0-5" class="headerlink" title="dot(N,L) * 0.5 +0.5"></a>dot(N,L) * 0.5 +0.5</h4><p>调整后的曲线：</p>
+<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a>lambert = max(0,dot(N,L))</h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a>lambert = dot(N,L) * 0.5 +0.5</h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal;"></a>Rim = View * Vertex.Normal;</h4><p>用于作为渐变纹理的索引会是这样：<br>uv = float2(Rim,Rim);</p>
+<p>调整后的曲线：</p>
 <h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照:"></a>实现光照:</h3><p>需要以下的核心操作</p>
 <ul>
 <li>包含库 Lighting.cginc</li>
@@ -952,7 +959,7 @@ fixed4 finnalColor = fixed4(ambient + (diffuse + specular) * atten, 1.0);</code>
     #endif
 #endif</code></pre>
 <p>光照计算完成之后，效果只有光线没有影子，这时候需要捕获unity渲染好的影子叠加到渲染结果上。</p>
-<h3 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h3><p>影子实现需要的包含库文件：</p>
+<h2 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h2><p>影子实现需要的包含库文件：</p>
 <ul>
 <li>autolight.cginc</li>
 <li>lighting.cginc</li>
@@ -968,11 +975,12 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
 <p>所以最后的光照加上影子的运算结果应该是：</p>
 <pre><code>finalcolor = difuse * shadow + specular</code></pre>
 <p>以后可以做一些简单的逐像素或者逐顶点的通用着色器了。</p>
+<p>可以做成通用着色器后做可复用的叠加的一些效果。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckfhy77nv000840heeoxw6aem" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckfnxdowa00086lhk8t6jgg6a" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -1010,16 +1018,17 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。<br>建场，建8叉树</p>
+        <h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。</p>
+<p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树</p>
 <pre><code>voxel rendering 
 point cloud</code></pre>
 <p>模型转换体素<br>体素转换成模型</p>
 <p>图片转换成点阵云<br>点阵云转换成体素<br>体素转换成模型</p>
-
+<h2 id="体素全局光照"><a href="#体素全局光照" class="headerlink" title="体素全局光照"></a>体素全局光照</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/27/ComputerGraphics/voxelrendering/" data-id="ckfhy77ny000a40he8tv3csfr" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/27/ComputerGraphics/voxelrendering/" data-id="ckfnxdowd000a6lhk08424e3z" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/future/" rel="tag">future</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rendering/" rel="tag">rendering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/voxel/" rel="tag">voxel</a></li></ul>
@@ -1099,7 +1108,7 @@ point cloud</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/23/Others/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/" data-id="ckfhy77o7000q40hec2qt74nq" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/23/Others/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/" data-id="ckfnxdowm000q6lhkhs4aavnr" class="article-share-link">分享</a>
       
       
     </footer>

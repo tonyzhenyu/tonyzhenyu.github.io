@@ -7,15 +7,15 @@
   
   <title>简单光照模型和阴影匹配 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;} y {color:yellow;font-weight: 700;}   兰伯特光照模型简单光照模型和阴影匹配光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。 兰伯特光照模型：max(0,dot(N,L))半兰伯特光照模型:dot(N,L) * 0.">
+  <meta name="description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;} y {color:yellow;font-weight: 700;}   兰伯特光照模型简单光照模型和阴影匹配光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。 兰伯特光照模型：lambert &#x3D; max(0,dot(N,L))半兰伯特光照模型:lam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单光照模型和阴影匹配">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;} y {color:yellow;font-weight: 700;}   兰伯特光照模型简单光照模型和阴影匹配光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。 兰伯特光照模型：max(0,dot(N,L))半兰伯特光照模型:dot(N,L) * 0.">
+<meta property="og:description" content="r {color:red; font-weight: 700;} g {color:green;font-weight: 700;} y {color:yellow;font-weight: 700;}   兰伯特光照模型简单光照模型和阴影匹配光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。 兰伯特光照模型：lambert &#x3D; max(0,dot(N,L))半兰伯特光照模型:lam">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-04T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-25T07:52:58.586Z">
+<meta property="article:modified_time" content="2020-09-29T12:16:28.398Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="shader">
 <meta property="article:tag" content="unity">
@@ -101,7 +101,8 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h1 id="兰伯特光照模型"><a href="#兰伯特光照模型" class="headerlink" title="兰伯特光照模型"></a>兰伯特光照模型</h1><h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="max-0-dot-N-L"><a href="#max-0-dot-N-L" class="headerlink" title="max(0,dot(N,L))"></a>max(0,dot(N,L))</h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="dot-N-L-0-5-0-5"><a href="#dot-N-L-0-5-0-5" class="headerlink" title="dot(N,L) * 0.5 +0.5"></a>dot(N,L) * 0.5 +0.5</h4><p>调整后的曲线：</p>
+<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a>lambert = max(0,dot(N,L))</h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a>lambert = dot(N,L) * 0.5 +0.5</h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal;"></a>Rim = View * Vertex.Normal;</h4><p>用于作为渐变纹理的索引会是这样：<br>uv = float2(Rim,Rim);</p>
+<p>调整后的曲线：</p>
 <h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照:"></a>实现光照:</h3><p>需要以下的核心操作</p>
 <ul>
 <li>包含库 Lighting.cginc</li>
@@ -155,7 +156,7 @@ fixed4 finnalColor = fixed4(ambient + (diffuse + specular) * atten, 1.0);</code>
     #endif
 #endif</code></pre>
 <p>光照计算完成之后，效果只有光线没有影子，这时候需要捕获unity渲染好的影子叠加到渲染结果上。</p>
-<h3 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h3><p>影子实现需要的包含库文件：</p>
+<h2 id="影子的实现："><a href="#影子的实现：" class="headerlink" title="影子的实现："></a>影子的实现：</h2><p>影子实现需要的包含库文件：</p>
 <ul>
 <li>autolight.cginc</li>
 <li>lighting.cginc</li>
@@ -171,11 +172,12 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
 <p>所以最后的光照加上影子的运算结果应该是：</p>
 <pre><code>finalcolor = difuse * shadow + specular</code></pre>
 <p>以后可以做一些简单的逐像素或者逐顶点的通用着色器了。</p>
+<p>可以做成通用着色器后做可复用的叠加的一些效果。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckfhy77nv000840heeoxw6aem" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckfnxdowa00086lhk8t6jgg6a" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
