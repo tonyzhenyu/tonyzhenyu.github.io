@@ -506,6 +506,18 @@ point cloud</code></pre>
       </categories>
   </entry>
   <entry>
+    <title>背包系统</title>
+    <url>/2020/09/29/unity/InventorySystem/</url>
+    <content><![CDATA[<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界</p>
+]]></content>
+      <tags>
+        <tag>Blender</tag>
+        <tag>unity</tag>
+        <tag>Rig</tag>
+        <tag>Character</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你不懂绑骨的痛</title>
     <url>/2020/09/06/unity/RiggingExp/</url>
     <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
@@ -533,7 +545,7 @@ point cloud</code></pre>
   </entry>
   <entry>
     <title>总结Unity中的材质节点工具</title>
-    <url>/2020/09/06/unity/SummaryUnityShaderNodeEditor/</url>
+    <url>/2020/09/29/unity/SummaryUnityShaderNodeEditor/</url>
     <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
 <h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
 <h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
