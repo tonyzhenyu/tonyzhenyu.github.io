@@ -17,13 +17,13 @@ y {color:yellow;font-weight: 700;}
 ## 简单光照模型和阴影匹配
 光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。
 ### 兰伯特光照模型：
-#### lambert = max(0,dot(N,L))
+#### `lambert = max(0,dot(N,L))`
 
 ### 半兰伯特光照模型:
-#### lambert = dot(N,L) * 0.5 +0.5
+#### `lambert = dot(N,L) * 0.5 +0.5`
 
 ### RimLight边缘光
-#### Rim = View * Vertex.Normal;
+#### `Rim = View * Vertex.Normal`
 
 用于作为渐变纹理的索引会是这样：
 uv = float2(Rim,Rim);
@@ -39,14 +39,14 @@ uv = float2(Rim,Rim);
 - 顶点着色器提供 worldPos
 
 暴露的参数：
-- _DiffuseColor
-- _SpecularColor
-- _GlossColor
+- `_DiffuseColor`
+- `_SpecularColor`
+- `_GlossColor`
   
 外部调用的：
-- _LightColor0
-- _WorldSpaceCameraPos
-- UNITY_LIGHTMODEL_AMBIENT
+- `_LightColor0`
+- `_WorldSpaceCameraPos`
+- `UNITY_LIGHTMODEL_AMBIENT`
 
 渲染路径会用到ForwardBase和ForwardAdd
 - 通俗的逐顶点<g>ForwardBase 会计算平行光和环境光逐顶点/SH光照和Lightmaps</g>
@@ -90,9 +90,9 @@ uv = float2(Rim,Rim);
 
 ## 影子的实现：
 影子实现需要的包含库文件：
-- autolight.cginc
-- lighting.cginc
-- UnityCG.cginc
+- `autolight.cginc`
+- `lighting.cginc`
+- `UnityCG.cginc`
 
 
     struct v2f
