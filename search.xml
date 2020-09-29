@@ -301,6 +301,19 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       </tags>
   </entry>
   <entry>
+    <title>使用 UnityPostProcessingStack 自定义自己的后处理着色器.exe</title>
+    <url>/2020/09/29/ComputerGraphics/UnityPostProcessingStack/</url>
+    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect Shader</p>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>PostProcessingStack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>体素渲染 voxel Rendering</title>
     <url>/2020/08/27/ComputerGraphics/voxelrendering/</url>
     <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。</p>
@@ -511,14 +524,12 @@ point cloud</code></pre>
     <content><![CDATA[<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界</p>
 ]]></content>
       <tags>
-        <tag>Blender</tag>
         <tag>unity</tag>
-        <tag>Rig</tag>
-        <tag>Character</tag>
+        <tag>c#</tag>
       </tags>
   </entry>
   <entry>
-    <title>你不懂绑骨的痛</title>
+    <title>绑骨的痛</title>
     <url>/2020/09/06/unity/RiggingExp/</url>
     <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
 <h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
@@ -628,7 +639,7 @@ point cloud</code></pre>
 <li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
 </li>
 </ul>
-<h2 id="47张map"><a href="#47张map" class="headerlink" title="47张map"></a><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></h2><h3 id="在amplify-shader-editor-里的坑"><a href="#在amplify-shader-editor-里的坑" class="headerlink" title="在amplify shader editor 里的坑"></a>在amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<h2 id="47张map"><a href="#47张map" class="headerlink" title="47张map"></a><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></h2><h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
 <hr>
 <p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
 ]]></content>
