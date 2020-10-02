@@ -301,10 +301,10 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       </tags>
   </entry>
   <entry>
-    <title>使用 UnityPostProcessingStack 自定义自己的后处理着色器.exe</title>
+    <title>使用PostProcessingStack自定义后处理着色器</title>
     <url>/2020/09/29/ComputerGraphics/UnityPostProcessingStack/</url>
-    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect Shader</p>
-]]></content>
+    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1>]]></content>
       <categories>
         <category>Graphics</category>
       </categories>
@@ -350,30 +350,6 @@ point cloud</code></pre>
       <tags>
         <tag>Data Architecture</tag>
         <tag>ProgramDesign</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>理想的游戏结构</title>
-    <url>/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
-<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
-<li>换装（黑魂3那种）翅膀、移动速度表现（QQ三国）)</li>
-<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
-<li>背包系统（SAO）</li>
-<li>日夜循环和天气季节系统（实现了一点点）</li>
-<li>程序化生成模型（更改数量，高低，长短，队列）</li>
-<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
-<li>随机身份和随机世界、随机种子定型</li>
-<li>以20分钟为一局的游戏</li>
-<li>段位式游戏成长</li>
-<li></li>
-</ul>
-]]></content>
-      <categories>
-        <category>GameDesign</category>
-      </categories>
-      <tags>
-        <tag>GameDesign</tag>
       </tags>
   </entry>
   <entry>
@@ -517,6 +493,30 @@ point cloud</code></pre>
       <categories>
         <category>Others</category>
       </categories>
+  </entry>
+  <entry>
+    <title>理想的游戏结构</title>
+    <url>/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
+<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
+<li>换装（黑魂3那种）翅膀、移动速度表现（QQ三国）)</li>
+<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
+<li>背包系统（SAO）</li>
+<li>日夜循环和天气季节系统（实现了一点点）</li>
+<li>程序化生成模型（更改数量，高低，长短，队列）</li>
+<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
+<li>随机身份和随机世界、随机种子定型</li>
+<li>以20分钟为一局的游戏</li>
+<li>段位式游戏成长</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>GameDesign</category>
+      </categories>
+      <tags>
+        <tag>GameDesign</tag>
+      </tags>
   </entry>
   <entry>
     <title>背包系统</title>
