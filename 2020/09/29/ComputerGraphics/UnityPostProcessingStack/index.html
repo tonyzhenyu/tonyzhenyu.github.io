@@ -5,17 +5,17 @@
   
 
   
-  <title>使用PostProcessingStack自定义后处理着色器 | Ho&#39;s Website</title>
+  <title>使用PPS自定义后处理着色器 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自定义自己的后处理着色器首先需要安装插件PostProcssing Stack然后使用HLSL编写自己的后处理着色器Image Effect  自定义后处理着色器的设置界面">
+  <meta name="description" content="自定义自己的后处理着色器首先需要安装插件PostProcssing Stack然后使用HLSL编写自己的后处理着色器Image Effect  HLSL顶点着色器(vertex Shader)像素着色器(Pixel Shader)HLSL基本语法 自定义后处理着色器的设置界面继承Post Procssing Setting">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用PostProcessingStack自定义后处理着色器">
+<meta property="og:title" content="使用PPS自定义后处理着色器">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/29/ComputerGraphics/UnityPostProcessingStack/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="自定义自己的后处理着色器首先需要安装插件PostProcssing Stack然后使用HLSL编写自己的后处理着色器Image Effect  自定义后处理着色器的设置界面">
+<meta property="og:description" content="自定义自己的后处理着色器首先需要安装插件PostProcssing Stack然后使用HLSL编写自己的后处理着色器Image Effect  HLSL顶点着色器(vertex Shader)像素着色器(Pixel Shader)HLSL基本语法 自定义后处理着色器的设置界面继承Post Procssing Setting">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-29T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-02T08:20:17.985Z">
+<meta property="article:modified_time" content="2020-10-22T03:55:40.774Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="unity">
 <meta property="article:tag" content="PostProcessingStack">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      使用PostProcessingStack自定义后处理着色器
+      使用PPS自定义后处理着色器
     </h1>
   
 
@@ -95,11 +95,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
-<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1>
+<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/29/ComputerGraphics/UnityPostProcessingStack/" data-id="ckfrz9gcg000exehofx6m7uty" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/29/ComputerGraphics/UnityPostProcessingStack/" data-id="ckgkaofbv000azghm1dqd0s76" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostProcessingStack/" rel="tag">PostProcessingStack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -109,6 +111,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">新文章</strong>
+      <div class="article-nav-title">
+        
+          Blender渲染汽车Mozda rx7
+        
+      </div>
+    </a>
   
   
     <a href="/2020/09/29/unity/InventorySystem/" id="article-nav-older" class="article-nav-link-wrap">
@@ -132,7 +143,11 @@
       <ul>
         
           <li>
-            <a href="/2020/09/29/ComputerGraphics/UnityPostProcessingStack/">使用PostProcessingStack自定义后处理着色器</a>
+            <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCar/">Blender渲染汽车Mozda rx7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/29/ComputerGraphics/UnityPostProcessingStack/">使用PPS自定义后处理着色器</a>
           </li>
         
           <li>
@@ -147,10 +162,6 @@
             <a href="/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/">渲染路径 Deferred Forward 区别</a>
           </li>
         
-          <li>
-            <a href="/2020/09/23/ComputerGraphics/BlenderColorBlend/">Blender 混合不同模型颜色</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -160,7 +171,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GameDesign/">GameDesign</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GameDesign/">GameDesign</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a></li></ul>
     </div>
   </div>
 
@@ -170,7 +181,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li></ul>
     </div>
   </div>
 

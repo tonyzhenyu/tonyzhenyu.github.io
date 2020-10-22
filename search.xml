@@ -76,6 +76,19 @@ vertex color : PaintMap</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Blender渲染汽车Mozda rx7</title>
+    <url>/2020/10/22/ComputerGraphics/BlenderRenderingCar/</url>
+    <content><![CDATA[<p>先放图-</p>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>Shader</tag>
+        <tag>Blend</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Blender 制作风格化水面</title>
     <url>/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/</url>
     <content><![CDATA[<h1 id="利用blender-中的材质节点创建风格化的水面"><a href="#利用blender-中的材质节点创建风格化的水面" class="headerlink" title="利用blender 中的材质节点创建风格化的水面"></a>利用blender 中的材质节点创建风格化的水面</h1><p>风格化水面，风格化水面的效果有时候看起来就会像油画一样，虽然有点抽象和扭曲，但勉强能看，和真实感水面比起来，各有千秋。</p>
@@ -108,76 +121,6 @@ vertex color : PaintMap</code></pre>
       <tags>
         <tag>Shader</tag>
         <tag>Blender</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图形学自我总结</title>
-    <url>/2020/08/04/ComputerGraphics/ComputerGraphics/</url>
-    <content><![CDATA[<style type="text/css">
-r {color:red; font-weight: 700;}
-yellow {color: yellow ; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
-<hr>
-<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
-<li>冯氏光照模型</li>
-<li>兰伯特光照模型</li>
-<li>半兰伯特光照模型</li>
-<li>基于物理渲染</li>
-<li>IBL基于图片光照着色</li>
-<li>利用渐变纹理实现伪BRDF</li>
-</ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
-<li>Vertex Offset 顶点变换</li>
-</ul>
-<hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
-</ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
-</ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>Transparency 透射效果</li>
-<li>Refraction 折射效果</li>
-<li>渲染队列</li>
-<li>Alpha Test (透明裁剪)</li>
-<li>Alpha Blend(透明融合)</li>
-</ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-</ul>
-<hr>
-<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
-<li>NDC重建世界坐标</li>
-<li>屏幕空间深度图</li>
-<li>屏幕空间法线</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
@@ -219,7 +162,7 @@ y {color:yellow;font-weight: 700;}
 </style>
 
 <h1 id="兰伯特光照模型"><a href="#兰伯特光照模型" class="headerlink" title="兰伯特光照模型"></a>兰伯特光照模型</h1><h2 id="简单光照模型和阴影匹配"><a href="#简单光照模型和阴影匹配" class="headerlink" title="简单光照模型和阴影匹配"></a>简单光照模型和阴影匹配</h2><p>光照模型和阴影匹配是在基础渲染中非常重要而且不可缺失的一部分。</p>
-<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a><code>lambert = max(0,dot(N,L))</code></h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a><code>lambert = dot(N,L) * 0.5 +0.5</code></h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal"></a><code>Rim = View * Vertex.Normal</code></h4><p>用于作为渐变纹理的索引会是这样：<br>uv = float2(Rim,Rim);</p>
+<h3 id="兰伯特光照模型："><a href="#兰伯特光照模型：" class="headerlink" title="兰伯特光照模型："></a>兰伯特光照模型：</h3><h4 id="lambert-max-0-dot-N-L"><a href="#lambert-max-0-dot-N-L" class="headerlink" title="lambert = max(0,dot(N,L))"></a><code>lambert = max(0,dot(N,L))</code></h4><h3 id="半兰伯特光照模型"><a href="#半兰伯特光照模型" class="headerlink" title="半兰伯特光照模型:"></a>半兰伯特光照模型:</h3><h4 id="lambert-dot-N-L-0-5-0-5"><a href="#lambert-dot-N-L-0-5-0-5" class="headerlink" title="lambert = dot(N,L) * 0.5 +0.5"></a><code>lambert = dot(N,L) * 0.5 +0.5</code></h4><h3 id="RimLight边缘光"><a href="#RimLight边缘光" class="headerlink" title="RimLight边缘光"></a>RimLight边缘光</h3><h4 id="Rim-View-Vertex-Normal"><a href="#Rim-View-Vertex-Normal" class="headerlink" title="Rim = View * Vertex.Normal"></a><code>Rim = View * Vertex.Normal</code></h4><p>用于作为渐变纹理的索引会是这样：<br><code>uv = float2(Rim,Rim);</code></p>
 <p>调整后的曲线：</p>
 <h3 id="实现光照"><a href="#实现光照" class="headerlink" title="实现光照:"></a>实现光照:</h3><p>需要以下的核心操作</p>
 <ul>
@@ -301,10 +244,12 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       </tags>
   </entry>
   <entry>
-    <title>使用PostProcessingStack自定义后处理着色器</title>
+    <title>使用PPS自定义后处理着色器</title>
     <url>/2020/09/29/ComputerGraphics/UnityPostProcessingStack/</url>
     <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
-<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1>]]></content>
+<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
+]]></content>
       <categories>
         <category>Graphics</category>
       </categories>
@@ -316,13 +261,13 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
   <entry>
     <title>体素渲染 voxel Rendering</title>
     <url>/2020/08/27/ComputerGraphics/voxelrendering/</url>
-    <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染是未来渲染趋势，随着硬件性能越发强大。</p>
-<p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树。</p>
+    <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树。</p>
 <pre><code>voxel rendering 
 point cloud</code></pre>
 <p>模型转换体素<br>体素转换成模型</p>
 <p>图片转换成点阵云<br>点阵云转换成体素<br>体素转换成模型</p>
-<h2 id="体素全局光照"><a href="#体素全局光照" class="headerlink" title="体素全局光照"></a>体素全局光照</h2>]]></content>
+<h2 id="体素全局光照"><a href="#体素全局光照" class="headerlink" title="体素全局光照"></a>体素全局光照</h2><p>非常卡<br>适合体素型基础的游戏</p>
+]]></content>
       <categories>
         <category>Graphics</category>
       </categories>
@@ -350,6 +295,38 @@ point cloud</code></pre>
       <tags>
         <tag>Data Architecture</tag>
         <tag>ProgramDesign</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>理想的游戏结构</title>
+    <url>/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
+<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
+<li>换装（黑魂3）翅膀、移动速度表现（QQ三国）)</li>
+<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
+<li>背包系统（SAO）</li>
+<li>日夜循环和天气季节系统（实现了一点点）</li>
+<li>程序化生成模型（更改数量，高低，长短，队列）</li>
+<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
+<li>随机身份和随机世界、随机种子定型</li>
+<li>以20分钟为一局的游戏</li>
+<li>排位式成长</li>
+<li>(备选)末日生存</li>
+</ul>
+<h3 id="家园系统"><a href="#家园系统" class="headerlink" title="家园系统"></a>家园系统</h3><p>功能简述</p>
+<ul>
+<li>车来车往</li>
+<li>日夜循环</li>
+<li>事件触发</li>
+<li>天气系统</li>
+<li>角色寻路</li>
+</ul>
+]]></content>
+      <categories>
+        <category>GameDesign</category>
+      </categories>
+      <tags>
+        <tag>GameDesign</tag>
       </tags>
   </entry>
   <entry>
@@ -418,7 +395,7 @@ point cloud</code></pre>
 <h3 id="我只能说用hexo建blog-写markdown真香"><a href="#我只能说用hexo建blog-写markdown真香" class="headerlink" title="我只能说用hexo建blog 写markdown真香"></a>我只能说用hexo建blog 写markdown真香</h3><ul>
 <li><a href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
 <li><a href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
-<li><a href="https://www.jianshu.com/p/ac6023cc9f11">Hexo笔记</a><br>unity 读取文件时<br>  Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);</li>
+<li><a href="https://www.jianshu.com/p/ac6023cc9f11">Hexo笔记</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -495,41 +472,92 @@ point cloud</code></pre>
       </categories>
   </entry>
   <entry>
-    <title>理想的游戏结构</title>
-    <url>/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
-<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
-<li>换装（黑魂3那种）翅膀、移动速度表现（QQ三国）)</li>
-<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
-<li>背包系统（SAO）</li>
-<li>日夜循环和天气季节系统（实现了一点点）</li>
-<li>程序化生成模型（更改数量，高低，长短，队列）</li>
-<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
-<li>随机身份和随机世界、随机种子定型</li>
-<li>以20分钟为一局的游戏</li>
-<li>段位式游戏成长</li>
-<li></li>
+    <title>图形学自我总结</title>
+    <url>/2020/08/04/unity/ComputerGraphics/</url>
+    <content><![CDATA[<style type="text/css">
+r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
+g {color:green;font-weight: 700;}
+</style>
+
+<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
+<hr>
+<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
+<li>冯氏光照模型</li>
+<li>兰伯特光照模型</li>
+<li>半兰伯特光照模型</li>
+<li>基于物理渲染</li>
+<li>IBL基于图片光照着色</li>
+<li>利用渐变纹理实现伪BRDF</li>
+</ul>
+<hr>
+<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
+<li>percentage closed soft shadow(pcss 阴影)</li>
+<li>方差阴影</li>
+</ul>
+<hr>
+<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
+<li>Vertex Offset 顶点变换</li>
+</ul>
+<hr>
+<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
+<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
+<li><g>height base blend texture 基于高度的材质混合</g></li>
+<li><r>view position parallex 基于视图空间的视差效果</r></li>
+</ul>
+<hr>
+<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
+<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
+<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
+</ul>
+<hr>
+<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
+<li>Transparency 透射效果</li>
+<li>Refraction 折射效果</li>
+<li>渲染队列</li>
+<li>Alpha Test (透明裁剪)</li>
+<li>Alpha Blend(透明融合)</li>
+</ul>
+<hr>
+<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
+<li><r>maskmap </r></li>
+<li><g>RGBA channel mask 单通道贴图控制</g></li>
+<li>ramp map 渐变式贴图</li>
+<li><r>splatmap 地形材质混合</r></li>
+</ul>
+<hr>
+<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
+<li>NDC重建世界坐标</li>
+<li>屏幕空间深度图</li>
+<li>屏幕空间法线</li>
 </ul>
 ]]></content>
       <categories>
-        <category>GameDesign</category>
+        <category>Unity</category>
       </categories>
       <tags>
-        <tag>GameDesign</tag>
+        <tag>shader</tag>
+        <tag>unity</tag>
       </tags>
   </entry>
   <entry>
     <title>背包系统</title>
     <url>/2020/09/29/unity/InventorySystem/</url>
     <content><![CDATA[<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界</p>
+<p>物品-&gt;组-&gt;背包</p>
+<h2 id="装备系统"><a href="#装备系统" class="headerlink" title="装备系统"></a>装备系统</h2><p>参考QQ 三国，DNF，神界原罪</p>
 ]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
       <tags>
         <tag>unity</tag>
         <tag>c#</tag>
       </tags>
   </entry>
   <entry>
-    <title>绑骨的痛</title>
+    <title>你不懂绑骨的痛</title>
     <url>/2020/09/06/unity/RiggingExp/</url>
     <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
 <h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
@@ -547,6 +575,9 @@ point cloud</code></pre>
 <li>坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
       <tags>
         <tag>Blender</tag>
         <tag>unity</tag>
@@ -563,8 +594,11 @@ point cloud</code></pre>
 <h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
 <h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
 <h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
-<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年</p>
+<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年，专门用于制作地形高度图</p>
 ]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
       <tags>
         <tag>unity</tag>
         <tag>Editor</tag>
@@ -608,6 +642,9 @@ point cloud</code></pre>
 
     return Blend(opaque, background, thickness);</code></pre>
 ]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
@@ -639,33 +676,18 @@ point cloud</code></pre>
 <li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
 </li>
 </ul>
-<h2 id="47张map"><a href="#47张map" class="headerlink" title="47张map"></a><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></h2><h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<p><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></p>
+<hr>
+<h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
 <hr>
 <p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
 ]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>各种树形数据结构</title>
-    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>一次等分存储</li>
-<li>一阶储存器</li>
-</ul>
-<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
-<li>二维图像储存</li>
-<li>二次等分细分</li>
-</ul>
-<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
-<li>三维空间数据储存体素</li>
-<li>三次等分细分</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>dataarchitecture</tag>
       </tags>
   </entry>
   <entry>
@@ -3334,6 +3356,29 @@ point cloud</code></pre>
       <tags>
         <tag>data</tag>
         <tag>tables</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种树形数据结构</title>
+    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
+</ul>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>dataarchitecture</tag>
       </tags>
   </entry>
 </search>
