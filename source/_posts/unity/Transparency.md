@@ -2,6 +2,9 @@
 title : Transparency in Defered Lighting 
 date : 2020/8/23
 tags : [shader , unity]
+categories: 
+- Unity
+
 ---
 
 ## 在defered lighting 中实现transparency 透射效果.

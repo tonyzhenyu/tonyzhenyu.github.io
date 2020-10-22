@@ -1,7 +1,10 @@
 ---
-title: 绑骨的痛
+title: 你不懂绑骨的痛
 date: 2020/9/6
 tags: [Rig,unity,Blender,Character]
+categories: 
+- Unity
+
 ---
 
 # 角色绑定很多时候都很痛
@@ -22,3 +25,4 @@ tags: [Rig,unity,Blender,Character]
 + 为模型制作控制器（手部脚部IK）
 + 自定义控制器形状，并且设定仅导出蒙皮骨骼
 + 坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。
+

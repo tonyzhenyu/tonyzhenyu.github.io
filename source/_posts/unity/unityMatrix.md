@@ -2,6 +2,9 @@
 title: unity的经验（杂）
 date: 2020/8/3
 tags: [shader , unity]
+categories: 
+- Unity
+
 ---
 
 在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。
@@ -26,7 +29,9 @@ tags: [shader , unity]
 
 
 [47张map](https://zhuanlan.zhihu.com/p/27339998)
+
 ---
+
 ### 在Amplify shader editor 里的坑
 
 如果需要转换以上矩阵，应该使用transform 节点进行转换为最好

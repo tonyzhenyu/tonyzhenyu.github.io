@@ -3,7 +3,7 @@ title: 图形学自我总结
 date: 2020/8/4
 tags: [shader,unity]
 categories: 
-- Graphics
+- Unity
 
 ---
 <style type="text/css">

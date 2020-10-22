@@ -26,7 +26,7 @@ y {color:yellow;font-weight: 700;}
 #### `Rim = View * Vertex.Normal`
 
 用于作为渐变纹理的索引会是这样：
-uv = float2(Rim,Rim);
+`uv = float2(Rim,Rim);`
 
 调整后的曲线：
 

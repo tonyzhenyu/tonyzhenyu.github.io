@@ -2,6 +2,9 @@
 title: 总结Unity中的材质节点工具
 date: 2020/9/29
 tags: [unity,Editor,Summary]
+categories: 
+- Unity
+
 ---
 
 # 总结一些使用过的材质节点工具
@@ -26,4 +29,4 @@ tags: [unity,Editor,Summary]
 可能是最早提出的节点编辑
 
 ## Worldmchine
-还不错，用了半年
+还不错，用了半年，专门用于制作地形高度图

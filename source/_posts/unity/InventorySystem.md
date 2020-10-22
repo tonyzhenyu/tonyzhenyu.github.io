@@ -2,7 +2,8 @@
 title: 背包系统
 date: 2020/9/29
 tags: [unity,c#]
-
+categories: 
+- Unity
 
 ---
 
@@ -10,3 +11,8 @@ tags: [unity,c#]
 
 参考我的世界
 
+物品->组->背包
+
+## 装备系统
+
+参考QQ 三国，DNF，神界原罪
