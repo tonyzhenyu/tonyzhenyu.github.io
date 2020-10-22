@@ -84,6 +84,7 @@ vertex color : PaintMap</code></pre>
     <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603360275843&di=c4af824e2ae1a25c1c5765131d94dd6e&imgtype=0&src=http://n.sinaimg.cn/sinacn14/289/w657h432/20180805/755b-hhhczfa8313868.jpg" alt="Mazdarx-7"></p>
 <h1 id="Mazda-RX-7"><a href="#Mazda-RX-7" class="headerlink" title="Mazda RX-7"></a>Mazda RX-7</h1><p>&emsp;Mazda Rx-7是我比较喜欢的跑车之一，修长的车头和圆润的造型以及流线型的车身，非常适合各种改装手段，汽配城改装车小有名气的车也就是rx7。<br>&emsp;RX-7是MAZDA旗下的跑车，日本跑车中代表性的一款，RX-7采用传统跑车标准的FR驱动配置，搭载五速手排变速箱，车尾造型一体化尾灯组是全车识别性最高的地方。<br>&emsp;MAZDA RX-7与NSX、Supra、3000GT一样同为日本高性能化跑车的代表，但是由于RX-7略嫌诡异的身材、还有以转子心脏跻身性能跑车之林的剽悍本色，在大部分车迷的眼中，这部车一直是较另类的角色，是《假面骑士black rx》里面莱多隆战车的原型，也是《名侦探柯南》中安室透的爱车。</p>
 <h1 id="模型来自于sketchfab"><a href="#模型来自于sketchfab" class="headerlink" title="模型来自于sketchfab"></a>模型来自于sketchfab</h1><p>&emsp;拿到的模型并不是直接能用的，经过了一系列的修改后才能够正常使用，优点是材质区分的不错，不过就是太多。<br>&emsp;整个模型的拓扑不是最好的，经过细分后明显能检查到断面和一些材质过渡区的材质误识别，修改拓扑还是关键。<br>&emsp;整体模型的分层做的不错，但是模型的观察尺度只能停留在远处。<br><img src="https://i.loli.net/2020/10/22/GaqOPHy5XCVnrYv.png" alt="a1.png"></p>
+<p><img src="https://i.loli.net/2020/10/22/bWRePTfk8gLNqd3.png" alt="a4.png"></p>
 <h1 id="最终的渲染图片"><a href="#最终的渲染图片" class="headerlink" title="最终的渲染图片"></a>最终的渲染图片</h1><p><img src="https://i.loli.net/2020/10/22/xKUNQzyjM86LrV7.png" alt="render4.png"><br><img src="https://i.loli.net/2020/10/22/HYimN7pWRqMIrPu.png" alt="render5.png"></p>
 <h2 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h2><ul>
 <li>车身材质：<ul>
@@ -107,13 +108,13 @@ vertex color : PaintMap</code></pre>
 </ul>
 </li>
 </ul>
-<p><img src="https://i.loli.net/2020/10/22/1DYkseqRVwuNQvb.png" alt="a2.png"><br><img src="https://i.loli.net/2020/10/22/31eSAz6pgGbRfqr.png" alt="a.png"></p>
+<p><img src="https://i.loli.net/2020/10/22/1DYkseqRVwuNQvb.png" alt="a2.png"></p>
 <h2 id="灯光"><a href="#灯光" class="headerlink" title="灯光"></a>灯光</h2><p>&emsp;灯光使用了交叉的面光源作为顶光在整车上方往下投射，侧光源也使用的交叉面光源在左侧补光，装饰光源使用了点光源在车灯处进行点缀，三种灯光在不同的位置下建立的基础灯光系统。</p>
 <h2 id="场景氛围"><a href="#场景氛围" class="headerlink" title="场景氛围"></a>场景氛围</h2><ul>
 <li>雾气制造空气氛围（散射雾气）</li>
 <li>纯黑天空无背景色（突出主体）</li>
 <li>平面反射（blender中的平面反射只会作用在那些Roughness为0的材质上）</li>
-<li>设置bloom的效果，阈值不要太低</li>
+<li>设置bloom的效果，阈值不要太低<br><img src="https://i.loli.net/2020/10/22/7nJkcbYKQjGseVo.png" alt="a3.png"><br><img src="https://i.loli.net/2020/10/22/31eSAz6pgGbRfqr.png" alt="a.png"></li>
 </ul>
 <h2 id="镜头"><a href="#镜头" class="headerlink" title="镜头"></a>镜头</h2><p>&emsp;镜头选择了88焦段的<code>长焦镜头</code>，用于远处拍摄整车，并且没有选择虚焦的效果，因为在eevee上的虚焦表现可能不尽人意，效果并不太满意。</p>
 ]]></content>
