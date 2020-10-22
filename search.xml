@@ -36,6 +36,9 @@
 <hr>
 <h3 id="预订电话"><a href="#预订电话" class="headerlink" title="预订电话"></a>预订电话</h3><p>tel: 13231323188<br>wechat 同号</p>
 ]]></content>
+      <categories>
+        <category>Others</category>
+      </categories>
       <tags>
         <tag>post</tag>
         <tag>life</tag>
@@ -46,14 +49,14 @@
     <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
     <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
 <p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
-<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
+<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>&emsp;Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>&emsp;blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
 <h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
 DataTransfer
 Dynamic Paint</code></pre>
 <h3 id="需要新建的物体信息："><a href="#需要新建的物体信息：" class="headerlink" title="需要新建的物体信息："></a>需要新建的物体信息：</h3><pre><code>vertex group : ProximityVertex
 vertex color : PaintMap</code></pre>
-<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>一个地形和需要进行混合的物体。</p>
-<p>原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
+<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>&emsp;一个地形和需要进行混合的物体。</p>
+<p>&emsp;原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
 <h2 id="关键步骤："><a href="#关键步骤：" class="headerlink" title="关键步骤："></a>关键步骤：</h2><ol>
 <li>创建两个物体（地形、混合物体）</li>
 <li>给地形添加 动态绘制修改器，并且把地形的动态绘制属性调整为<code>笔刷</code></li>
@@ -76,9 +79,65 @@ vertex color : PaintMap</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Blender渲染汽车Mozda rx7</title>
+    <title>Blender渲染汽车Mazda rx7</title>
     <url>/2020/10/22/ComputerGraphics/BlenderRenderingCar/</url>
-    <content><![CDATA[<p>先放图-</p>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603360275843&di=c4af824e2ae1a25c1c5765131d94dd6e&imgtype=0&src=http://n.sinaimg.cn/sinacn14/289/w657h432/20180805/755b-hhhczfa8313868.jpg" alt="Mazdarx-7"></p>
+<h1 id="Mazda-RX-7"><a href="#Mazda-RX-7" class="headerlink" title="Mazda RX-7"></a>Mazda RX-7</h1><p>&emsp;Mazda Rx-7是我比较喜欢的跑车之一，修长的车头和圆润的造型以及流线型的车身，非常适合各种改装手段，汽配城改装车小有名气的车也就是rx7。<br>&emsp;RX-7是MAZDA旗下的跑车，日本跑车中代表性的一款，RX-7采用传统跑车标准的FR驱动配置，搭载五速手排变速箱，车尾造型一体化尾灯组是全车识别性最高的地方。<br>&emsp;MAZDA RX-7与NSX、Supra、3000GT一样同为日本高性能化跑车的代表，但是由于RX-7略嫌诡异的身材、还有以转子心脏跻身性能跑车之林的剽悍本色，在大部分车迷的眼中，这部车一直是较另类的角色，是《假面骑士black rx》里面莱多隆战车的原型，也是《名侦探柯南》中安室透的爱车。</p>
+<h1 id="模型来自于sketchfab"><a href="#模型来自于sketchfab" class="headerlink" title="模型来自于sketchfab"></a>模型来自于sketchfab</h1><p>&emsp;拿到的模型并不是直接能用的，经过了一系列的修改后才能够正常使用，优点是材质区分的不错，不过就是太多。<br>&emsp;整个模型的拓扑不是最好的，经过细分后明显能检查到断面和一些材质过渡区的材质误识别，修改拓扑还是关键。<br>&emsp;整体模型的分层做的不错，但是模型的观察尺度只能停留在远处。<br><img src="https://i.loli.net/2020/10/22/GaqOPHy5XCVnrYv.png" alt="a1.png"></p>
+<h1 id="最终的渲染图片"><a href="#最终的渲染图片" class="headerlink" title="最终的渲染图片"></a>最终的渲染图片</h1><p><img src="https://i.loli.net/2020/10/22/xKUNQzyjM86LrV7.png" alt="render4.png"><br><img src="https://i.loli.net/2020/10/22/HYimN7pWRqMIrPu.png" alt="render5.png"></p>
+<h2 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h2><ul>
+<li>车身材质：<ul>
+<li>为了凸显材质的层次，使用了<code>clearcoat</code>。</li>
+<li>微平面使用与相机距离产生关系的噪波纹理用到<code>roughness</code>通道上。</li>
+<li>颜色使用<code>fresnel </code>反射映射到hsv的hue通道上，使车身颜色在不同的角度观察有不一样的颜色。</li>
+<li>尽量使车身保持光滑</li>
+</ul>
+</li>
+<li>车灯材质：<ul>
+<li>直接使用了法线贴图制作凹凸映射</li>
+</ul>
+</li>
+<li>玻璃材质：<ul>
+<li>透明<code>Alpha Hash</code></li>
+<li>屏幕空间反射</li>
+</ul>
+</li>
+<li>轮毂材质：<ul>
+<li>各向异性的金属<code>anistropic</code></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/10/22/1DYkseqRVwuNQvb.png" alt="a2.png"><br><img src="https://i.loli.net/2020/10/22/31eSAz6pgGbRfqr.png" alt="a.png"></p>
+<h2 id="灯光"><a href="#灯光" class="headerlink" title="灯光"></a>灯光</h2><p>&emsp;灯光使用了交叉的面光源作为顶光在整车上方往下投射，侧光源也使用的交叉面光源在左侧补光，装饰光源使用了点光源在车灯处进行点缀，三种灯光在不同的位置下建立的基础灯光系统。</p>
+<h2 id="场景氛围"><a href="#场景氛围" class="headerlink" title="场景氛围"></a>场景氛围</h2><ul>
+<li>雾气制造空气氛围（散射雾气）</li>
+<li>纯黑天空无背景色（突出主体）</li>
+<li>平面反射（blender中的平面反射只会作用在那些Roughness为0的材质上）</li>
+<li>设置bloom的效果，阈值不要太低</li>
+</ul>
+<h2 id="镜头"><a href="#镜头" class="headerlink" title="镜头"></a>镜头</h2><p>&emsp;镜头选择了88焦段的<code>长焦镜头</code>，用于远处拍摄整车，并且没有选择虚焦的效果，因为在eevee上的虚焦表现可能不尽人意，效果并不太满意。</p>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>Shader</tag>
+        <tag>Blend</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blender渲染玻璃焦散</title>
+    <url>/2020/10/22/ComputerGraphics/BlenderRenderingCautics/</url>
+    <content><![CDATA[<h1 id="玻璃焦散"><a href="#玻璃焦散" class="headerlink" title="玻璃焦散"></a>玻璃焦散</h1><p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3264915731,2306361361&fm=26&gp=0.jpg" alt="玻璃焦散"></p>
+<p>&emsp;光谱中的颜色映射关系，在RGB上面的映射顺序分别是蓝绿红。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603365753747&di=87de1b4ca97243920dac904d27b76df3&imgtype=0&src=http://www.microsenso.com/ueditor/php/upload/image/20161110/1478756299163735.png" alt="光色关系"></p>
+<h1 id="最终实现结果"><a href="#最终实现结果" class="headerlink" title="最终实现结果"></a>最终实现结果</h1><p>EEVEE中的效果:<br><img src="https://i.loli.net/2020/10/22/KuzVAkxqomZhNIr.png" alt="render3.png"><br>Unity中的效果:<br><img src="https://i.loli.net/2020/10/22/c2a5opzVLqvwghS.jpg" alt="a.jpg"></p>
+<p>&emsp;更高级的效果可以利用<code>RenderTexture</code>渲染，求各顶点到投射平面的交集做插值。</p>
+<h1 id="利用光照结果制作"><a href="#利用光照结果制作" class="headerlink" title="利用光照结果制作"></a>利用光照结果制作</h1><p>制作解析，主要利用光照穿过物体产生影子，利用物体中<code>Dot(Normal,LightDir)</code>做渐变图的索引值，把需要穿透的面剔除，把需要留下的面保留。而利用内部光照从内往外照射产生对应的影子制作出焦散。</p>
+<p>制作基础的光照系统：<br><img src="https://i.loli.net/2020/10/22/IBaeWlwcuiPENr9.png" alt="cauticsa.png"></p>
+<h2 id="材质"><a href="#材质" class="headerlink" title="材质"></a>材质</h2><ul>
+<li>主要属性：设置透明队列为Alpha Hashed，shadow Mode 为Alpha Hashed</li>
+<li>节点：主要把阴影区域剔除，剩下的交给shadow Caster<br><img src="https://i.loli.net/2020/10/22/Uzrbvo9PupQTN26.png" alt="cauticsb.png"></li>
+</ul>
 ]]></content>
       <categories>
         <category>Graphics</category>
@@ -91,7 +150,7 @@ vertex color : PaintMap</code></pre>
   <entry>
     <title>Blender 制作风格化水面</title>
     <url>/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/</url>
-    <content><![CDATA[<h1 id="利用blender-中的材质节点创建风格化的水面"><a href="#利用blender-中的材质节点创建风格化的水面" class="headerlink" title="利用blender 中的材质节点创建风格化的水面"></a>利用blender 中的材质节点创建风格化的水面</h1><p>风格化水面，风格化水面的效果有时候看起来就会像油画一样，虽然有点抽象和扭曲，但勉强能看，和真实感水面比起来，各有千秋。</p>
+    <content><![CDATA[<h1 id="利用blender-中的材质节点创建风格化的水面"><a href="#利用blender-中的材质节点创建风格化的水面" class="headerlink" title="利用blender 中的材质节点创建风格化的水面"></a>利用blender 中的材质节点创建风格化的水面</h1><p>&emsp;风格化水面，风格化水面的效果有时候看起来就会像油画一样，虽然有点抽象和扭曲，但勉强能看，和真实感水面比起来，各有千秋。</p>
 <p><img src="https://i.loli.net/2020/09/25/fv8exm7jnOhVaqM.png" alt="风格化水面"></p>
 <h3 id="风格化水面需要的一些实际效果："><a href="#风格化水面需要的一些实际效果：" class="headerlink" title="风格化水面需要的一些实际效果："></a>风格化水面需要的一些实际效果：</h3><ul>
 <li>影子</li>
@@ -99,7 +158,7 @@ vertex color : PaintMap</code></pre>
 <li>高光</li>
 <li>纯色</li>
 </ul>
-<h3 id="产生的波纹形状："><a href="#产生的波纹形状：" class="headerlink" title="产生的波纹形状："></a>产生的波纹形状：</h3><p>可自定义波纹的形状，可加上噪波干扰，使其更加有风格化感觉。</p>
+<h3 id="产生的波纹形状："><a href="#产生的波纹形状：" class="headerlink" title="产生的波纹形状："></a>产生的波纹形状：</h3><p>&emsp;可自定义波纹的形状，可加上噪波干扰，使其更加有风格化感觉。</p>
 <h2 id="设计的渲染方案："><a href="#设计的渲染方案：" class="headerlink" title="设计的渲染方案："></a>设计的渲染方案：</h2><ul>
 <li>波纹（单独使用物体制作假波纹效果）（可优化成动态绘制的波纹查找图）</li>
 <li>水面（使用细分等级较高的水面用于产生反射的凹凸面，达到非光学平整表面）</li>
@@ -244,21 +303,6 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       </tags>
   </entry>
   <entry>
-    <title>使用PPS自定义后处理着色器</title>
-    <url>/2020/09/29/ComputerGraphics/UnityPostProcessingStack/</url>
-    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
-<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
-<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>PostProcessingStack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>体素渲染 voxel Rendering</title>
     <url>/2020/08/27/ComputerGraphics/voxelrendering/</url>
     <content><![CDATA[<h2 id="体素渲染"><a href="#体素渲染" class="headerlink" title="体素渲染"></a>体素渲染</h2><p>体素渲染的内存消耗量会很大，随着八叉树的细分等级增加，内存消耗量会成指数级增长。<br>建场，建8叉树。</p>
@@ -278,32 +322,12 @@ point cloud</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>家园系统的构造</title>
-    <url>/2020/09/07/GameDesign/%E5%AE%B6%E5%9B%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E9%80%A0/</url>
-    <content><![CDATA[<h3 id="家园系统"><a href="#家园系统" class="headerlink" title="家园系统"></a>家园系统</h3><p>功能简述</p>
-<ul>
-<li>车来车往</li>
-<li>日夜循环</li>
-<li>事件触发</li>
-<li>天气系统</li>
-<li>角色寻路</li>
-</ul>
-]]></content>
-      <categories>
-        <category>GameDesign</category>
-      </categories>
-      <tags>
-        <tag>Data Architecture</tag>
-        <tag>ProgramDesign</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>理想的游戏结构</title>
     <url>/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
-<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
-<li>换装（黑魂3）翅膀、移动速度表现（QQ三国）)</li>
-<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
+<li>泰拉瑞亚的装备库(直接拿过来用啊)</li>
+<li>换装（黑魂3）翅膀、移动速度表现(QQ三国)</li>
+<li>建造系统（<code>paralives</code>、<code>sims like建造系统</code>）</li>
 <li>背包系统（SAO）</li>
 <li>日夜循环和天气季节系统（实现了一点点）</li>
 <li>程序化生成模型（更改数量，高低，长短，队列）</li>
@@ -321,6 +345,13 @@ point cloud</code></pre>
 <li>天气系统</li>
 <li>角色寻路</li>
 </ul>
+<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界（有限扩容）</p>
+<p>物品-&gt;组-&gt;背包</p>
+<p>背包无限扩容</p>
+<h2 id="装备系统"><a href="#装备系统" class="headerlink" title="装备系统"></a>装备系统</h2><p>参考QQ三国，DNF，神界原罪</p>
+<p>神界原罪中的装备系统，装备能跟上等级的成长，但是在实际的<code>药品</code>，<code>投掷物</code>和<code>卷轴</code>都没有随着等级跟着成长，而且大多数的收集制作道具在前中后期都成为了摆设，占用了背包空间，也没有起到实际作用，很多时候购买到的装备都能比手作装备品质好，制作的过程也会比较麻烦，虽然说专门去收集还是能体验到乐趣，但是往往某些固定道具总是会比制作的道具好，就直接碾压了自己制作装备道具的初衷。另外，装备品质分为白、绿、蓝、紫、红、黄的六个品质，并没有在每个阶段都产出，品质越高的装备往往只能在高等级的时候才能得到，也就直接导致了一个断层现象的出现，或者等级秒杀的现象。</p>
+<p>QQ三国中的装备系统较为复杂，有一些精良的设计在里面，比如宝石镶嵌、装备关系，和装备属性都是值得参考的一点，不过作为大型mmorpg最主要的还是骗氪，作为能不氪就不氪的穷人，只能靠实际时间换游戏币，搬砖也成为了mmorpg的日常。</p>
+<p>DNF</p>
 ]]></content>
       <categories>
         <category>GameDesign</category>
@@ -394,6 +425,7 @@ point cloud</code></pre>
 <hr>
 <h3 id="我只能说用hexo建blog-写markdown真香"><a href="#我只能说用hexo建blog-写markdown真香" class="headerlink" title="我只能说用hexo建blog 写markdown真香"></a>我只能说用hexo建blog 写markdown真香</h3><ul>
 <li><a href="https://www.jianshu.com/p/ea1eb11db63f">markdown图床</a></li>
+<li><a href="https://sm.ms/">SM.MS</a></li>
 <li><a href="https://www.jianshu.com/p/191d1e21f7ed/">markdown语法</a></li>
 <li><a href="https://www.jianshu.com/p/ac6023cc9f11">Hexo笔记</a></li>
 </ul>
@@ -525,6 +557,7 @@ g {color:green;font-weight: 700;}
 <li><g>RGBA channel mask 单通道贴图控制</g></li>
 <li>ramp map 渐变式贴图</li>
 <li><r>splatmap 地形材质混合</r></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
 </ul>
 <hr>
 <h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
@@ -606,48 +639,18 @@ g {color:green;font-weight: 700;}
       </tags>
   </entry>
   <entry>
-    <title>Transparency in Defered Lighting</title>
-    <url>/2020/08/23/unity/Transparency/</url>
-    <content><![CDATA[<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
-
-    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
-    float2 texCoord = float2(
-         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
-         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
-    );
-
-    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
-
-    float4 sampledNormals = tex2D(normalSampler, texCoord);
-    if (sampledNormals.a == 0)
-        clip(-1);
-
-    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
-    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
-    //Thickness is easy to calculate.
-
-    float backDepth = input.Depth;
-    float frontDepth = tex2D(depthSampler, texCoord);
-    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
-
-    //This is the surface colour of the transparent object
-
-    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
-
-    //This is the colour of the scene behind the object
-
-    float3 background = tex2D(lightbufferSample, texCoord).rgb;
-
-    //now blend them. Blending function varies per material
-
-    return Blend(opaque, background, thickness);</code></pre>
+    <title>使用PPS自定义后处理着色器</title>
+    <url>/2020/09/29/unity/UnityPostProcessingStack/</url>
+    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
+<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
 ]]></content>
       <categories>
         <category>Unity</category>
       </categories>
       <tags>
-        <tag>shader</tag>
         <tag>unity</tag>
+        <tag>PostProcessingStack</tag>
       </tags>
   </entry>
   <entry>
@@ -688,6 +691,29 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>shader</tag>
         <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种树形数据结构</title>
+    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
+</ul>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>dataarchitecture</tag>
       </tags>
   </entry>
   <entry>
@@ -3356,29 +3382,6 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>data</tag>
         <tag>tables</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>各种树形数据结构</title>
-    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>一次等分存储</li>
-<li>一阶储存器</li>
-</ul>
-<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
-<li>二维图像储存</li>
-<li>二次等分细分</li>
-</ul>
-<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
-<li>三维空间数据储存体素</li>
-<li>三次等分细分</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>dataarchitecture</tag>
       </tags>
   </entry>
 </search>

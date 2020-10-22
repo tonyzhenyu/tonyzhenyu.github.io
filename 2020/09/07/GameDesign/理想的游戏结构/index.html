@@ -7,15 +7,15 @@
   
   <title>理想的游戏结构 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缝合 泰拉瑞亚的装备库（直接拿过来用啊） 换装（黑魂3）翅膀、移动速度表现（QQ三国）) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统">
+  <meta name="description" content="缝合 泰拉瑞亚的装备库(直接拿过来用啊) 换装（黑魂3）翅膀、移动速度表现(QQ三国) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统功">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理想的游戏结构">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="缝合 泰拉瑞亚的装备库（直接拿过来用啊） 换装（黑魂3）翅膀、移动速度表现（QQ三国）) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统">
+<meta property="og:description" content="缝合 泰拉瑞亚的装备库(直接拿过来用啊) 换装（黑魂3）翅膀、移动速度表现(QQ三国) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统功">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-22T03:55:40.774Z">
+<meta property="article:modified_time" content="2020-10-22T09:35:50.748Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="GameDesign">
 <meta name="twitter:card" content="summary">
@@ -94,9 +94,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
-<li>泰拉瑞亚的装备库（直接拿过来用啊）</li>
-<li>换装（黑魂3）翅膀、移动速度表现（QQ三国）)</li>
-<li>建造系统（paralives、<code>sims like建造系统</code>）</li>
+<li>泰拉瑞亚的装备库(直接拿过来用啊)</li>
+<li>换装（黑魂3）翅膀、移动速度表现(QQ三国)</li>
+<li>建造系统（<code>paralives</code>、<code>sims like建造系统</code>）</li>
 <li>背包系统（SAO）</li>
 <li>日夜循环和天气季节系统（实现了一点点）</li>
 <li>程序化生成模型（更改数量，高低，长短，队列）</li>
@@ -114,11 +114,18 @@
 <li>天气系统</li>
 <li>角色寻路</li>
 </ul>
+<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界（有限扩容）</p>
+<p>物品-&gt;组-&gt;背包</p>
+<p>背包无限扩容</p>
+<h2 id="装备系统"><a href="#装备系统" class="headerlink" title="装备系统"></a>装备系统</h2><p>参考QQ三国，DNF，神界原罪</p>
+<p>神界原罪中的装备系统，装备能跟上等级的成长，但是在实际的<code>药品</code>，<code>投掷物</code>和<code>卷轴</code>都没有随着等级跟着成长，而且大多数的收集制作道具在前中后期都成为了摆设，占用了背包空间，也没有起到实际作用，很多时候购买到的装备都能比手作装备品质好，制作的过程也会比较麻烦，虽然说专门去收集还是能体验到乐趣，但是往往某些固定道具总是会比制作的道具好，就直接碾压了自己制作装备道具的初衷。另外，装备品质分为白、绿、蓝、紫、红、黄的六个品质，并没有在每个阶段都产出，品质越高的装备往往只能在高等级的时候才能得到，也就直接导致了一个断层现象的出现，或者等级秒杀的现象。</p>
+<p>QQ三国中的装备系统较为复杂，有一些精良的设计在里面，比如宝石镶嵌、装备关系，和装备属性都是值得参考的一点，不过作为大型mmorpg最主要的还是骗氪，作为能不氪就不氪的穷人，只能靠实际时间换游戏币，搬砖也成为了mmorpg的日常。</p>
+<p>DNF</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/" data-id="ckgkaofc1000kzghm7u94gkjs" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/%E7%90%86%E6%83%B3%E7%9A%84%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9E%84/" data-id="ckgkmrk2r000gzshlc6xf8im0" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameDesign/" rel="tag">GameDesign</a></li></ul>
@@ -129,11 +136,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/09/07/GameDesign/%E5%AE%B6%E5%9B%AD%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E9%80%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">新文章</strong>
       <div class="article-nav-title">
         
-          家园系统的构造
+          Blender 制作风格化水面
         
       </div>
     </a>
@@ -160,11 +167,11 @@
       <ul>
         
           <li>
-            <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCar/">Blender渲染汽车Mozda rx7</a>
+            <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCar/">Blender渲染汽车Mazda rx7</a>
           </li>
         
           <li>
-            <a href="/2020/09/29/ComputerGraphics/UnityPostProcessingStack/">使用PPS自定义后处理着色器</a>
+            <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCautics/">Blender渲染玻璃焦散</a>
           </li>
         
           <li>
@@ -176,7 +183,7 @@
           </li>
         
           <li>
-            <a href="/2020/09/25/ComputerGraphics/DifferenceBetweenDeferredAndForward/">渲染路径 Deferred Forward 区别</a>
+            <a href="/2020/09/29/unity/UnityPostProcessingStack/">使用PPS自定义后处理着色器</a>
           </li>
         
       </ul>
