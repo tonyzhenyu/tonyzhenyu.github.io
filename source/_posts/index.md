@@ -2,6 +2,9 @@
 title: 小何客栈-
 date: 2020/08/01 
 tags: [post , life]
+categories: 
+- Others
+
 
 ---
 # 欢迎光临！小何客栈！

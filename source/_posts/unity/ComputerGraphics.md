@@ -55,10 +55,11 @@ g {color:green;font-weight: 700;}
 + <g>RGBA channel mask 单通道贴图控制</g>
 + ramp map 渐变式贴图
 + <r>splatmap 地形材质混合</r>
-
++ [47张map](https://zhuanlan.zhihu.com/p/27339998)
 
 ---
 ## 后处理相关
 + NDC重建世界坐标
 + 屏幕空间深度图
 + 屏幕空间法线
+
