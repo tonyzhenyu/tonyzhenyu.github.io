@@ -20,6 +20,7 @@ categories:
 &emsp;整体模型的分层做的不错，但是模型的观察尺度只能停留在远处。
 ![a1.png](https://i.loli.net/2020/10/22/GaqOPHy5XCVnrYv.png)
 
+![a4.png](https://i.loli.net/2020/10/22/bWRePTfk8gLNqd3.png)
 # 最终的渲染图片
 ![render4.png](https://i.loli.net/2020/10/22/xKUNQzyjM86LrV7.png)
 ![render5.png](https://i.loli.net/2020/10/22/HYimN7pWRqMIrPu.png)
@@ -39,7 +40,7 @@ categories:
   - 各向异性的金属`anistropic`
 
 ![a2.png](https://i.loli.net/2020/10/22/1DYkseqRVwuNQvb.png)
-![a.png](https://i.loli.net/2020/10/22/31eSAz6pgGbRfqr.png)
+
 
 ## 灯光
 &emsp;灯光使用了交叉的面光源作为顶光在整车上方往下投射，侧光源也使用的交叉面光源在左侧补光，装饰光源使用了点光源在车灯处进行点缀，三种灯光在不同的位置下建立的基础灯光系统。
@@ -49,6 +50,8 @@ categories:
 - 纯黑天空无背景色（突出主体）
 - 平面反射（blender中的平面反射只会作用在那些Roughness为0的材质上）
 - 设置bloom的效果，阈值不要太低
+![a3.png](https://i.loli.net/2020/10/22/7nJkcbYKQjGseVo.png)
+![a.png](https://i.loli.net/2020/10/22/31eSAz6pgGbRfqr.png)
 
 ## 镜头
 &emsp;镜头选择了88焦段的`长焦镜头`，用于远处拍摄整车，并且没有选择虚焦的效果，因为在eevee上的虚焦表现可能不尽人意，效果并不太满意。
