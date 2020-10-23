@@ -7,7 +7,6 @@ categories:
 
 ---
 
-
 ![玻璃焦散](https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3264915731,2306361361&fm=26&gp=0.jpg)
 
 &emsp;&emsp;焦散是指当光线穿过一个透明物体时，由于对象表面的不平整，使得光线折射并没有平行发生，出现漫折射，投影表面出现光子分散。
