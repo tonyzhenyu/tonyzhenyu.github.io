@@ -5,20 +5,17 @@
   
 
   
-  <title>图形学自我总结 | Ho&#39;s Website</title>
+  <title>aaa | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识，学废的请举手！  光照模型 光影不分家 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 基于物理渲染 IBL基于图片光照着色 利用渐">
-<meta property="og:type" content="article">
-<meta property="og:title" content="图形学自我总结">
-<meta property="og:url" content="http://tonyzhenyu.github.io/2020/08/04/unity/ComputerGraphics/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="aaa">
+<meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/29/MyGameProcess/Dialog01/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   我学废了！总结一些关于实时渲染的坑和知识，学废的请举手！  光照模型 光影不分家 冯氏光照模型 兰伯特光照模型 半兰伯特光照模型 基于物理渲染 IBL基于图片光照着色 利用渐">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-04T00:00:00.000Z">
+<meta property="article:published_time" content="2020-09-29T00:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-31T17:31:53.145Z">
 <meta property="article:author" content="Tony Ho">
-<meta property="article:tag" content="shader">
-<meta property="article:tag" content="unity">
+<meta property="article:tag" content="vlog">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Ho&#39;s Website" type="application/atom+xml">
@@ -68,14 +65,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-unity/ComputerGraphics" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-MyGameProcess/Dialog01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/08/04/unity/ComputerGraphics/" class="article-date">
-  <time datetime="2020-08-04T00:00:00.000Z" itemprop="datePublished">2020-08-04</time>
+    <a href="/2020/09/29/MyGameProcess/Dialog01/" class="article-date">
+  <time datetime="2020-09-29T00:00:00.000Z" itemprop="datePublished">2020-09-29</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Unity/">Unity</a>
+    <a class="article-category-link" href="/categories/MyGameDialog/">MyGameDialog</a>
   </div>
 
   </div>
@@ -86,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      图形学自我总结
+      aaa
     </h1>
   
 
@@ -94,73 +91,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <style type="text/css">
-r {color:red; font-weight: 700;}
-yellow {color: yellow ; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
-<hr>
-<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
-<li>冯氏光照模型</li>
-<li>兰伯特光照模型</li>
-<li>半兰伯特光照模型</li>
-<li>基于物理渲染</li>
-<li>IBL基于图片光照着色</li>
-<li>利用渐变纹理实现伪BRDF</li>
-</ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
-<li>Vertex Offset 顶点变换</li>
-</ul>
-<hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
-</ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
-</ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>Transparency 透射效果</li>
-<li>Refraction 折射效果</li>
-<li>渲染队列</li>
-<li>Alpha Test (透明裁剪)</li>
-<li>Alpha Blend(透明融合)</li>
-</ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
-</ul>
-<hr>
-<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
-<li>NDC重建世界坐标</li>
-<li>屏幕空间深度图</li>
-<li>屏幕空间法线</li>
-</ul>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/04/unity/ComputerGraphics/" data-id="ckgxyqdoz0011f8nk27j237jz" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/29/MyGameProcess/Dialog01/" data-id="ckgxyqdot000nf8nk70ygg3rt" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vlog/" rel="tag">vlog</a></li></ul>
 
     </footer>
   </div>
@@ -168,19 +106,19 @@ g {color:green;font-weight: 700;}
     
 <nav id="article-nav">
   
-    <a href="/2020/08/09/Others/hezhenyu/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCautics/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">新文章</strong>
       <div class="article-nav-title">
         
-          我入侵了何镇宇的
+          Blender渲染玻璃焦散
         
       </div>
     </a>
   
   
-    <a href="/2020/08/03/unity/unityMatrix/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/29/unity/SummaryUnityShaderNodeEditor/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">旧的</strong>
-      <div class="article-nav-title">unity的经验（杂）</div>
+      <div class="article-nav-title">总结Unity中的材质节点工具</div>
     </a>
   
 </nav>

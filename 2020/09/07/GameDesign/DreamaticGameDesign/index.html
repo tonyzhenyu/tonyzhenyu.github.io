@@ -5,17 +5,17 @@
   
 
   
-  <title>理想的游戏结构 | Ho&#39;s Website</title>
+  <title>未命名的游戏结构 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缝合 泰拉瑞亚的装备库(直接拿过来用啊) 换装（黑魂3）翅膀、移动速度表现(QQ三国) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统功">
+  <meta name="description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   缝合要素 Rogue Like 核心游戏流程：挑选初始角色-&gt;选择愿望-&gt;初始战场（可选择路线）-&gt;通关战场-&gt;选择奖励品-&gt;下一个战场依次进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理想的游戏结构">
+<meta property="og:title" content="未命名的游戏结构">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2020/09/07/GameDesign/DreamaticGameDesign/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="缝合 泰拉瑞亚的装备库(直接拿过来用啊) 换装（黑魂3）翅膀、移动速度表现(QQ三国) 建造系统（paralives、sims like建造系统） 背包系统（SAO） 日夜循环和天气季节系统（实现了一点点） 程序化生成模型（更改数量，高低，长短，队列） 交互式场景（神界原罪中的火焰油电等环境影响） 随机身份和随机世界、随机种子定型 以20分钟为一局的游戏 排位式成长 (备选)末日生存  家园系统功">
+<meta property="og:description" content="r {color:red; font-weight: 700;} yellow {color: yellow ; font-weight: 700;} g {color:green;font-weight: 700;}   缝合要素 Rogue Like 核心游戏流程：挑选初始角色-&gt;选择愿望-&gt;初始战场（可选择路线）-&gt;通关战场-&gt;选择奖励品-&gt;下一个战场依次进行">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-23T11:57:58.021Z">
+<meta property="article:modified_time" content="2020-10-31T17:31:53.145Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="GameDesign">
 <meta name="twitter:card" content="summary">
@@ -85,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      理想的游戏结构
+      未命名的游戏结构
     </h1>
   
 
@@ -93,29 +93,81 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="缝合"><a href="#缝合" class="headerlink" title="缝合"></a>缝合</h1><ul>
+        <style type="text/css">
+r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
+g {color:green;font-weight: 700;}
+</style>
+
+<h1 id="缝合要素"><a href="#缝合要素" class="headerlink" title="缝合要素"></a>缝合要素</h1><hr>
+<h2 id="Rogue-Like-核心"><a href="#Rogue-Like-核心" class="headerlink" title="Rogue Like 核心"></a>Rogue Like 核心</h2><p>游戏流程：<br>挑选初始角色-&gt;选择愿望-&gt;初始战场（可选择路线）-&gt;通关战场-&gt;选择奖励品-&gt;下一个战场<br>依次进行递进和循环、关卡数量越到后面怪物数值成长越高</p>
+<p>角色：角色有等级和成长属性以及潜力表、角色在通过战场后不会恢复血量、角色最多只有4个</p>
+<p>愿望：获得道具、特殊能力、跳关</p>
+<p>奖励品：出招卡、货币、角色、坐骑</p>
+<p>战场：</p>
+<ul>
+<li><p>限时战场（限时完成规定任务即可）</p>
+</li>
+<li><p>解谜战场（怪物数量少、陷阱多、奖励丰富越阶奖励）</p>
+</li>
+<li><p>人质战场（可获得对应角色）</p>
+</li>
+<li><p>夺金战场（提高货币获得率）</p>
+</li>
+<li><p>锻造屋（可升级装备和）</p>
+</li>
+<li><p>神灵社（可升级出招卡或移除出招卡）</p>
+</li>
+<li><p>杂货铺（兜售道具和药水）</p>
+</li>
+<li><p>酒馆（招募或解散角色）</p>
+</li>
+<li><p>真三国无双四的修罗模式（Rogue Like核心）</p>
+<ul>
+<li>真三国无双四修罗模式中的数值成长和战场奇遇</li>
+<li>随机身份和随机世界、随机种子定型（随机战场）</li>
+<li>战场总地图表示方法-世界地图法</li>
+</ul>
+</li>
+<li><p>无双大蛇的连招系统并行拼接法且黑魂耐力值</p>
+</li>
+<li><p>出招表位置数区间为（0,11）</p>
+</li>
+</ul>
+<hr>
+<h2 id="背包和装备"><a href="#背包和装备" class="headerlink" title="背包和装备"></a>背包和装备</h2><p>参考我的世界（有限扩容）<br>物品-&gt;组-&gt;背包<br>背包无限扩容</p>
+<ul>
+<li>背包系统界面（刀剑神域）<ul>
 <li>泰拉瑞亚的装备库(直接拿过来用啊)</li>
-<li>换装（黑魂3）翅膀、移动速度表现(QQ三国)</li>
-<li>建造系统（<code>paralives</code>、<code>sims like建造系统</code>）</li>
-<li>背包系统（SAO）</li>
-<li>日夜循环和天气季节系统（实现了一点点）</li>
-<li>程序化生成模型（更改数量，高低，长短，队列）</li>
-<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
-<li>随机身份和随机世界、随机种子定型</li>
-<li>以20分钟为一局的游戏</li>
-<li>排位式成长</li>
+<li>换装（黑魂3）翅膀、移动速度表现(QQ三国中的移动速度以动作切换)</li>
+<li>神界原罪装备属性</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>用处不大的系统</p>
+<ul>
+<li>(备选)建造系统(<code>paralives</code>、<code>sims like建造系统</code>)</li>
 <li>(备选)末日生存</li>
 </ul>
-<h3 id="家园系统"><a href="#家园系统" class="headerlink" title="家园系统"></a>家园系统</h3><p>功能简述</p>
-<ul>
-<li>车来车往</li>
-<li>日夜循环</li>
-<li>事件触发</li>
-<li>天气系统</li>
-<li>角色寻路</li>
+<hr>
+<h2 id="不影响游戏性的技术内容"><a href="#不影响游戏性的技术内容" class="headerlink" title="不影响游戏性的技术内容"></a>不影响游戏性的技术内容</h2><ul>
+<li>日夜循环和天气季节系统（实现了一点点）</li>
+<li>程序化生成模型内容（更改数量，高低，长短，队列）</li>
 </ul>
-<h3 id="设计一个可复用的背包系统"><a href="#设计一个可复用的背包系统" class="headerlink" title="设计一个可复用的背包系统"></a>设计一个可复用的背包系统</h3><p>参考我的世界（有限扩容）<br>物品-&gt;组-&gt;背包</p>
-<p>背包无限扩容<br>神界原罪</p>
+<hr>
+<h2 id="重点内容"><a href="#重点内容" class="headerlink" title="重点内容"></a>重点内容</h2><ul>
+<li>只要游戏能产出职业和流派，基本上就能够达成初始目标。</li>
+<li>以20分钟左右为一局的游戏</li>
+<li>无双大蛇的出招系统，鬼泣5的动作衔接，拼接型的出招表（可自定义，每过一关可选新增动作）</li>
+<li>交互式场景（神界原罪中的火焰油电等环境影响）</li>
+<li>用户黏度<ul>
+<li>排位式成长(青铜-&gt;白银-&gt;黄金-&gt;钻石-&gt;最强王者)<r>衡量单位需要确定</r></li>
+<li>多人联机</li>
+<li>战场乱入</li>
+</ul>
+</li>
+</ul>
 <h2 id="装备系统"><a href="#装备系统" class="headerlink" title="装备系统"></a>装备系统</h2><p>参考QQ三国，DNF，神界原罪</p>
 <p>&emsp;&emsp;神界原罪中的装备系统，装备能跟上等级的成长，但是在实际的<code>药品</code>，<code>投掷物</code>和<code>卷轴</code>都没有随着等级跟着成长，而且大多数的收集制作道具在前中后期都成为了摆设，占用了背包空间，也没有起到实际作用，很多时候购买到的装备都能比手作装备品质好，制作的过程也会比较麻烦，虽然说专门去收集还是能体验到乐趣，但是往往某些固定道具总是会比制作的道具好，就直接碾压了自己制作装备道具的初衷。另外，装备品质分为白、绿、蓝、紫、红、黄的六个品质，并没有在每个阶段都产出，品质越高的装备往往只能在高等级的时候才能得到，也就直接导致了一个断层现象的出现，或者等级秒杀的现象。</p>
 <p>&emsp;&emsp;QQ三国中的装备系统较为复杂，有一些精良的设计在里面，比如<code>宝石镶嵌</code>、<code>装备关系</code>，和装备属性都是值得参考的一点，不过作为MMORPG最主要的还是骗氪，作为能不氪就不氪的穷人，只能靠实际时间换游戏币，搬砖也成为了MMORPG的日常。</p>
@@ -124,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/DreamaticGameDesign/" data-id="ckgm7a53e000g8yiwa5ava0ut" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/DreamaticGameDesign/" data-id="ckgxyqdos000lf8nk03fudr81" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameDesign/" rel="tag">GameDesign</a></li></ul>
@@ -166,6 +218,10 @@
       <ul>
         
           <li>
+            <a href="/2020/10/30/ComputerGraphics/LakeCabin/">湖中小屋</a>
+          </li>
+        
+          <li>
             <a href="/2020/10/22/ComputerGraphics/BlenderRenderingCar/">Blender渲染汽车Mazda rx7</a>
           </li>
         
@@ -174,15 +230,11 @@
           </li>
         
           <li>
+            <a href="/2020/09/29/MyGameProcess/Dialog01/">aaa</a>
+          </li>
+        
+          <li>
             <a href="/2020/09/29/unity/SummaryUnityShaderNodeEditor/">总结Unity中的材质节点工具</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/29/unity/UnityPostProcessingStack/">使用PPS自定义后处理着色器</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/25/ComputerGraphics/ComplexLighting/">复杂光照</a>
           </li>
         
       </ul>
@@ -194,7 +246,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GameDesign/">GameDesign</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GameDesign/">GameDesign</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MyGameDialog/">MyGameDialog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity/">Unity</a></li></ul>
     </div>
   </div>
 
