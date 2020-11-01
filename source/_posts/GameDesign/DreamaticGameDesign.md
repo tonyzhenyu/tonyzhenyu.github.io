@@ -47,11 +47,12 @@ blue{color:blue;font-weight: 700;}
 
 ---
 
-## &emsp;&emsp;出招卡：
+## 出招卡：
 
 按照出招类型分类：
 - N卡(Normal)=普通攻击
-  - N卡(Normal)=冲刺攻击
+  - 冲刺攻击
+  - 空中攻击
 - C卡(Charge)=蓄力攻击
   - 空中C技
 - B卡(Block)=格挡
