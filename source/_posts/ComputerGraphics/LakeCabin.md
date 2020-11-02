@@ -76,7 +76,7 @@ categories:
 ---
 
 各种不同的角度
-![lakecabin_ho'srender-33]https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg
+![lakecabin_ho'srender-33](https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg)
 ![lakecabin_ho'srender-38](https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg)
 ![lakecabin_ho'srender-36](https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg)
 ![lakecabin_ho'srender-40](https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg)
