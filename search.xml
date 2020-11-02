@@ -252,7 +252,7 @@ vertex color : PaintMap</code></pre>
 <hr>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
 <hr>
-<p>各种不同的角度<br>![lakecabin_ho’srender-33]<a href="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg">https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg</a><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
+<p>各种不同的角度<br><img src="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg" alt="lakecabin_ho&#39;srender-33"><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
 ]]></content>
       <categories>
         <category>Graphics</category>
