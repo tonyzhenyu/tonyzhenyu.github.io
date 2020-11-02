@@ -15,20 +15,23 @@ categories:
 &emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。
 
 ---
-# 参考图
-![ref.png](https://i.loli.net/2020/11/01/aoH8C2KQOxerNpD.png)
-
----
-项目规格:
+<p style ="color: green;">项目规格:</p>
 贴图上限2048*2048
 贴图格式png
 观察距离1.5米内
 使用到模型顶点权重
 
 ---
+
+
+![lakecabin_ho'sref](https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg)
+参考图
+
+
+---
 # 完成的资源
 ![nonlight view.png](https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png)
-![Scene.png](https://i.loli.net/2020/11/01/h1OGnK768rcNkLm.png)
+![lakecabin_ho_sresources.jpg](https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg)
 
 汇总：
 
@@ -56,11 +59,11 @@ categories:
 
 # 整合后
 
-无光照参与：
+无全局光参与：
+![lakecabin_ho'srender-32-nonlight2](https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg)
 
-![render-32-nonlight.png](https://i.loli.net/2020/11/01/ScHbGIEmf69nyTj.png)
 全局光照明：
-![render-32.png](https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png)
+![lakecabin_ho_srender-32](https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg)
 
 ---
 
@@ -70,12 +73,11 @@ categories:
 &emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。
 
 ---
-# 各种不一样的角度
-![render-38.png](https://i.loli.net/2020/11/01/l7jnxIyBANWfMXa.png)
-![render-41.png](https://i.loli.net/2020/11/01/szk9O3A5UitCcvh.png)
-![render-39.png](https://i.loli.net/2020/11/01/oi2tD4erkdsIETq.png)
-![render-33.png](https://i.loli.net/2020/11/01/sEKyTzGhuMIj2rX.png)
-![render-36.png](https://i.loli.net/2020/11/01/17lbZQOxW34FTw2.png)
-![render-37.png](https://i.loli.net/2020/11/01/RSUkaywmHQfvrOu.png)
-![render-34.png](https://i.loli.net/2020/11/01/sdAeKwTlPjvOaoq.png)
 
+各种不同的角度
+![lakecabin_ho'srender-33]https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg
+![lakecabin_ho'srender-38](https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg)
+![lakecabin_ho'srender-36](https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg)
+![lakecabin_ho'srender-40](https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg)
+![lakecabin_ho_srender-34](https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg)
+![lakecabin_ho'srender-37](https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg)
