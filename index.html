@@ -927,11 +927,16 @@
 <hr>
 <p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
 <hr>
-<h1 id="参考图"><a href="#参考图" class="headerlink" title="参考图"></a>参考图</h1><p><img src="https://i.loli.net/2020/11/01/aoH8C2KQOxerNpD.png" alt="ref.png"></p>
+<p style ="color: green;">项目规格:</p>
+贴图上限2048*2048
+贴图格式png
+观察距离1.5米内
+使用到模型顶点权重
+
 <hr>
-<p>项目规格:<br>贴图上限2048*2048<br>贴图格式png<br>观察距离1.5米内<br>使用到模型顶点权重</p>
+<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
 <hr>
-<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/01/h1OGnK768rcNkLm.png" alt="Scene.png"></p>
+<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
 <p>汇总：</p>
 <ul>
 <li>树<ul>
@@ -948,17 +953,17 @@
 </ul>
 <p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
 <hr>
-<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无光照参与：</p>
-<p><img src="https://i.loli.net/2020/11/01/ScHbGIEmf69nyTj.png" alt="render-32-nonlight.png"><br>全局光照明：<br><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
+<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
+<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
 <hr>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
 <hr>
-<h1 id="各种不一样的角度"><a href="#各种不一样的角度" class="headerlink" title="各种不一样的角度"></a>各种不一样的角度</h1><p><img src="https://i.loli.net/2020/11/01/l7jnxIyBANWfMXa.png" alt="render-38.png"><br><img src="https://i.loli.net/2020/11/01/szk9O3A5UitCcvh.png" alt="render-41.png"><br><img src="https://i.loli.net/2020/11/01/oi2tD4erkdsIETq.png" alt="render-39.png"><br><img src="https://i.loli.net/2020/11/01/sEKyTzGhuMIj2rX.png" alt="render-33.png"><br><img src="https://i.loli.net/2020/11/01/17lbZQOxW34FTw2.png" alt="render-36.png"><br><img src="https://i.loli.net/2020/11/01/RSUkaywmHQfvrOu.png" alt="render-37.png"><br><img src="https://i.loli.net/2020/11/01/sdAeKwTlPjvOaoq.png" alt="render-34.png"></p>
+<p>各种不同的角度<br>![lakecabin_ho’srender-33]<a target="_blank" rel="noopener" href="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg">https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg</a><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/11/01/ComputerGraphics/LakeCabin/" data-id="ckgz9o1d5000az3nbfhna7dxk" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/11/01/ComputerGraphics/LakeCabin/" data-id="ckgzx8qfq000a04nd19273xys" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/render/" rel="tag">render</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li></ul>
@@ -1036,7 +1041,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/10/22/ComputerGraphics/BlenderRenderingCar/" data-id="ckgz9o1d10004z3nbf0bx8bg4" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/10/22/ComputerGraphics/BlenderRenderingCar/" data-id="ckgzx8qfl000404ndche33rja" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blend/" rel="tag">Blend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -1088,7 +1093,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/10/22/ComputerGraphics/BlenderRenderingCautics/" data-id="ckgz9o1d20005z3nb585f2iaw" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/10/22/ComputerGraphics/BlenderRenderingCautics/" data-id="ckgzx8qfn000504ndh9cbhjjk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blend/" rel="tag">Blend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -1130,7 +1135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/29/MyGameProcess/Dialog01/" data-id="ckgz9o1dc000nz3nb64lu1ini" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/29/MyGameProcess/Dialog01/" data-id="ckgzx8qfy000n04nd2nxvcj2w" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vlog/" rel="tag">vlog</a></li></ul>
@@ -1179,7 +1184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/29/unity/SummaryUnityShaderNodeEditor/" data-id="ckgz9o1dk0018z3nb9zrx4ktd" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/29/unity/SummaryUnityShaderNodeEditor/" data-id="ckgzx8qg7001804nd6v0n0pl9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Editor/" rel="tag">Editor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/" rel="tag">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -1224,7 +1229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/29/unity/UnityPostProcessingStack/" data-id="ckgz9o1dl001dz3nbhoqtfio1" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/29/unity/UnityPostProcessingStack/" data-id="ckgzx8qg8001d04nd2cf08qgh" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostProcessingStack/" rel="tag">PostProcessingStack</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -1283,7 +1288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/ComplexLighting/" data-id="ckgz9o1d40009z3nb5vz1eac2" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/25/ComputerGraphics/ComplexLighting/" data-id="ckgzx8qfp000904ndh2rrg0zg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/render/" rel="tag">render</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li></ul>
@@ -1347,7 +1352,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/23/ComputerGraphics/BlenderColorBlend/" data-id="ckgz9o1cy0001z3nbekceahea" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/23/ComputerGraphics/BlenderColorBlend/" data-id="ckgzx8qfi000104nd2lkx7ayw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blend/" rel="tag">Blend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -1412,7 +1417,7 @@ vertex color : PaintMap</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/" data-id="ckgz9o1d30006z3nb9e2h1jjy" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/21/ComputerGraphics/BlenderStylizedWaterMaterial/" data-id="ckgzx8qfo000604ndd2ozfyi5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li></ul>
@@ -1556,7 +1561,7 @@ blue{color:blue;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/DreamaticGameDesign/" data-id="ckgz9o1da000lz3nbc30kbi82" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/07/GameDesign/DreamaticGameDesign/" data-id="ckgzx8qfx000l04nd0zrz9rqa" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GameDesign/" rel="tag">GameDesign</a></li></ul>
@@ -1613,7 +1618,7 @@ blue{color:blue;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/RiggingExp/" data-id="ckgz9o1dj0015z3nbbo7t9nuf" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/RiggingExp/" data-id="ckgzx8qg5001504ndepzq6zfx" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Character/" rel="tag">Character</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rig/" rel="tag">Rig</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -1667,7 +1672,7 @@ blue{color:blue;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" data-id="ckgz9o1el003jz3nb5t0a6xv6" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" data-id="ckgzx8qhd003l04ndfk3t5c1r" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dataarchitecture/" rel="tag">dataarchitecture</a></li></ul>
@@ -1788,7 +1793,7 @@ fixed shadow = SHADOW_ATTENUATION(i); //根据贴图与纹理坐标对纹理采�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckgz9o1d7000ez3nb4g6ifqg4" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/09/04/ComputerGraphics/LambertLightingInUnity/" data-id="ckgzx8qft000e04ndh0e2ezft" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -1836,7 +1841,7 @@ point cloud</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/27/ComputerGraphics/voxelrendering/" data-id="ckgz9o1d8000gz3nbcbr1hmpq" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/27/ComputerGraphics/voxelrendering/" data-id="ckgzx8qfu000g04nda3ti59d9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/future/" rel="tag">future</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rendering/" rel="tag">rendering</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/voxel/" rel="tag">voxel</a></li></ul>
@@ -1916,7 +1921,7 @@ point cloud</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/23/Others/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/" data-id="ckgz9o1dg000zz3nb2ymy9h5y" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/23/Others/%E5%B7%A5%E4%BD%9C%E4%B8%8A%E7%9A%84%E7%94%B3%E8%AF%B7%E4%BA%8B%E9%A1%B9/" data-id="ckgzx8qg2000z04nddsx72gl1" class="article-share-link">分享</a>
       
       
     </footer>
@@ -1964,7 +1969,7 @@ point cloud</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/09/Others/hezhenyu/" data-id="ckgz9o1de000uz3nb4puefo3y" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/09/Others/hezhenyu/" data-id="ckgzx8qg1000u04ndgjoub9fx" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fang/" rel="tag">fang</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hezhenyu/" rel="tag">hezhenyu</a></li></ul>
@@ -2065,7 +2070,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/04/unity/ComputerGraphics/" data-id="ckgz9o1dh0011z3nb92t12ub1" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/04/unity/ComputerGraphics/" data-id="ckgzx8qg4001104nd96fah4lu" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -2168,7 +2173,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/03/unity/unityMatrix/" data-id="ckgz9o1e50039z3nb55taf0il" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/03/unity/unityMatrix/" data-id="ckgzx8qg9001f04nddmx7626g" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/" rel="tag">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li></ul>
@@ -4866,7 +4871,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/02/Resources/Models/" data-id="ckgz9o1ei003dz3nb2yz8dyiv" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/02/Resources/Models/" data-id="ckgzx8qha003f04ndgjuq0tp6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data/" rel="tag">data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tables/" rel="tag">tables</a></li></ul>
@@ -4974,7 +4979,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/02/Others/blogroll/" data-id="ckgz9o1dd000rz3nbfu8x05ul" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/02/Others/blogroll/" data-id="ckgzx8qfz000r04nd2ckobxnr" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/links/" rel="tag">links</a></li></ul>
@@ -5048,7 +5053,7 @@ g {color:green;font-weight: 700;}
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2020/08/01/index/" data-id="ckgz9o1cu0000z3nbeqzuf2n1" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2020/08/01/index/" data-id="ckgzx8qfd000004nd2q3i419w" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/post/" rel="tag">post</a></li></ul>

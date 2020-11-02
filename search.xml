@@ -219,11 +219,16 @@ vertex color : PaintMap</code></pre>
 <hr>
 <p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
 <hr>
-<h1 id="参考图"><a href="#参考图" class="headerlink" title="参考图"></a>参考图</h1><p><img src="https://i.loli.net/2020/11/01/aoH8C2KQOxerNpD.png" alt="ref.png"></p>
+<p style ="color: green;">项目规格:</p>
+贴图上限2048*2048
+贴图格式png
+观察距离1.5米内
+使用到模型顶点权重
+
 <hr>
-<p>项目规格:<br>贴图上限2048*2048<br>贴图格式png<br>观察距离1.5米内<br>使用到模型顶点权重</p>
+<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
 <hr>
-<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/01/h1OGnK768rcNkLm.png" alt="Scene.png"></p>
+<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
 <p>汇总：</p>
 <ul>
 <li>树<ul>
@@ -240,12 +245,12 @@ vertex color : PaintMap</code></pre>
 </ul>
 <p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
 <hr>
-<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无光照参与：</p>
-<p><img src="https://i.loli.net/2020/11/01/ScHbGIEmf69nyTj.png" alt="render-32-nonlight.png"><br>全局光照明：<br><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
+<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
+<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
 <hr>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
 <hr>
-<h1 id="各种不一样的角度"><a href="#各种不一样的角度" class="headerlink" title="各种不一样的角度"></a>各种不一样的角度</h1><p><img src="https://i.loli.net/2020/11/01/l7jnxIyBANWfMXa.png" alt="render-38.png"><br><img src="https://i.loli.net/2020/11/01/szk9O3A5UitCcvh.png" alt="render-41.png"><br><img src="https://i.loli.net/2020/11/01/oi2tD4erkdsIETq.png" alt="render-39.png"><br><img src="https://i.loli.net/2020/11/01/sEKyTzGhuMIj2rX.png" alt="render-33.png"><br><img src="https://i.loli.net/2020/11/01/17lbZQOxW34FTw2.png" alt="render-36.png"><br><img src="https://i.loli.net/2020/11/01/RSUkaywmHQfvrOu.png" alt="render-37.png"><br><img src="https://i.loli.net/2020/11/01/sdAeKwTlPjvOaoq.png" alt="render-34.png"></p>
+<p>各种不同的角度<br>![lakecabin_ho’srender-33]<a href="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg">https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg</a><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
 ]]></content>
       <categories>
         <category>Graphics</category>
