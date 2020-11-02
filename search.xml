@@ -220,11 +220,13 @@ vertex color : PaintMap</code></pre>
 <p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
 <hr>
 <p style ="color: green;">项目规格:</p>
-贴图上限2048*2048
-贴图格式png
-观察距离1.5米内
-使用到模型顶点权重
 
+<ul>
+<li>贴图上限2048*2048</li>
+<li>贴图格式png</li>
+<li>观察距离1.5米内</li>
+<li>使用到模型顶点权重</li>
+</ul>
 <hr>
 <p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
 <hr>
