@@ -553,6 +553,51 @@ Whole Forward Rendering Pipeline workflow</code></pre>
       </categories>
   </entry>
   <entry>
+    <title>2021年7月17日工作总结</title>
+    <url>/2021/07/17/Others/2021%E5%B9%B47%E6%9C%8817%E6%97%A5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="工作总结（季度总结）"><a href="#工作总结（季度总结）" class="headerlink" title="工作总结（季度总结）"></a>工作总结（季度总结）</h2><ul>
+<li>随着图形学学习的深入，图形学方面的知识和论文有太多太多，世界如此之大。</li>
+<li>做gameplay模块时在一步步的探索中时间不知不觉的流逝，但是手感还没有达到自己想要的效果。</li>
+<li>blender 开源的发展越来越强大，随着研究blender的深入，开始接触了在blender中研究addon的编写和blender中的api。</li>
+</ul>
+<h2 id="旧项目资源（百变特工unity）："><a href="#旧项目资源（百变特工unity）：" class="headerlink" title="旧项目资源（百变特工unity）："></a>旧项目资源（百变特工unity）：</h2><ul>
+<li>根据输入的氛围图批量制作对应题材的氛围图一共60张2周做完。</li>
+</ul>
+<h2 id="新游戏项目资源-末世打僵尸（UE4）："><a href="#新游戏项目资源-末世打僵尸（UE4）：" class="headerlink" title="新游戏项目资源-末世打僵尸（UE4）："></a>新游戏项目资源-末世打僵尸（UE4）：</h2><ul>
+<li>制作了街道场景和医院场景</li>
+<li>街道场景-新制作方法，根据贴图快速搭建（利用shoebox抠出无透视贴图）</li>
+<li>一套新型的blender制作pbr模型流程（使用blender进行烘焙贴图或使用substance）</li>
+<li>医院的场景实现了第二条的流程，精度非常高，还有制作一些动态资源（炮塔和卷帘门）并且在UE4里走了一遍模型烘焙的流程，遇到非常多的问题。</li>
+<li>制作了UE4基础PBR的母材质，供美术同学使用，美术同学提出更多的功能需求将会逐一添加。</li>
+<li>总结UE4的操作很反人类。</li>
+<li>多人合作搭建场景时一定要注意小组的分配问题，主导辅助和资源创建的角色分配。不能一窝蜂的上传文件，svn是这方面的好帮手。</li>
+</ul>
+<h2 id="unity顶视角动作游戏制作的探索："><a href="#unity顶视角动作游戏制作的探索：" class="headerlink" title="unity顶视角动作游戏制作的探索："></a>unity顶视角动作游戏制作的探索：</h2><ul>
+<li>动作控制器</li>
+<li>操作管理器</li>
+<li>相机跟踪控制器和虚拟相机</li>
+<li>一些简单shader</li>
+<li>A*寻路算法</li>
+<li>贝塞尔曲线的应用</li>
+</ul>
+<p>&emsp;&emsp;Unity中的顶视角动作游戏项目探索，制作了基于状态机的一个动作系统，基本流畅运行，实现了走跑跳、滑铲跳、闪避、后跳、翻滚、攀爬、攻击连段、反向奔跑、充能攻击、受击、死亡、倒地、倒地站立的功能。制作过程中参考了非常多的游戏，如apex\黑魂\神界原罪等<br>&emsp;&emsp;实现了手机触摸按键和键盘输入按键的无缝切换，并且基于一个按键单元写出不同的按键行为如单击，双击，长按，按住的四种行为。<br>&emsp;&emsp;实现了建模软件中的动画资源制作流程线管的搭建，从blender到unity中导出的fbx数据进行适配使用unity中的重定向功能保证动画的准确运行。保证了动画师在blender中的一套带rigging的绑定控制器的同时能保证正确的导出动画资源。前期使用了mixamo中的动画资源和在unity商店中售卖的一些动作资源，还有从UE4中导出的动画资源都能按照骨骼重定向的功能对应匹配。<br>&emsp;&emsp;实现了智能相机跟踪，在接收到角色控制器中传来的消息时能按照自己的逻辑做出对应的相机跟踪功能。</p>
+<p>用到最多的是线性代数的知识，矩阵向量坐标系和欧拉角都非常重要。<br>实现了广告板billboard shader 和一些简单的shader 。<br>重写了A*寻路算法，应用在基于2维平面上的方阵计算。</p>
+<h2 id="提升制作效率的工具（截至至7-17）："><a href="#提升制作效率的工具（截至至7-17）：" class="headerlink" title="提升制作效率的工具（截至至7.17）："></a>提升制作效率的工具（截至至7.17）：</h2><ul>
+<li>模型制作方面，贴图工具shoebox，uv工具uv packer ，材质烘焙工具bake helper.</li>
+<li>UE4 ModularSnapSystem</li>
+</ul>
+<h2 id="渲染方面的研究（实时渲染方向）："><a href="#渲染方面的研究（实时渲染方向）：" class="headerlink" title="渲染方面的研究（实时渲染方向）："></a>渲染方面的研究（实时渲染方向）：</h2><p>重新通读了冯乐乐的unity shader入门精要。<br>计算机图形学入门-Games101 通读了一遍。巩固了基础，看到了图形学非常强大又非常庞大的一面。<br>光栅化实时渲染的流程用blender opengl过了一遍。<br>光线追踪的全局渲染流程，通读了one week raytracing 用c++生成的.ppm图像过了一遍。</p>
+<h2 id="未来方向："><a href="#未来方向：" class="headerlink" title="未来方向："></a>未来方向：</h2><ul>
+<li>学习更高级的实时渲染，熟悉更多的图形api和针对显卡的工作方式进行研究。</li>
+<li>三维重建和CAD方面拓展。</li>
+<li>希望能完全掌握blender和参与到blender中的开发。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Others</category>
+      </categories>
+  </entry>
+  <entry>
     <title>友情连接</title>
     <url>/2020/08/02/Others/blogroll/</url>
     <content><![CDATA[<center>让我看看是谁在线？</center>
@@ -828,102 +873,6 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>unity</tag>
         <tag>PostProcessingStack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity的经验（杂）</title>
-    <url>/2020/08/03/unity/unityMatrix/</url>
-    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
-<hr>
-<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
-<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
-</li>
-<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
-<font color="lighgrey"> </li>
-<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
-</font>
-</li>
-<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
-</li>
-<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
-</li>
-<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
-</li>
-</ul>
-<hr>
-<h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
-<hr>
-<p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
-<hr>
-<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
-
-    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
-    float2 texCoord = float2(
-         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
-         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
-    );
-
-    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
-
-    float4 sampledNormals = tex2D(normalSampler, texCoord);
-    if (sampledNormals.a == 0)
-        clip(-1);
-
-    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
-    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
-    //Thickness is easy to calculate.
-
-    float backDepth = input.Depth;
-    float frontDepth = tex2D(depthSampler, texCoord);
-    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
-
-    //This is the surface colour of the transparent object
-
-    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
-
-    //This is the colour of the scene behind the object
-
-    float3 background = tex2D(lightbufferSample, texCoord).rgb;
-
-    //now blend them. Blending function varies per material
-
-    return Blend(opaque, background, thickness);</code></pre>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>各种树形数据结构</title>
-    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>一次等分存储</li>
-<li>一阶储存器</li>
-</ul>
-<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
-<li>二维图像储存</li>
-<li>二次等分细分</li>
-</ul>
-<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
-<li>三维空间数据储存体素</li>
-<li>三次等分细分</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>dataarchitecture</tag>
       </tags>
   </entry>
   <entry>
@@ -3592,6 +3541,102 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>data</tag>
         <tag>tables</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity的经验（杂）</title>
+    <url>/2020/08/03/unity/unityMatrix/</url>
+    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
+<hr>
+<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
+<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
+</li>
+<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
+<font color="lighgrey"> </li>
+<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
+</font>
+</li>
+<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
+</li>
+<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
+</li>
+<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
+</li>
+</ul>
+<hr>
+<h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<hr>
+<p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
+<hr>
+<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
+
+    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
+    float2 texCoord = float2(
+         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
+         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
+    );
+
+    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
+
+    float4 sampledNormals = tex2D(normalSampler, texCoord);
+    if (sampledNormals.a == 0)
+        clip(-1);
+
+    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
+    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
+    //Thickness is easy to calculate.
+
+    float backDepth = input.Depth;
+    float frontDepth = tex2D(depthSampler, texCoord);
+    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
+
+    //This is the surface colour of the transparent object
+
+    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
+
+    //This is the colour of the scene behind the object
+
+    float3 background = tex2D(lightbufferSample, texCoord).rgb;
+
+    //now blend them. Blending function varies per material
+
+    return Blend(opaque, background, thickness);</code></pre>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种树形数据结构</title>
+    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
+</ul>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>dataarchitecture</tag>
       </tags>
   </entry>
 </search>
