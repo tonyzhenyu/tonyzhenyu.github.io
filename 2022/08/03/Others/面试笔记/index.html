@@ -5,13 +5,17 @@
   
 
   
-  <title>内容: GameDesign | Ho&#39;s Website</title>
+  <title>Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="2022 0714 （IGG 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） 累积半透明抖动算法（时域数据）   uitool kit 简单讲讲大地形渲染">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Ho&#39;s Website">
-<meta property="og:url" content="http://tonyzhenyu.github.io/categories/GameDesign/index.html">
+<meta property="og:url" content="http://tonyzhenyu.github.io/2022/08/03/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
+<meta property="og:description" content="2022 0714 （IGG 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） 累积半透明抖动算法（时域数据）   uitool kit 简单讲讲大地形渲染">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-03T04:37:47.847Z">
+<meta property="article:modified_time" content="2022-08-03T04:37:47.847Z">
 <meta property="article:author" content="Tony Ho">
 <meta name="twitter:card" content="summary">
   
@@ -62,40 +66,93 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/07/GameDesign/DreamaticGameDesign/" class="archive-article-date">
-  <time datetime="2020-09-07T00:00:00.000Z" itemprop="datePublished">9月 7</time>
+        <section id="main"><article id="post-Others/面试笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/03/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2022-08-03T04:37:47.847Z" itemprop="datePublished">2022-08-03</time>
 </a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/07/GameDesign/DreamaticGameDesign/">未命名的游戏结构</a>
-    </h1>
-  
-
-    </header>
+    
   </div>
-</article>
-  
-  
-    </div></section>
-  
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2022-0714-（IGG-阿尔宙斯）"><a href="#2022-0714-（IGG-阿尔宙斯）" class="headerlink" title="2022 0714 （IGG 阿尔宙斯）"></a>2022 0714 （IGG 阿尔宙斯）</h2><ul>
+<li>urp中的绘制顺序是怎么样的？</li>
+<li>过渡绘制怎么解决？</li>
+<li>unity 半透明的乱序如何解决<ul>
+<li>Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现</li>
+<li>unity 半透明渲染技巧(1)：固定深度法</li>
+<li>顺序无关的半透明混合（OIT）</li>
+<li>累积半透明抖动算法（时域数据）</li>
+</ul>
+</li>
+<li>uitool kit</li>
+<li>简单讲讲大地形渲染的技术<ul>
+<li>nature render</li>
+<li>ntk 插件</li>
+</ul>
+</li>
+<li>毛发渲染中有哪些技术？<ul>
+<li>ATI kajiya-kay anistropy brdf</li>
+<li>处理半透明混合</li>
+<li>动态骨骼和骨骼代理检测模型碰撞</li>
+</ul>
+</li>
+<li>草地渲染 优化<ul>
+<li>pre-z</li>
+<li>early-z</li>
+<li>hi-z occlusion culling</li>
+<li>hiden-surface render</li>
+<li>ue4 visible buffer Visibility Buffer </li>
+</ul>
+</li>
+<li>URP线管和内置渲染线管的区别<ul>
+<li>CG和HLSL区别是什么</li>
+</ul>
+</li>
+<li>深度图depth 和normal是怎么渲染的？</li>
+</ul>
+<h2 id="2022-0721-（游族）"><a href="#2022-0721-（游族）" class="headerlink" title="2022 0721 （游族）"></a>2022 0721 （游族）</h2><ul>
+<li>PBR 有什么光？漫反射 specular environment</li>
+<li>dx渲染底层 vs 和ps 之间做了什么？</li>
+<li>ps之后做了什么？</li>
+<li>什么是IBL渲染？</li>
+<li>3x3旋转矩阵有何特性？正交性</li>
+<li>为什么要用PBR？</li>
+<li>用什么工具做性能检测和测试？</li>
+</ul>
+<h2 id="2022-0803-劲舞团"><a href="#2022-0803-劲舞团" class="headerlink" title="2022 0803 (劲舞团)"></a>2022 0803 (劲舞团)</h2><ul>
+<li>SRP batcher合并有哪些条件？</li>
+<li>URP 的灯光渲染pass是如何执行的？</li>
+<li>SSR 实现逻辑是什么？</li>
+<li>镜面反射的实现逻辑是什么？</li>
+<li>有实机在手机上测试过渲染性能嘛？用何种工具？</li>
+</ul>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tonyzhenyu.github.io/2022/08/03/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" data-id="cl6d4c2870018evom3y8shce5" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/17/Others/2021%E5%B9%B47%E6%9C%8817%E6%97%A5%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">旧的</strong>
+      <div class="article-nav-title">2021年7月17日工作总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

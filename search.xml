@@ -741,139 +741,61 @@ Whole Forward Rendering Pipeline workflow</code></pre>
       </categories>
   </entry>
   <entry>
-    <title>图形学自我总结</title>
-    <url>/2020/08/04/unity/ComputerGraphics/</url>
-    <content><![CDATA[<style type="text/css">
-r {color:red; font-weight: 700;}
-yellow {color: yellow ; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
-<hr>
-<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
-<li>冯氏光照模型</li>
-<li>兰伯特光照模型</li>
-<li>半兰伯特光照模型</li>
-<li>基于物理渲染</li>
-<li>IBL基于图片光照着色</li>
-<li>利用渐变纹理实现伪BRDF</li>
+    <title></title>
+    <url>/2022/08/03/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="2022-0714-（IGG-阿尔宙斯）"><a href="#2022-0714-（IGG-阿尔宙斯）" class="headerlink" title="2022 0714 （IGG 阿尔宙斯）"></a>2022 0714 （IGG 阿尔宙斯）</h2><ul>
+<li>urp中的绘制顺序是怎么样的？</li>
+<li>过渡绘制怎么解决？</li>
+<li>unity 半透明的乱序如何解决<ul>
+<li>Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现</li>
+<li>unity 半透明渲染技巧(1)：固定深度法</li>
+<li>顺序无关的半透明混合（OIT）</li>
+<li>累积半透明抖动算法（时域数据）</li>
 </ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
+</li>
+<li>uitool kit</li>
+<li>简单讲讲大地形渲染的技术<ul>
+<li>nature render</li>
+<li>ntk 插件</li>
 </ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
-<li>Vertex Offset 顶点变换</li>
+</li>
+<li>毛发渲染中有哪些技术？<ul>
+<li>ATI kajiya-kay anistropy brdf</li>
+<li>处理半透明混合</li>
+<li>动态骨骼和骨骼代理检测模型碰撞</li>
 </ul>
-<hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
+</li>
+<li>草地渲染 优化<ul>
+<li>pre-z</li>
+<li>early-z</li>
+<li>hi-z occlusion culling</li>
+<li>hiden-surface render</li>
+<li>ue4 visible buffer Visibility Buffer </li>
 </ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
+</li>
+<li>URP线管和内置渲染线管的区别<ul>
+<li>CG和HLSL区别是什么</li>
 </ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>Transparency 透射效果</li>
-<li>Refraction 折射效果</li>
-<li>渲染队列</li>
-<li>Alpha Test (透明裁剪)</li>
-<li>Alpha Blend(透明融合)</li>
+</li>
+<li>深度图depth 和normal是怎么渲染的？</li>
 </ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-<li><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
+<h2 id="2022-0721-（游族）"><a href="#2022-0721-（游族）" class="headerlink" title="2022 0721 （游族）"></a>2022 0721 （游族）</h2><ul>
+<li>PBR 有什么光？漫反射 specular environment</li>
+<li>dx渲染底层 vs 和ps 之间做了什么？</li>
+<li>ps之后做了什么？</li>
+<li>什么是IBL渲染？</li>
+<li>3x3旋转矩阵有何特性？正交性</li>
+<li>为什么要用PBR？</li>
+<li>用什么工具做性能检测和测试？</li>
 </ul>
-<hr>
-<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
-<li>NDC重建世界坐标</li>
-<li>屏幕空间深度图</li>
-<li>屏幕空间法线</li>
+<h2 id="2022-0803-劲舞团"><a href="#2022-0803-劲舞团" class="headerlink" title="2022 0803 (劲舞团)"></a>2022 0803 (劲舞团)</h2><ul>
+<li>SRP batcher合并有哪些条件？</li>
+<li>URP 的灯光渲染pass是如何执行的？</li>
+<li>SSR 实现逻辑是什么？</li>
+<li>镜面反射的实现逻辑是什么？</li>
+<li>有实机在手机上测试过渲染性能嘛？用何种工具？</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>你不懂绑骨的痛</title>
-    <url>/2020/09/06/unity/RiggingExp/</url>
-    <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
-<h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
-<li>绑定骨骼定位</li>
-<li>蒙皮skining</li>
-<li>骨骼权重</li>
-<li>ik骨骼和fk骨骼控制器的制作 customize visibility type</li>
-</ul>
-<h1 id="角色骨骼绑定方案设计"><a href="#角色骨骼绑定方案设计" class="headerlink" title="角色骨骼绑定方案设计"></a>角色骨骼绑定方案设计</h1><ul>
-<li>提供初始裸模</li>
-<li>检查模型后进行绑定，蒙皮骨骼运算</li>
-<li>调整骨骼皮肤的权重</li>
-<li>为模型制作控制器（手部脚部IK）</li>
-<li>自定义控制器形状，并且设定仅导出蒙皮骨骼</li>
-<li>坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Blender</tag>
-        <tag>unity</tag>
-        <tag>Rig</tag>
-        <tag>Character</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>总结Unity中的材质节点工具</title>
-    <url>/2020/09/29/unity/SummaryUnityShaderNodeEditor/</url>
-    <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
-<h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
-<h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
-<h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
-<h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
-<h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
-<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年，专门用于制作地形高度图</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>Editor</tag>
-        <tag>Summary</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用PPS自定义后处理着色器</title>
-    <url>/2020/09/29/unity/UnityPostProcessingStack/</url>
-    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
-<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
-<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>PostProcessingStack</tag>
-      </tags>
   </entry>
   <entry>
     <title>资源整理【表格】</title>
@@ -3541,6 +3463,141 @@ g {color:green;font-weight: 700;}
       <tags>
         <tag>data</tag>
         <tag>tables</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学自我总结</title>
+    <url>/2020/08/04/unity/ComputerGraphics/</url>
+    <content><![CDATA[<style type="text/css">
+r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
+g {color:green;font-weight: 700;}
+</style>
+
+<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
+<hr>
+<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
+<li>冯氏光照模型</li>
+<li>兰伯特光照模型</li>
+<li>半兰伯特光照模型</li>
+<li>基于物理渲染</li>
+<li>IBL基于图片光照着色</li>
+<li>利用渐变纹理实现伪BRDF</li>
+</ul>
+<hr>
+<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
+<li>percentage closed soft shadow(pcss 阴影)</li>
+<li>方差阴影</li>
+</ul>
+<hr>
+<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
+<li>Vertex Offset 顶点变换</li>
+</ul>
+<hr>
+<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
+<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
+<li><g>height base blend texture 基于高度的材质混合</g></li>
+<li><r>view position parallex 基于视图空间的视差效果</r></li>
+</ul>
+<hr>
+<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
+<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
+<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
+</ul>
+<hr>
+<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
+<li>Transparency 透射效果</li>
+<li>Refraction 折射效果</li>
+<li>渲染队列</li>
+<li>Alpha Test (透明裁剪)</li>
+<li>Alpha Blend(透明融合)</li>
+</ul>
+<hr>
+<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
+<li><r>maskmap </r></li>
+<li><g>RGBA channel mask 单通道贴图控制</g></li>
+<li>ramp map 渐变式贴图</li>
+<li><r>splatmap 地形材质混合</r></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
+</ul>
+<hr>
+<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
+<li>NDC重建世界坐标</li>
+<li>屏幕空间深度图</li>
+<li>屏幕空间法线</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你不懂绑骨的痛</title>
+    <url>/2020/09/06/unity/RiggingExp/</url>
+    <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
+<h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
+<li>绑定骨骼定位</li>
+<li>蒙皮skining</li>
+<li>骨骼权重</li>
+<li>ik骨骼和fk骨骼控制器的制作 customize visibility type</li>
+</ul>
+<h1 id="角色骨骼绑定方案设计"><a href="#角色骨骼绑定方案设计" class="headerlink" title="角色骨骼绑定方案设计"></a>角色骨骼绑定方案设计</h1><ul>
+<li>提供初始裸模</li>
+<li>检查模型后进行绑定，蒙皮骨骼运算</li>
+<li>调整骨骼皮肤的权重</li>
+<li>为模型制作控制器（手部脚部IK）</li>
+<li>自定义控制器形状，并且设定仅导出蒙皮骨骼</li>
+<li>坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Blender</tag>
+        <tag>unity</tag>
+        <tag>Rig</tag>
+        <tag>Character</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>总结Unity中的材质节点工具</title>
+    <url>/2020/09/29/unity/SummaryUnityShaderNodeEditor/</url>
+    <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
+<h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
+<h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
+<h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
+<h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
+<h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
+<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年，专门用于制作地形高度图</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>Editor</tag>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用PPS自定义后处理着色器</title>
+    <url>/2020/09/29/unity/UnityPostProcessingStack/</url>
+    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
+<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>PostProcessingStack</tag>
       </tags>
   </entry>
   <entry>
