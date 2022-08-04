@@ -3713,4 +3713,46 @@ g {color:green;font-weight: 700;}
         <tag>dataarchitecture</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2022/08/04/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%9D%97/</url>
+    <content><![CDATA[<h1 id="对话模块"><a href="#对话模块" class="headerlink" title="对话模块"></a>对话模块</h1><h3 id="文本模板设计"><a href="#文本模板设计" class="headerlink" title="文本模板设计"></a>文本模板设计</h3><h3 id="文本符号"><a href="#文本符号" class="headerlink" title="文本符号"></a>文本符号</h3><ul>
+<li>花括号{}.花括号为段落.</li>
+<li>方括号[].方括号里的内容为程序集种的函数.</li>
+<li>圆括号().表达参数.</li>
+<li># 代表全局变量.统一加ToString的方法</li>
+</ul>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>初始化把所有的关键字和函数，反射一次，建立起函数和字符串的关联。之后如果使用到相关函数，直接可以用字符串匹配。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li>读取解释器</li>
+</ul>
+<h3 id="存放位置"><a href="#存放位置" class="headerlink" title="存放位置"></a>存放位置</h3><p>储存在动态资源库StreamAssets</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ul>
+<li>[TaskID(TaskID,NPCID)]</li>
+<li>[Dialog(NPCID)]</li>
+<li>[Ask(NPCID)]</li>
+<li>[Case]</li>
+<li>[AddTaskID(TaskID)]</li>
+<li>[AddItem(ItemID,Number)]</li>
+</ul>
+<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><ul>
+<li>if </li>
+<li>else</li>
+<li>Switch</li>
+<li>case</li>
+</ul>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
+<li>API文档</li>
+<li>用户手册</li>
+<li>添加函数</li>
+</ul>
+<h3 id="文本结构"><a href="#文本结构" class="headerlink" title="文本结构"></a>文本结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TaskID(1,3)</span><br><span class="line">&#123;</span><br><span class="line">    [Dialog(3)]那个谁站住别走!</span><br><span class="line">    [Dialog(4)]刚下火车是吗?</span><br><span class="line">    [Ask(4)]你从上海来吗?&#123;</span><br><span class="line">        [Case]上海&#123;</span><br><span class="line">            [Dialog(4)]那这个给你。</span><br><span class="line">            [AddItem(隔离券,14)]</span><br><span class="line">            [Dialog(4)]你跟着那边的人走吧。</span><br><span class="line">            [AddTaskID(2;3)]</span><br><span class="line">        &#125;</span><br><span class="line">        [Case]其他地方&#123;</span><br><span class="line">            [Dialog(4)]请出示48小时内的核酸证明</span><br><span class="line">            [Dialog(#CurrentNPC#)]#CurrentNPC.Name#检查了你的核酸检测报告</span><br><span class="line">            if [Action(#HeSuan#)]&#123;</span><br><span class="line">                [Dialog]你自由了</span><br><span class="line">                [AddTaskID(4)]</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                [Dialog]你寄了</span><br><span class="line">                [AddTaskID(5)]</span><br><span class="line">            &#125;</span><br><span class="line">            Switch(#HeSuan#)&#123;</span><br><span class="line">                Case(Green)&#123;</span><br><span class="line">                    [Dialog]你自由了</span><br><span class="line">                    [AddTaskID(4)]</span><br><span class="line">                &#125;</span><br><span class="line">                Case(Red)&#123;</span><br><span class="line">                    [Dialog]你寄了</span><br><span class="line">                    [AddTaskID(5)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">那个谁站住别走!</span><br><span class="line">...</span><br><span class="line">刚下火车是吗?</span><br><span class="line">...</span><br><span class="line">你从上海来吗?</span><br><span class="line">    - 上海</span><br><span class="line">    - 其他地方</span><br><span class="line">选择上海</span><br><span class="line">...</span><br><span class="line">那这个给你</span><br><span class="line">...</span><br><span class="line">获得物品隔离券14个</span><br><span class="line">...</span><br><span class="line">你跟着那边的人走吧</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">选择其他地方</span><br><span class="line">...</span><br><span class="line">请出示48小时内核酸证明</span><br><span class="line">...</span><br><span class="line">当前npc检查了你的核酸检测报告</span><br><span class="line">...</span><br><span class="line">你自由了</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/08/04/%E6%A8%A1%E5%9D%97/%E3%80%90%E7%BC%96%E8%BE%91%E5%99%A8%E6%A8%A1%E5%9D%97%E3%80%91%E5%B0%86%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE%E5%AF%B9%E9%BD%90%E5%88%B0%E7%9B%B8%E6%9C%BA%E4%B8%AD/</url>
+    <content><![CDATA[<h3 id="将场景视图对齐到相机中"><a href="#将场景视图对齐到相机中" class="headerlink" title="将场景视图对齐到相机中"></a>将场景视图对齐到相机中</h3>]]></content>
+  </entry>
 </search>
