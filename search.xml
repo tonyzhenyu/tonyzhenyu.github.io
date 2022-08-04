@@ -1,40 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Blender 混合不同模型颜色</title>
-    <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
-    <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
-<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
-<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>&emsp;&emsp;Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>&emsp;&emsp;blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
-<h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
-DataTransfer
-Dynamic Paint</code></pre>
-<h3 id="需要新建的物体信息："><a href="#需要新建的物体信息：" class="headerlink" title="需要新建的物体信息："></a>需要新建的物体信息：</h3><pre><code>vertex group : ProximityVertex
-vertex color : PaintMap</code></pre>
-<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>&emsp;&emsp;一个地形和需要进行混合的物体。</p>
-<p>&emsp;&emsp;原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
-<h2 id="关键步骤："><a href="#关键步骤：" class="headerlink" title="关键步骤："></a>关键步骤：</h2><ol>
-<li>创建两个物体（地形、混合物体）</li>
-<li>给地形添加 动态绘制修改器，并且把地形的动态绘制属性调整为<code>笔刷</code></li>
-<li>给混合物体添加动态绘制修改器，把混合物体的<code>动态绘制</code>属性调整为<code>画布</code>，并且设置输出纹理到顶点颜色 <code>PaintMap</code>中</li>
-<li>接着修改混合物体的法线，添加<code>VertexWeightProximity</code>，<code>DataTransfer</code> 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。</li>
-<li>下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合</li>
-<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"></li>
-</ol>
-<p>· 使用的贴图分辨率大小为1024;<br>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。<br>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
-<h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
-<li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>Shader</tag>
-        <tag>Blend</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小何客栈-</title>
     <url>/2020/08/01/index/</url>
     <content><![CDATA[<h1 id="欢迎光临！小何客栈！"><a href="#欢迎光临！小何客栈！" class="headerlink" title="欢迎光临！小何客栈！"></a>欢迎光临！小何客栈！</h1><p>小何客栈，做吃的我们是认真的！请感受环境认真休息！</p>
@@ -76,6 +42,40 @@ vertex color : PaintMap</code></pre>
       <tags>
         <tag>post</tag>
         <tag>life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blender 混合不同模型颜色</title>
+    <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
+    <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
+<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
+<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>&emsp;&emsp;Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>&emsp;&emsp;blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
+<h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
+DataTransfer
+Dynamic Paint</code></pre>
+<h3 id="需要新建的物体信息："><a href="#需要新建的物体信息：" class="headerlink" title="需要新建的物体信息："></a>需要新建的物体信息：</h3><pre><code>vertex group : ProximityVertex
+vertex color : PaintMap</code></pre>
+<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>&emsp;&emsp;一个地形和需要进行混合的物体。</p>
+<p>&emsp;&emsp;原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
+<h2 id="关键步骤："><a href="#关键步骤：" class="headerlink" title="关键步骤："></a>关键步骤：</h2><ol>
+<li>创建两个物体（地形、混合物体）</li>
+<li>给地形添加 动态绘制修改器，并且把地形的动态绘制属性调整为<code>笔刷</code></li>
+<li>给混合物体添加动态绘制修改器，把混合物体的<code>动态绘制</code>属性调整为<code>画布</code>，并且设置输出纹理到顶点颜色 <code>PaintMap</code>中</li>
+<li>接着修改混合物体的法线，添加<code>VertexWeightProximity</code>，<code>DataTransfer</code> 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。</li>
+<li>下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合</li>
+<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"></li>
+</ol>
+<p>· 使用的贴图分辨率大小为1024;<br>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。<br>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
+<h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
+<li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>Shader</tag>
+        <tag>Blend</tag>
       </tags>
   </entry>
   <entry>
