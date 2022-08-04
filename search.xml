@@ -213,56 +213,6 @@ vertex color : PaintMap</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>湖中小屋</title>
-    <url>/2020/11/01/ComputerGraphics/LakeCabin/</url>
-    <content><![CDATA[<p><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
-<hr>
-<p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
-<hr>
-<p style ="color: green;">项目规格:</p>
-
-<ul>
-<li>贴图上限2048*2048</li>
-<li>贴图格式png</li>
-<li>观察距离1.5米内</li>
-<li>使用到模型顶点权重</li>
-</ul>
-<hr>
-<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
-<hr>
-<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
-<p>汇总：</p>
-<ul>
-<li>树<ul>
-<li>灌木丛</li>
-<li>草</li>
-<li>落叶</li>
-</ul>
-</li>
-<li>石头</li>
-<li>地形</li>
-<li>雾</li>
-<li>房子</li>
-<li>水面</li>
-</ul>
-<p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
-<hr>
-<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
-<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
-<hr>
-<p>各种不同的角度<br><img src="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg" alt="lakecabin_ho&#39;srender-33"><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>render</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单光照模型和阴影匹配</title>
     <url>/2020/09/04/ComputerGraphics/LambertLightingInUnity/</url>
     <content><![CDATA[<style type="text/css">
@@ -370,6 +320,56 @@ point cloud</code></pre>
         <tag>rendering</tag>
         <tag>voxel</tag>
         <tag>future</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>湖中小屋</title>
+    <url>/2020/11/01/ComputerGraphics/LakeCabin/</url>
+    <content><![CDATA[<p><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
+<hr>
+<p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
+<hr>
+<p style ="color: green;">项目规格:</p>
+
+<ul>
+<li>贴图上限2048*2048</li>
+<li>贴图格式png</li>
+<li>观察距离1.5米内</li>
+<li>使用到模型顶点权重</li>
+</ul>
+<hr>
+<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
+<hr>
+<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
+<p>汇总：</p>
+<ul>
+<li>树<ul>
+<li>灌木丛</li>
+<li>草</li>
+<li>落叶</li>
+</ul>
+</li>
+<li>石头</li>
+<li>地形</li>
+<li>雾</li>
+<li>房子</li>
+<li>水面</li>
+</ul>
+<p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
+<hr>
+<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
+<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
+<hr>
+<p>各种不同的角度<br><img src="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg" alt="lakecabin_ho&#39;srender-33"><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>render</tag>
       </tags>
   </entry>
   <entry>
@@ -741,7 +741,7 @@ Whole Forward Rendering Pipeline workflow</code></pre>
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>面试笔记</title>
     <url>/2022/08/04/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="2022-0714-（IGG-阿尔宙斯）"><a href="#2022-0714-（IGG-阿尔宙斯）" class="headerlink" title="2022 0714 （IGG 阿尔宙斯）"></a>2022 0714 （IGG 阿尔宙斯）</h2><ul>
 <li>urp中的绘制顺序是怎么样的？</li>
@@ -813,6 +813,12 @@ Whole Forward Rendering Pipeline workflow</code></pre>
 <li>类和结构体主要的区别是什么？</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Others</category>
+      </categories>
+      <tags>
+        <tag>resume</tag>
+      </tags>
   </entry>
   <entry>
     <title>资源整理【表格】</title>
@@ -3714,8 +3720,8 @@ g {color:green;font-weight: 700;}
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/08/04/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%9D%97/</url>
+    <title>【模块】对话模块</title>
+    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%9D%97/</url>
     <content><![CDATA[<h1 id="对话模块"><a href="#对话模块" class="headerlink" title="对话模块"></a>对话模块</h1><h3 id="文本模板设计"><a href="#文本模板设计" class="headerlink" title="文本模板设计"></a>文本模板设计</h3><h3 id="文本符号"><a href="#文本符号" class="headerlink" title="文本符号"></a>文本符号</h3><ul>
 <li>花括号{}.花括号为段落.</li>
 <li>方括号[].方括号里的内容为程序集种的函数.</li>
@@ -3749,10 +3755,342 @@ g {color:green;font-weight: 700;}
 <h3 id="文本结构"><a href="#文本结构" class="headerlink" title="文本结构"></a>文本结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TaskID(1,3)</span><br><span class="line">&#123;</span><br><span class="line">    [Dialog(3)]那个谁站住别走!</span><br><span class="line">    [Dialog(4)]刚下火车是吗?</span><br><span class="line">    [Ask(4)]你从上海来吗?&#123;</span><br><span class="line">        [Case]上海&#123;</span><br><span class="line">            [Dialog(4)]那这个给你。</span><br><span class="line">            [AddItem(隔离券,14)]</span><br><span class="line">            [Dialog(4)]你跟着那边的人走吧。</span><br><span class="line">            [AddTaskID(2;3)]</span><br><span class="line">        &#125;</span><br><span class="line">        [Case]其他地方&#123;</span><br><span class="line">            [Dialog(4)]请出示48小时内的核酸证明</span><br><span class="line">            [Dialog(#CurrentNPC#)]#CurrentNPC.Name#检查了你的核酸检测报告</span><br><span class="line">            if [Action(#HeSuan#)]&#123;</span><br><span class="line">                [Dialog]你自由了</span><br><span class="line">                [AddTaskID(4)]</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                [Dialog]你寄了</span><br><span class="line">                [AddTaskID(5)]</span><br><span class="line">            &#125;</span><br><span class="line">            Switch(#HeSuan#)&#123;</span><br><span class="line">                Case(Green)&#123;</span><br><span class="line">                    [Dialog]你自由了</span><br><span class="line">                    [AddTaskID(4)]</span><br><span class="line">                &#125;</span><br><span class="line">                Case(Red)&#123;</span><br><span class="line">                    [Dialog]你寄了</span><br><span class="line">                    [AddTaskID(5)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">那个谁站住别走!</span><br><span class="line">...</span><br><span class="line">刚下火车是吗?</span><br><span class="line">...</span><br><span class="line">你从上海来吗?</span><br><span class="line">    - 上海</span><br><span class="line">    - 其他地方</span><br><span class="line">选择上海</span><br><span class="line">...</span><br><span class="line">那这个给你</span><br><span class="line">...</span><br><span class="line">获得物品隔离券14个</span><br><span class="line">...</span><br><span class="line">你跟着那边的人走吧</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">选择其他地方</span><br><span class="line">...</span><br><span class="line">请出示48小时内核酸证明</span><br><span class="line">...</span><br><span class="line">当前npc检查了你的核酸检测报告</span><br><span class="line">...</span><br><span class="line">你自由了</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>mods</category>
+      </categories>
+      <tags>
+        <tag>mods</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/08/04/%E6%A8%A1%E5%9D%97/%E3%80%90%E7%BC%96%E8%BE%91%E5%99%A8%E6%A8%A1%E5%9D%97%E3%80%91%E5%B0%86%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE%E5%AF%B9%E9%BD%90%E5%88%B0%E7%9B%B8%E6%9C%BA%E4%B8%AD/</url>
-    <content><![CDATA[<h3 id="将场景视图对齐到相机中"><a href="#将场景视图对齐到相机中" class="headerlink" title="将场景视图对齐到相机中"></a>将场景视图对齐到相机中</h3>]]></content>
+    <title>【模块】物体放置系统设计</title>
+    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E7%89%A9%E4%BD%93%E6%94%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="instancing-system"><a href="#instancing-system" class="headerlink" title="instancing system"></a>instancing system</h2><h3 id="描述："><a href="#描述：" class="headerlink" title="描述："></a>描述：</h3><h3 id="结构："><a href="#结构：" class="headerlink" title="结构："></a>结构：</h3><ul>
+<li>List InstanceObject 指定为场景的container.</li>
+<li>Monitor 显示器，显示生成的object，使用graphic.drawmeshinstance;</li>
+<li>工具-笔刷，在editorview中创建instances;</li>
+</ul>
+<h3 id="设计原则："><a href="#设计原则：" class="headerlink" title="设计原则："></a>设计原则：</h3><ul>
+<li><p>显示器运行在prefab中，prefab装载着instance Data.</p>
+</li>
+<li><p>显示器继承monoBehaviuor</p>
+</li>
+<li><p>控制显示器object的位置可以影响所有instance Data的显示位置.</p>
+</li>
+<li><p>编辑器显示器：运行在编辑器工具中</p>
+</li>
+<li><p>Runtime显示器：Mono物体中</p>
+</li>
+<li><p>数据应该都要存到Constant Buffer中.这样在shader中可以做tint的功能.</p>
+</li>
+<li><p>GameObject能够控制所有instance的transform.  </p>
+</li>
+<li><p>需要用到一个command buffer Draw所有Instances</p>
+</li>
+<li><p>command buffer装载所有的数据.</p>
+</li>
+<li><p>InstanceShader中接收并处理cbuffer的数据.</p>
+</li>
+<li><p>注册到RenderingSystem中(最后再接入)</p>
+</li>
+<li><p>Instance中需要一个个对应的列表材质进行setbuffer.而不是设置全局buffer.</p>
+</li>
+<li><p>shader中需要编写instanced structure接收buffer的数据.</p>
+</li>
+<li><p>bufferInfo中的结构尽量简化.</p>
+</li>
+<li><p>重新定义序列化的文件结构.</p>
+</li>
+<li><p>transform矩阵定义重构.</p>
+</li>
+<li><p>view Type 重构.</p>
+</li>
+<li><p>显示层级Isolated 单一化显示</p>
+</li>
+<li><p>最后读取静态序列化数据</p>
+</li>
+<li><p>完成吸色器的状态</p>
+</li>
+</ul>
+<h3 id="测试到的问题："><a href="#测试到的问题：" class="headerlink" title="测试到的问题："></a>测试到的问题：</h3><ul>
+<li><p>最大数组不能超过1024，超过时可以开一个新的data来避免1024溢出</p>
+</li>
+<li><p>待完善，笔刷距离patinting。(高优先级)</p>
+</li>
+<li><p>刷出来物体matrix的法线不匹配地形方向。</p>
+</li>
+<li><p>editor状态下没有显示物体.(高优先级)</p>
+</li>
+<li><p>笔刷状态卡顿比较严重（但是在游戏运行是卡顿可以解决）</p>
+</li>
+<li><p>笔刷刷的颜色需要对其进行伽马矫正(已经在shader中完成gamma矫正)</p>
+</li>
+<li><p>拾色器的颜色拾取出来颜色变暗.</p>
+</li>
+<li><p>Display中显示的buffer颜色数据不一致.</p>
+</li>
+<li><p>buffer 数据不一致.</p>
+</li>
+</ul>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><ul>
+<li>渲染物体</li>
+<li>渲染材质</li>
+<li>统一覆盖渲染材质</li>
+<li>可控transform</li>
+<li>分组（备用）</li>
+</ul>
+<h3 id="基本代码结构"><a href="#基本代码结构" class="headerlink" title="基本代码结构"></a>基本代码结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class InstancingData : scriptableObject</span><br><span class="line">&#123;</span><br><span class="line">    SceneInstancingData data;</span><br><span class="line">&#125;</span><br><span class="line">class SceneInstancingData : ScriptableObject</span><br><span class="line">&#123;</span><br><span class="line">    Scene scene;</span><br><span class="line">    Material overriderMaterial;</span><br><span class="line">    InstanceObject[] objects;</span><br><span class="line">&#125;</span><br><span class="line">class Monitor</span><br><span class="line">&#123;</span><br><span class="line">    InstancingData sysdata;</span><br><span class="line"></span><br><span class="line">    void Display();</span><br><span class="line">    void Clear();</span><br><span class="line">    void Refresh();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例对象的结构"><a href="#实例对象的结构" class="headerlink" title="实例对象的结构"></a>实例对象的结构</h3><ul>
+<li>源模型</li>
+<li>对应渲染材质</li>
+<li>位置</li>
+<li>旋转</li>
+<li>大小</li>
+<li>法线</li>
+<li>颜色</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct InstanceObject&#123;</span><br><span class="line">    Mesh origin;</span><br><span class="line">    Material material;</span><br><span class="line">    Color objectColor;</span><br><span class="line">    Matrix4x4 matrix;</span><br><span class="line"></span><br><span class="line">    float3 position;</span><br><span class="line">    float3 rotation;</span><br><span class="line">    float3 localScale;</span><br><span class="line"></span><br><span class="line">    float3 up;</span><br><span class="line">    float3 right;</span><br><span class="line">    float3 forward</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public struct InstanceBuffer&#123;</span><br><span class="line">    public float4 _cColour;</span><br><span class="line">    public float3 _cPosition;</span><br><span class="line">    public float4 _cRotation;</span><br><span class="line">    public float3 _cLocalScale;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CBUFFER_START(_CBufferInstance)</span><br><span class="line">float3 _cPosition;</span><br><span class="line">float4 _cRotation;</span><br><span class="line">float3 _cLocalScale;</span><br><span class="line">float4 _cColour;</span><br><span class="line">CBUFFER_END</span><br></pre></td></tr></table></figure>
+
+<h2 id="笔刷-EditorTool"><a href="#笔刷-EditorTool" class="headerlink" title="笔刷 EditorTool"></a>笔刷 EditorTool</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
+<li><p>笔刷形状</p>
+</li>
+<li><p>笔刷状态</p>
+</li>
+<li><p>有配置文件可以配置笔刷的详细设置。</p>
+</li>
+<li><p>显示_handles</p>
+</li>
+<li><p>设置当前的instanceData层级</p>
+</li>
+<li><p>编辑器中可视化数据</p>
+</li>
+<li><p>切换自动显示当前显示的数据</p>
+</li>
+</ul>
+<h3 id="配置项-1"><a href="#配置项-1" class="headerlink" title="配置项"></a>配置项</h3><ul>
+<li>工具快捷键<ul>
+<li>快捷键B呼出笔刷</li>
+<li>G lookAt笔刷位置</li>
+<li>S 吸取指定位置的屏幕颜色</li>
+<li>调节笔刷散布噪声级别</li>
+</ul>
+</li>
+</ul>
+<h3 id="工具状态"><a href="#工具状态" class="headerlink" title="工具状态"></a>工具状态</h3><ul>
+<li>工具未初始化状态<ul>
+<li>显示未初始化的提示</li>
+</ul>
+</li>
+<li>橡皮擦模式<ul>
+<li>shift 切换到橡皮擦模式</li>
+<li>松开shift 切换回笔刷模式</li>
+<li>shift + 左键清理笔刷范围内的数据</li>
+</ul>
+</li>
+<li>笔刷模式<em>热键B</em><ul>
+<li>左键放置数据</li>
+</ul>
+</li>
+<li>调整大小模式 <ul>
+<li>f进入调整模式</li>
+<li>鼠标左右移动调整笔刷大小</li>
+<li>鼠标上下移动调整笔刷射线高度</li>
+<li>按住shift 调整精度变小</li>
+<li>鼠标左键确定调整大小</li>
+<li>鼠标右键取消并推出该模式</li>
+</ul>
+</li>
+<li>调整密度模式<ul>
+<li>shift + f 进入调整模式</li>
+<li>鼠标左键确定调整大小</li>
+<li>鼠标右键取消并退出该模式</li>
+<li>最大密度为64位</li>
+</ul>
+</li>
+<li>调整噪声权重模式<ul>
+<li>D 进入调整模式</li>
+<li>鼠标左键确定调整大小</li>
+<li>右键取消并退出该模式</li>
+<li>权重最大为1</li>
+</ul>
+</li>
+<li>调整噪声强度模式<ul>
+<li>shift + D进入该模式</li>
+<li>鼠标左键确定调整大小</li>
+<li>右键取消并退出该模式</li>
+<li>噪声强度最大为5</li>
+</ul>
+</li>
+<li>调整笔刷物体大小模式<ul>
+<li>shift + S进入模式</li>
+<li>鼠标左键确定调整大小</li>
+<li>右键取消并退出该模式</li>
+<li>大小最大为5</li>
+</ul>
+</li>
+<li>调整笔刷颜色<ul>
+<li>s直接吸取场景渲染中的颜色</li>
+<li>或者出现一个圆盘，让用户自己调整颜色</li>
+</ul>
+</li>
+<li>按住s键进入拾色器<ul>
+<li>松开s键执行吸色功能</li>
+<li>吸色模式旁边会有当前吸取的颜色提示</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><ul>
+<li>生成物体可配置</li>
+<li>散布范围可配置</li>
+<li>散布密度上限可配置</li>
+<li>快捷键配置</li>
+<li>笔刷形状</li>
+<li>噪声形状</li>
+<li>instance数据篡改</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li><p>投射射线获取交点，在交点中根据交点平面的法线重建一个圆盘，在此圆盘上按照配置的物体密度重新投射射线检测交点。</p>
+</li>
+<li><p>如果在检测圆盘中已存在数据，检测圆盘中密度的数量，不超过最大密度进行放置。</p>
+</li>
+<li><p>编辑器中，打开笔刷后，检查场景中含有对应mono的物体，如果没有，则询问是否需要创建。</p>
+</li>
+<li><p>当存在mono物体，显示所有读取到的实例物体，编辑时，会按照顺序创建一个列表，并且可以使用快捷键切换到下一个instance data中进行编辑，每次切换的数据都会有提示。</p>
+</li>
+<li><p>每次成功刷上，记录当前位置。当下一次刷的时候对比上一次位置的距离，如果没超过阈值，则不执行笔刷刷数据的功能。反之则执行。</p>
+</li>
+<li><p>笔刷预览显示物体位置大小形状网格，并且有预览材质和预览shader.</p>
+</li>
+<li><p>第一次启动和使用都有提示界面出现进行配置.</p>
+</li>
+<li><p>如果没有加载上实例数据，则弹窗询问是否需要创建数据，确认后数据会保存在resources/instance目录里面.</p>
+</li>
+<li><p>笔刷绘制修改器，需要旋转、颜色、大小等属性随机，可以实现一个修改器并且添加内容即可.</p>
+</li>
+<li><p>随机颜色的修改器逻辑，需要参考到色卡和随机种等算法.</p>
+</li>
+</ul>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ul>
+<li><p>基于Editor 窗口的笔刷，在视窗中投射球体到场景中，放置物体。</p>
+</li>
+<li><p>用graphic.drawmesh显示已经放置的物体</p>
+</li>
+<li><p>判断球体中放置的物体的密度，物体密度会有上限。</p>
+</li>
+<li><p>Editor中绘制笔刷预览笔刷位置(handles)</p>
+</li>
+<li><p>可以吸附物体碰撞体进行放置物体</p>
+</li>
+<li><p>笔刷功能时屏蔽Unity的鼠标事件(指定事件)</p>
+</li>
+<li><p>拦截默认鼠标事件Event</p>
+</li>
+<li><p>预览位置按照距离着色</p>
+</li>
+<li><p>按下F键视角会移动到鼠标附近的位置LOOKAT</p>
+</li>
+<li><p>可通过笔刷删除已经布置的物体</p>
+</li>
+<li><p>按下翻页键可以切换当前的层级，instance”层级”.也就是instance scriptableobject</p>
+</li>
+<li><p>当层级里的instanceObject超过了1024个对象，那么则下次刷的时候自动寻找下一个没有满1024的层级。</p>
+</li>
+<li><p>当第一层已经达到1024个实例数据，需要策略切换到下一层再绘制.</p>
+</li>
+</ul>
+<h3 id="Bonus"><a href="#Bonus" class="headerlink" title="Bonus"></a>Bonus</h3><ul>
+<li>十六进制色彩转换</li>
+<li>快捷键配置</li>
+<li>配置面板GUI自定义</li>
+<li>S 吸取指定位置的屏幕颜色</li>
+<li>可以undo上一次刷的记录</li>
+<li>可以把整个系统做成package</li>
+<li>使整个工具与unity更加统一</li>
+</ul>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
+<li><p>根据法线变换整体的顶点坐标，矩阵变换，求法线的变换矩阵然后转换。</p>
+</li>
+<li><p>每个场景中创建一个储存数据的文件，该文件路径统一放在Resources，而且文件名与场景文件名字相同。如果该场景没有实例文件，调用笔刷后会提示是否要创建实例文件，如果是，则创建一个新的实例文件。</p>
+</li>
+<li><p>在游戏加载时，实际会创建一个实例，该实例用于显示所有储存在数据中的“物体”，用作数据的可视化。如果该场景没有实例文件，则进入待机模式，当场景发生变化后，又重新检测一遍是否有实例对象。</p>
+</li>
+<li><p>overlays Menu Custom 将层级的放在空格键可打开的overlay menu中，提高使用效率.</p>
+</li>
+<li><p>编辑器中实例数据可视化。</p>
+</li>
+<li><p>当缩小笔刷大小的时候，密度也随之上升。算是一个显而易见的bug.</p>
+</li>
+<li><p>将在编辑器中读取文件的静态方法抽象出来.做成一个通用的方法.</p>
+</li>
+<li><p>handles显示与模型匹配度较低，笔刷使用时感知力度较小.</p>
+</li>
+<li><p>刷出来的物体大小没有变化，旋转没有变换。</p>
+</li>
+<li><p>层级应该移动到overlays页面中，可以在overlays中对对应层级隐藏</p>
+</li>
+<li><p>笔刷稳定性运行检测再0617日完成.</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>重点，修改颜色变化的功能.让其笔刷数据的颜色会随着一定规律变化，不太单调.</li>
+<li>cbuffer显示后的数据和显示结果不一致.待修复</li>
+<li>单一显示和整体显示的功能.</li>
+<li>完善mono状态下的displayer</li>
+<li>引导功能的完善.</li>
+<li>说明手册和功能列表.使用文档.</li>
+</ul>
+<h1 id="施工compute-buffer"><a href="#施工compute-buffer" class="headerlink" title="施工compute buffer"></a>施工compute buffer</h1><ul>
+<li>一个float 占4个字节</li>
+<li>确定的结构</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct InstanceInfo</span><br><span class="line">&#123;</span><br><span class="line">    float3 position;</span><br><span class="line">    float4 rotation;</span><br><span class="line">    float3 localscale;</span><br><span class="line">    float4 color;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>(3+4+3+4)*4</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">重要参数</span><br><span class="line">uint args []</span><br><span class="line">&#123;</span><br><span class="line">    mesh.getindexcount(submeshindex),</span><br><span class="line">    instanceCount,</span><br><span class="line">    mesh.getindexstart(submeshindex),</span><br><span class="line">    mesh.getbasevertex(submeshindex),</span><br><span class="line">    0</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>indirect Arguments:</p>
+</li>
+<li><p>AppendsturctBuffer;</p>
+</li>
+<li><p>drawMeshInstance会分割批次</p>
+</li>
+<li><p>DrawMeshInstanceIndirect不会分割批次，保证了每个instanceId的顺序.</p>
+</li>
+<li><p>DMII: DrawMeshInstanceIndirect</p>
+</li>
+<li><p>每次一层layer设置新的offset;</p>
+</li>
+<li><p>如果使用sturcturedbuffer.一个material 只会有一个buffer数据被设置.并不会叠加数据.</p>
+</li>
+<li><p>DMII 中一个材质就相当于一个draw batch被传输.</p>
+</li>
+<li><p>重写文档.</p>
+</li>
+<li><p>使用每个id的值去设置顶部颜色产生有不一样的variation</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>mods</category>
+      </categories>
+      <tags>
+        <tag>mods</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【模块】相机对齐</title>
+    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E7%BC%96%E8%BE%91%E5%99%A8%E6%A8%A1%E5%9D%97%E3%80%91%E5%B0%86%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE%E5%AF%B9%E9%BD%90%E5%88%B0%E7%9B%B8%E6%9C%BA%E4%B8%AD/</url>
+    <content><![CDATA[<h1 id="将场景视图对齐到相机中"><a href="#将场景视图对齐到相机中" class="headerlink" title="将场景视图对齐到相机中"></a>将场景视图对齐到相机中</h1>]]></content>
+      <categories>
+        <category>mods</category>
+      </categories>
+      <tags>
+        <tag>mods</tag>
+      </tags>
   </entry>
 </search>
