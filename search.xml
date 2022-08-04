@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Blender 混合不同模型颜色</title>
+    <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
+    <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
+<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
+<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>&emsp;&emsp;Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>&emsp;&emsp;blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
+<h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
+DataTransfer
+Dynamic Paint</code></pre>
+<h3 id="需要新建的物体信息："><a href="#需要新建的物体信息：" class="headerlink" title="需要新建的物体信息："></a>需要新建的物体信息：</h3><pre><code>vertex group : ProximityVertex
+vertex color : PaintMap</code></pre>
+<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>&emsp;&emsp;一个地形和需要进行混合的物体。</p>
+<p>&emsp;&emsp;原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
+<h2 id="关键步骤："><a href="#关键步骤：" class="headerlink" title="关键步骤："></a>关键步骤：</h2><ol>
+<li>创建两个物体（地形、混合物体）</li>
+<li>给地形添加 动态绘制修改器，并且把地形的动态绘制属性调整为<code>笔刷</code></li>
+<li>给混合物体添加动态绘制修改器，把混合物体的<code>动态绘制</code>属性调整为<code>画布</code>，并且设置输出纹理到顶点颜色 <code>PaintMap</code>中</li>
+<li>接着修改混合物体的法线，添加<code>VertexWeightProximity</code>，<code>DataTransfer</code> 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。</li>
+<li>下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合</li>
+<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"></li>
+</ol>
+<p>· 使用的贴图分辨率大小为1024;<br>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。<br>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
+<h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
+<li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>Shader</tag>
+        <tag>Blend</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小何客栈-</title>
     <url>/2020/08/01/index/</url>
     <content><![CDATA[<h1 id="欢迎光临！小何客栈！"><a href="#欢迎光临！小何客栈！" class="headerlink" title="欢迎光临！小何客栈！"></a>欢迎光临！小何客栈！</h1><p>小何客栈，做吃的我们是认真的！请感受环境认真休息！</p>
@@ -42,40 +76,6 @@
       <tags>
         <tag>post</tag>
         <tag>life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blender 混合不同模型颜色</title>
-    <url>/2020/09/23/ComputerGraphics/BlenderColorBlend/</url>
-    <content><![CDATA[<h4 id="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"><a href="#当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。" class="headerlink" title="当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。"></a>当两个网格相交时，添加动态材质混合和法线平滑以达到自然过渡。例如草和泥土与地面相交，沙坑与地面相交，山脉相交，悬崖相交等等。</h4><p><img src="https://devtalk.blender.org/uploads/default/optimized/2X/2/2c50dcbf0b48f83729a978eee6284bb1569835d7_2_690x290.jpeg" alt="混合效果"></p>
-<p>为了实现以上实时混合的效果，查阅了相关资料，并且思考是如何在blender中实现。<br>在<code>unity</code>中实现的话，网友提供的思路是这样的：<br><a href="https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/">https://inresin.wordpress.com/2020/04/03/terrain-and-mesh-blending-in-unity/</a><br><a href="https://www.youtube.com/watch?v=AZEvrn9C0X0">https://www.youtube.com/watch?v=AZEvrn9C0X0</a></p>
-<h3 id="混合不同模型颜色"><a href="#混合不同模型颜色" class="headerlink" title="混合不同模型颜色"></a>混合不同模型颜色</h3><p>&emsp;&emsp;Blender 的底层是OpenGL，效果实现起来会跟大多数主流游戏引擎稍有区别。<br>&emsp;&emsp;blender中修改模型数据并不会出现在<code>Node Editor</code>中，工作原理会跟游戏引擎中的渲染管线稍有区别，并且要做到修改模型数据，就得走blender中提供的模型数据修改器的一套操作。</p>
-<h3 id="若要进行实时修改需要对物体添加以下修改器："><a href="#若要进行实时修改需要对物体添加以下修改器：" class="headerlink" title="若要进行实时修改需要对物体添加以下修改器："></a>若要进行实时修改需要对物体添加以下修改器：</h3><pre><code>VertexWeightProximity
-DataTransfer
-Dynamic Paint</code></pre>
-<h3 id="需要新建的物体信息："><a href="#需要新建的物体信息：" class="headerlink" title="需要新建的物体信息："></a>需要新建的物体信息：</h3><pre><code>vertex group : ProximityVertex
-vertex color : PaintMap</code></pre>
-<h3 id="需要的物体："><a href="#需要的物体：" class="headerlink" title="需要的物体："></a>需要的物体：</h3><p>&emsp;&emsp;一个地形和需要进行混合的物体。</p>
-<p>&emsp;&emsp;原理简述：工作原理是将石头作为画板，将地板作为笔刷，<code>Dynamic Paint</code>组件实时调用笔刷和画布将对应的画布模型进行顶点颜色绘制。每次绘制产生一张纹理，运行时动态放到画布物体的顶点颜色上，其值为01空间内运算。拿到绘制贴图后可以在节点修改器中添加各种操作。例如贴图高度混合，渐变过滤等等。有兴趣可以进一步研究。</p>
-<h2 id="关键步骤："><a href="#关键步骤：" class="headerlink" title="关键步骤："></a>关键步骤：</h2><ol>
-<li>创建两个物体（地形、混合物体）</li>
-<li>给地形添加 动态绘制修改器，并且把地形的动态绘制属性调整为<code>笔刷</code></li>
-<li>给混合物体添加动态绘制修改器，把混合物体的<code>动态绘制</code>属性调整为<code>画布</code>，并且设置输出纹理到顶点颜色 <code>PaintMap</code>中</li>
-<li>接着修改混合物体的法线，添加<code>VertexWeightProximity</code>，<code>DataTransfer</code> 修改器（注意修改器的顺序），并且把修改器参数调整为如下图参数。</li>
-<li>下一步在节点编辑器中新建材质，新建两个着色器，使用mix shader 进行混合，把VertexColor当作MixShader的混合值进行混合</li>
-<li>最后在按照自己的要求新增一些节点就可以完成了<br> <img src="https://i.loli.net/2020/09/25/OBLu2ERZG4PTvDl.png" alt="modifer3.png"><br> <img src="https://i.loli.net/2020/09/25/n5tusoNRiIrYW9B.png" alt="render3.png"><br> <img src="https://i.loli.net/2020/09/25/K6UYGs7QXzZODNT.png" alt="shadernode.png"><h3 id="添加了高度混合的物体混合"><a href="#添加了高度混合的物体混合" class="headerlink" title="添加了高度混合的物体混合"></a>添加了高度混合的物体混合</h3><h2 id="TADAA"><a href="#TADAA" class="headerlink" title="TADAA!!"></a>TADAA!!</h2><img src="https://i.loli.net/2020/09/25/rWcBioNxMuKEsTX.png" alt="render8-1.png"><br><img src="https://i.loli.net/2020/09/25/BkmG72nhvT1o4Vs.png" alt="render9-2.png"></li>
-</ol>
-<p>· 使用的贴图分辨率大小为1024;<br>注解：VertexWeightProximity，DataTransfer 修改器顺序不能混淆的原因是，VertexWeightProximity把顶点权重绘制到对应的顶点组中，而DataTransfer 是读取对应的顶点权重进行遮挡。<br>修改器中的相关信息不在此详细描述，有关资料可以查阅blender的API文档。</p>
-<h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
-<li>不能实时读取对应的混合材质，只能放到相应的着色组上进行关联。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>Shader</tag>
-        <tag>Blend</tag>
       </tags>
   </entry>
   <entry>
@@ -213,6 +213,56 @@ vertex color : PaintMap</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>湖中小屋</title>
+    <url>/2020/11/01/ComputerGraphics/LakeCabin/</url>
+    <content><![CDATA[<p><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
+<hr>
+<p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
+<hr>
+<p style ="color: green;">项目规格:</p>
+
+<ul>
+<li>贴图上限2048*2048</li>
+<li>贴图格式png</li>
+<li>观察距离1.5米内</li>
+<li>使用到模型顶点权重</li>
+</ul>
+<hr>
+<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
+<hr>
+<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
+<p>汇总：</p>
+<ul>
+<li>树<ul>
+<li>灌木丛</li>
+<li>草</li>
+<li>落叶</li>
+</ul>
+</li>
+<li>石头</li>
+<li>地形</li>
+<li>雾</li>
+<li>房子</li>
+<li>水面</li>
+</ul>
+<p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
+<hr>
+<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
+<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
+<hr>
+<p>各种不同的角度<br><img src="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg" alt="lakecabin_ho&#39;srender-33"><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
+]]></content>
+      <categories>
+        <category>Graphics</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>render</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单光照模型和阴影匹配</title>
     <url>/2020/09/04/ComputerGraphics/LambertLightingInUnity/</url>
     <content><![CDATA[<style type="text/css">
@@ -320,56 +370,6 @@ point cloud</code></pre>
         <tag>rendering</tag>
         <tag>voxel</tag>
         <tag>future</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>湖中小屋</title>
-    <url>/2020/11/01/ComputerGraphics/LakeCabin/</url>
-    <content><![CDATA[<p><img src="https://i.loli.net/2020/11/01/hkarEnfseRt4lvm.png" alt="render-32.png"></p>
-<hr>
-<p>故事简介：<br>&emsp;&emsp;湖中小屋<br>&emsp;&emsp;这是一个我突发奇想的项目，在pintrest中找到了许多关于湖中岛的一些参考。按照想法中的故事情节或许是湖中荒废的岛屿，岛屿上有一户人家，喜欢独居。</p>
-<hr>
-<p style ="color: green;">项目规格:</p>
-
-<ul>
-<li>贴图上限2048*2048</li>
-<li>贴图格式png</li>
-<li>观察距离1.5米内</li>
-<li>使用到模型顶点权重</li>
-</ul>
-<hr>
-<p><img src="https://i.loli.net/2020/11/02/fqO8ILxGiX4UMjE.jpg" alt="lakecabin_ho&#39;sref"><br>参考图</p>
-<hr>
-<h1 id="完成的资源"><a href="#完成的资源" class="headerlink" title="完成的资源"></a>完成的资源</h1><p><img src="https://i.loli.net/2020/11/01/qNHodGlsRPp2E8V.png" alt="nonlight view.png"><br><img src="https://i.loli.net/2020/11/02/MabQSVWOoHv3rBg.jpg" alt="lakecabin_ho_sresources.jpg"></p>
-<p>汇总：</p>
-<ul>
-<li>树<ul>
-<li>灌木丛</li>
-<li>草</li>
-<li>落叶</li>
-</ul>
-</li>
-<li>石头</li>
-<li>地形</li>
-<li>雾</li>
-<li>房子</li>
-<li>水面</li>
-</ul>
-<p>树：树干模型使用curve生成，利用树干的顶点权重生成对应的枝叶，生成数量为50，并且修改枝叶的法线投射到圆球上。<br>灌木丛：灌木丛模型，灌木丛使用跟树木一样的原理，唯一的不用就是生成数量减少。<br>草：面片模型，<code>alpha clip</code> 做透明裁剪，<code>transparency</code>做透射<br>落叶：面片弯曲模型，<code>alpha clip</code> 做透明度裁剪，<code>transparency</code>做透射<br>石头：石头模型，使用<code>mesh volume proximity</code> 做顶点权重，<code>data transfer</code>做法线传递。材质通过高度图混合。<br>地形：地形材质，使用<code>vertex position </code>的z轴进行映射做通道蒙版。<br>雾：<code>volume </code>材质，使用<code>object space mapping </code>做<code>noise texture</code>中的纹理uv，并且通过扰乱原本的uv做非平均特征体积雾。<br>房子：手动建模，优化方案：使用更加适合布尔切割的软件或者命令。<br>水面：水面的材质使用<code>transmission </code>属性做透射，使用<code>alpha hashed </code>做透明通道，水面反射使用roughness和平面反射辐射盒。水面的模型使用了海面修改器直接生成海面。</p>
-<hr>
-<h1 id="整合后"><a href="#整合后" class="headerlink" title="整合后"></a>整合后</h1><p>无全局光参与：<br><img src="https://i.loli.net/2020/11/02/aH8smdUOJg6ET2W.jpg" alt="lakecabin_ho&#39;srender-32-nonlight2"></p>
-<p>全局光照明：<br><img src="https://i.loli.net/2020/11/02/1K5Lr3iwjSNfgks.jpg" alt="lakecabin_ho_srender-32"></p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;blender中cycles的透明渲染是使用光线的采样数，光线采样数越低，z-depth的穿透能力越低，具体表现在z-depth通道在两个模型之后莫名变白。<br>&emsp;&emsp;blender中eevee使用到TAA的降噪技术，具体表现在直接采样数，采样数越高，合成样张越多，TAA通过每次查找上一样张的相同处和不同处进行合成，最终得出噪点较少的画面，同样也可用于抗锯齿。<br>&emsp;&emsp;渲染树木的最主要特点是更改树叶的直接法线，并且因为树叶使用模型空间的uv坐标，所以对贴图中的树叶大小把握要非常恰当，否则会出现比例不符合的现象。</p>
-<hr>
-<p>各种不同的角度<br><img src="https://i.loli.net/2020/11/02/gxA3Qn5iKHSqWF2.jpg" alt="lakecabin_ho&#39;srender-33"><br><img src="https://i.loli.net/2020/11/02/SALY9myRkcws4eC.jpg" alt="lakecabin_ho&#39;srender-38"><br><img src="https://i.loli.net/2020/11/02/nSJO81ztkDfFHTb.jpg" alt="lakecabin_ho&#39;srender-36"><br><img src="https://i.loli.net/2020/11/02/fgQjdMopb9XuKBz.jpg" alt="lakecabin_ho&#39;srender-40"><br><img src="https://i.loli.net/2020/11/02/QwyiHUFjz54fgE6.jpg" alt="lakecabin_ho_srender-34"><br><img src="https://i.loli.net/2020/11/02/yKjAhmzqe1rVG29.jpg" alt="lakecabin_ho&#39;srender-37"></p>
-]]></content>
-      <categories>
-        <category>Graphics</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>render</tag>
       </tags>
   </entry>
   <entry>
@@ -3489,239 +3489,8 @@ Whole Forward Rendering Pipeline workflow</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>图形学自我总结</title>
-    <url>/2020/08/04/unity/ComputerGraphics/</url>
-    <content><![CDATA[<style type="text/css">
-r {color:red; font-weight: 700;}
-yellow {color: yellow ; font-weight: 700;}
-g {color:green;font-weight: 700;}
-</style>
-
-<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
-<hr>
-<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
-<li>冯氏光照模型</li>
-<li>兰伯特光照模型</li>
-<li>半兰伯特光照模型</li>
-<li>基于物理渲染</li>
-<li>IBL基于图片光照着色</li>
-<li>利用渐变纹理实现伪BRDF</li>
-</ul>
-<hr>
-<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
-<li>自定义阴影贴图</li>
-<li>percentage closed soft shadow(pcss 阴影)</li>
-<li>方差阴影</li>
-</ul>
-<hr>
-<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
-<li>Vertex Offset 顶点变换</li>
-</ul>
-<hr>
-<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
-<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
-<li><g>height base blend texture 基于高度的材质混合</g></li>
-<li><r>view position parallex 基于视图空间的视差效果</r></li>
-</ul>
-<hr>
-<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
-<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
-<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
-</ul>
-<hr>
-<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
-<li>Transparency 透射效果</li>
-<li>Refraction 折射效果</li>
-<li>渲染队列</li>
-<li>Alpha Test (透明裁剪)</li>
-<li>Alpha Blend(透明融合)</li>
-</ul>
-<hr>
-<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
-<li><r>maskmap </r></li>
-<li><g>RGBA channel mask 单通道贴图控制</g></li>
-<li>ramp map 渐变式贴图</li>
-<li><r>splatmap 地形材质混合</r></li>
-<li><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
-</ul>
-<hr>
-<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
-<li>NDC重建世界坐标</li>
-<li>屏幕空间深度图</li>
-<li>屏幕空间法线</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>你不懂绑骨的痛</title>
-    <url>/2020/09/06/unity/RiggingExp/</url>
-    <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
-<h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
-<li>绑定骨骼定位</li>
-<li>蒙皮skining</li>
-<li>骨骼权重</li>
-<li>ik骨骼和fk骨骼控制器的制作 customize visibility type</li>
-</ul>
-<h1 id="角色骨骼绑定方案设计"><a href="#角色骨骼绑定方案设计" class="headerlink" title="角色骨骼绑定方案设计"></a>角色骨骼绑定方案设计</h1><ul>
-<li>提供初始裸模</li>
-<li>检查模型后进行绑定，蒙皮骨骼运算</li>
-<li>调整骨骼皮肤的权重</li>
-<li>为模型制作控制器（手部脚部IK）</li>
-<li>自定义控制器形状，并且设定仅导出蒙皮骨骼</li>
-<li>坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Blender</tag>
-        <tag>unity</tag>
-        <tag>Rig</tag>
-        <tag>Character</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>总结Unity中的材质节点工具</title>
-    <url>/2020/09/29/unity/SummaryUnityShaderNodeEditor/</url>
-    <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
-<h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
-<h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
-<h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
-<h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
-<h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
-<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年，专门用于制作地形高度图</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>Editor</tag>
-        <tag>Summary</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用PPS自定义后处理着色器</title>
-    <url>/2020/09/29/unity/UnityPostProcessingStack/</url>
-    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
-<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
-<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>unity</tag>
-        <tag>PostProcessingStack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>unity的经验（杂）</title>
-    <url>/2020/08/03/unity/unityMatrix/</url>
-    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
-<hr>
-<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
-<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
-</li>
-<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
-</li>
-<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
-<font color="lighgrey"> </li>
-<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
-</font>
-</li>
-<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
-</li>
-<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
-</li>
-<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
-</li>
-</ul>
-<hr>
-<h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
-<hr>
-<p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
-<hr>
-<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
-
-    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
-    float2 texCoord = float2(
-         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
-         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
-    );
-
-    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
-
-    float4 sampledNormals = tex2D(normalSampler, texCoord);
-    if (sampledNormals.a == 0)
-        clip(-1);
-
-    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
-    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
-    //Thickness is easy to calculate.
-
-    float backDepth = input.Depth;
-    float frontDepth = tex2D(depthSampler, texCoord);
-    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
-
-    //This is the surface colour of the transparent object
-
-    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
-
-    //This is the colour of the scene behind the object
-
-    float3 background = tex2D(lightbufferSample, texCoord).rgb;
-
-    //now blend them. Blending function varies per material
-
-    return Blend(opaque, background, thickness);</code></pre>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>shader</tag>
-        <tag>unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>各种树形数据结构</title>
-    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
-<li>一次等分存储</li>
-<li>一阶储存器</li>
-</ul>
-<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
-<li>二维图像储存</li>
-<li>二次等分细分</li>
-</ul>
-<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
-<li>三维空间数据储存体素</li>
-<li>三次等分细分</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>dataarchitecture</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【模块】对话模块</title>
-    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%9D%97/</url>
+    <url>/2022/08/03/mods/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E5%AF%B9%E8%AF%9D%E6%A8%A1%E5%9D%97/</url>
     <content><![CDATA[<h1 id="对话模块"><a href="#对话模块" class="headerlink" title="对话模块"></a>对话模块</h1><h3 id="文本模板设计"><a href="#文本模板设计" class="headerlink" title="文本模板设计"></a>文本模板设计</h3><h3 id="文本符号"><a href="#文本符号" class="headerlink" title="文本符号"></a>文本符号</h3><ul>
 <li>花括号{}.花括号为段落.</li>
 <li>方括号[].方括号里的内容为程序集种的函数.</li>
@@ -3764,7 +3533,7 @@ g {color:green;font-weight: 700;}
   </entry>
   <entry>
     <title>【模块】物体放置系统设计</title>
-    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E7%89%A9%E4%BD%93%E6%94%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</url>
+    <url>/2022/08/03/mods/%E3%80%90%E6%A8%A1%E5%9D%97%E3%80%91%E7%89%A9%E4%BD%93%E6%94%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h2 id="instancing-system"><a href="#instancing-system" class="headerlink" title="instancing system"></a>instancing system</h2><h3 id="描述："><a href="#描述：" class="headerlink" title="描述："></a>描述：</h3><h3 id="结构："><a href="#结构：" class="headerlink" title="结构："></a>结构：</h3><ul>
 <li>List InstanceObject 指定为场景的container.</li>
 <li>Monitor 显示器，显示生成的object，使用graphic.drawmeshinstance;</li>
@@ -4084,13 +3853,244 @@ g {color:green;font-weight: 700;}
   </entry>
   <entry>
     <title>【模块】相机对齐</title>
-    <url>/2022/08/03/%E6%A8%A1%E5%9D%97/%E3%80%90%E7%BC%96%E8%BE%91%E5%99%A8%E6%A8%A1%E5%9D%97%E3%80%91%E5%B0%86%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE%E5%AF%B9%E9%BD%90%E5%88%B0%E7%9B%B8%E6%9C%BA%E4%B8%AD/</url>
+    <url>/2022/08/03/mods/%E3%80%90%E7%BC%96%E8%BE%91%E5%99%A8%E6%A8%A1%E5%9D%97%E3%80%91%E5%B0%86%E5%9C%BA%E6%99%AF%E8%A7%86%E5%9B%BE%E5%AF%B9%E9%BD%90%E5%88%B0%E7%9B%B8%E6%9C%BA%E4%B8%AD/</url>
     <content><![CDATA[<h1 id="将场景视图对齐到相机中"><a href="#将场景视图对齐到相机中" class="headerlink" title="将场景视图对齐到相机中"></a>将场景视图对齐到相机中</h1>]]></content>
       <categories>
         <category>mods</category>
       </categories>
       <tags>
         <tag>mods</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学自我总结</title>
+    <url>/2020/08/04/unity/ComputerGraphics/</url>
+    <content><![CDATA[<style type="text/css">
+r {color:red; font-weight: 700;}
+yellow {color: yellow ; font-weight: 700;}
+g {color:green;font-weight: 700;}
+</style>
+
+<h1 id="我学废了！"><a href="#我学废了！" class="headerlink" title="我学废了！"></a>我学废了！</h1><p>总结一些关于实时渲染的坑和知识，学废的请举手！</p>
+<hr>
+<h2 id="光照模型-光影不分家"><a href="#光照模型-光影不分家" class="headerlink" title="光照模型 光影不分家"></a>光照模型 光影不分家</h2><ul>
+<li>冯氏光照模型</li>
+<li>兰伯特光照模型</li>
+<li>半兰伯特光照模型</li>
+<li>基于物理渲染</li>
+<li>IBL基于图片光照着色</li>
+<li>利用渐变纹理实现伪BRDF</li>
+</ul>
+<hr>
+<h2 id="shadow-阴影"><a href="#shadow-阴影" class="headerlink" title="shadow 阴影"></a>shadow 阴影</h2><ul>
+<li>自定义阴影贴图</li>
+<li>percentage closed soft shadow(pcss 阴影)</li>
+<li>方差阴影</li>
+</ul>
+<hr>
+<h2 id="变换-Transform"><a href="#变换-Transform" class="headerlink" title="变换 Transform"></a>变换 Transform</h2><ul>
+<li>Vertex Offset 顶点变换</li>
+</ul>
+<hr>
+<h2 id="纹理贴合-Texturing"><a href="#纹理贴合-Texturing" class="headerlink" title="纹理贴合 Texturing"></a>纹理贴合 Texturing</h2><ul>
+<li><g>world align textrue(xyz) 基于世界坐标的无限延展贴图</g></li>
+<li><g>height base blend texture 基于高度的材质混合</g></li>
+<li><r>view position parallex 基于视图空间的视差效果</r></li>
+</ul>
+<hr>
+<h2 id="反射-Reflection"><a href="#反射-Reflection" class="headerlink" title="反射 Reflection"></a>反射 Reflection</h2><ul>
+<li>matcap 材质捕获 三维空间与二维空间之间的转换 低配cubemap，平面反射中要进行法线重置</li>
+<li>cubemap 静态的cubemap反射，贴图效果比matcap好但是贴图体积大</li>
+</ul>
+<hr>
+<h2 id="透明相关"><a href="#透明相关" class="headerlink" title="透明相关"></a>透明相关</h2><ul>
+<li>Transparency 透射效果</li>
+<li>Refraction 折射效果</li>
+<li>渲染队列</li>
+<li>Alpha Test (透明裁剪)</li>
+<li>Alpha Blend(透明融合)</li>
+</ul>
+<hr>
+<h2 id="map相关"><a href="#map相关" class="headerlink" title="map相关"></a>map相关</h2><ul>
+<li><r>maskmap </r></li>
+<li><g>RGBA channel mask 单通道贴图控制</g></li>
+<li>ramp map 渐变式贴图</li>
+<li><r>splatmap 地形材质混合</r></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27339998">47张map</a></li>
+</ul>
+<hr>
+<h2 id="后处理相关"><a href="#后处理相关" class="headerlink" title="后处理相关"></a>后处理相关</h2><ul>
+<li>NDC重建世界坐标</li>
+<li>屏幕空间深度图</li>
+<li>屏幕空间法线</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你不懂绑骨的痛</title>
+    <url>/2020/09/06/unity/RiggingExp/</url>
+    <content><![CDATA[<h1 id="角色绑定很多时候都很痛"><a href="#角色绑定很多时候都很痛" class="headerlink" title="角色绑定很多时候都很痛"></a>角色绑定很多时候都很痛</h1><p>很多时候有人并不懂绑骨的痛，到底有多痛。<br>绑骨和角色制作是一个角色扮演游戏中不可或缺的一部分，一个角色从建模到绑定也是非常煎熬的一部分，不仅仅因为匹配骨骼的蒙皮苦难，对于分离物件更加容易绑定蒙皮出错。</p>
+<h1 id="角色绑骨"><a href="#角色绑骨" class="headerlink" title="角色绑骨"></a>角色绑骨</h1><ul>
+<li>绑定骨骼定位</li>
+<li>蒙皮skining</li>
+<li>骨骼权重</li>
+<li>ik骨骼和fk骨骼控制器的制作 customize visibility type</li>
+</ul>
+<h1 id="角色骨骼绑定方案设计"><a href="#角色骨骼绑定方案设计" class="headerlink" title="角色骨骼绑定方案设计"></a>角色骨骼绑定方案设计</h1><ul>
+<li>提供初始裸模</li>
+<li>检查模型后进行绑定，蒙皮骨骼运算</li>
+<li>调整骨骼皮肤的权重</li>
+<li>为模型制作控制器（手部脚部IK）</li>
+<li>自定义控制器形状，并且设定仅导出蒙皮骨骼</li>
+<li>坐标空间对齐一定要注意，若两个软件中的基础坐标空间不一致，需要进行矫正。带骨骼和层级的矫正一定要清楚哪些需要应用变换。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Blender</tag>
+        <tag>unity</tag>
+        <tag>Rig</tag>
+        <tag>Character</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>总结Unity中的材质节点工具</title>
+    <url>/2020/09/29/unity/SummaryUnityShaderNodeEditor/</url>
+    <content><![CDATA[<h1 id="总结一些使用过的材质节点工具"><a href="#总结一些使用过的材质节点工具" class="headerlink" title="总结一些使用过的材质节点工具"></a>总结一些使用过的材质节点工具</h1><h2 id="Shader-Forge"><a href="#Shader-Forge" class="headerlink" title="Shader Forge"></a>Shader Forge</h2><p>功能不多，早期提供给Unity使用，开源，代码比较混乱，使用手感不太好，没有组功能，也没有快速预览功能，编辑有卡顿现象，明显表现在拖拽时。</p>
+<h2 id="Amplify-Shader-Editor"><a href="#Amplify-Shader-Editor" class="headerlink" title="Amplify Shader Editor"></a>Amplify Shader Editor</h2><p>功能强大，但仍有缺点，开源，代码可读性不高，编辑起来也不会很顺手，删除和添加都会有些许卡顿。没有快速预览功能。</p>
+<h2 id="Shader-Graph"><a href="#Shader-Graph" class="headerlink" title="Shader Graph"></a>Shader Graph</h2><p>封装好的字段，仅供urp 和hdrp使用，限制比较大，但比较Unity官方提供的工具，兼容性较好，编辑手段较多，就是编辑不太顺手。</p>
+<h2 id="Visual-Effect-Graph"><a href="#Visual-Effect-Graph" class="headerlink" title="Visual Effect Graph"></a>Visual Effect Graph</h2><p>没用过，不知道好坏，但是编辑器看起来很不错。</p>
+<h2 id="Blender-Node-Editor"><a href="#Blender-Node-Editor" class="headerlink" title="Blender Node Editor"></a>Blender Node Editor</h2><p>有快速预览功能。<br>编辑非常顺手。<br>有组功能。<br>就是材质显示效果不太真实。（eevee跟Unity和ue4都有区别）</p>
+<h2 id="Unreal-BulePrint"><a href="#Unreal-BulePrint" class="headerlink" title="Unreal BulePrint"></a>Unreal BulePrint</h2><p>可能是最早提出的节点编辑</p>
+<h2 id="Worldmchine"><a href="#Worldmchine" class="headerlink" title="Worldmchine"></a>Worldmchine</h2><p>还不错，用了半年，专门用于制作地形高度图</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>Editor</tag>
+        <tag>Summary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用PPS自定义后处理着色器</title>
+    <url>/2020/09/29/unity/UnityPostProcessingStack/</url>
+    <content><![CDATA[<h1 id="自定义自己的后处理着色器"><a href="#自定义自己的后处理着色器" class="headerlink" title="自定义自己的后处理着色器"></a>自定义自己的后处理着色器</h1><p>首先需要安装插件PostProcssing Stack<br>然后使用HLSL编写自己的后处理着色器Image Effect </p>
+<h2 id="HLSL"><a href="#HLSL" class="headerlink" title="HLSL"></a>HLSL</h2><p>顶点着色器(vertex Shader)<br>像素着色器(Pixel Shader)<br>HLSL基本语法</p>
+<h1 id="自定义后处理着色器的设置界面"><a href="#自定义后处理着色器的设置界面" class="headerlink" title="自定义后处理着色器的设置界面"></a>自定义后处理着色器的设置界面</h1><p>继承Post Procssing Setting</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>unity</tag>
+        <tag>PostProcessingStack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unity的经验（杂）</title>
+    <url>/2020/08/03/unity/unityMatrix/</url>
+    <content><![CDATA[<p>在写shader或者制作shader graph 时候阅读shader代码经常会需要转译。</p>
+<hr>
+<h3 id="内置矩阵-支持的矩阵（float4x4）："><a href="#内置矩阵-支持的矩阵（float4x4）：" class="headerlink" title="内置矩阵 支持的矩阵（float4x4）："></a>内置矩阵 支持的矩阵（float4x4）：</h3><ul>
+<li><p>UNITY_MATRIX_MVP              当前模型视图投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_MV               当前模型视图矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_V                当前视图矩阵。</p>
+</li>
+<li><p>UNITY_MATRIX_P                目前的投影矩阵</p>
+</li>
+<li><p>UNITY_MATRIX_VP               当前视图*投影矩阵</p>
+<font color="lighgrey"> </li>
+<li><p>UNITY_MATRIX_T_MV             移调模型视图矩阵 </p>
+</font>
+</li>
+<li><p>UNITY_MATRIX_IT_MV            模型视图矩阵的逆转</p>
+</li>
+<li><p>UNITY_MATRIX_TEXTURE0         纹理变换矩阵<br>  UNITY_MATRIX_TEXTURE3            </p>
+</li>
+<li><p>UNITY_LIGHTMODEL_AMBIENT      当前环境的颜色</p>
+</li>
+</ul>
+<hr>
+<h3 id="在Amplify-shader-editor-里的坑"><a href="#在Amplify-shader-editor-里的坑" class="headerlink" title="在Amplify shader editor 里的坑"></a>在Amplify shader editor 里的坑</h3><p>如果需要转换以上矩阵，应该使用transform 节点进行转换为最好</p>
+<hr>
+<p>unity 读取文件时<br>    Assestdatabase.LoadAssetsAtPath<Type>(“Assets/..”);<br>    Resources.Load<Type>(“Assets/Resources/..”);</p>
+<hr>
+<h2 id="在defered-lighting-中实现transparency-透射效果"><a href="#在defered-lighting-中实现transparency-透射效果" class="headerlink" title="在defered lighting 中实现transparency 透射效果."></a>在defered lighting 中实现transparency 透射效果.</h2><pre><code>    //Work out where on screen this pixel in. This tells us where we need to read from in the light buffers
+
+    float2 screenPos = input.PositionCS.xy / input.PositionCS.w;
+    float2 texCoord = float2(
+         (1 + screenPos.x) / 2 + (0.5 / Resolution.x),
+         (1 - screenPos.y) / 2 + (0.5 / Resolution.y)
+    );
+
+    //The normal buffer alpha channel set to zero if nothing was written here. Sample the value as use zero-values as an early exit (a kind of stencil buffer)
+
+    float4 sampledNormals = tex2D(normalSampler, texCoord);
+    if (sampledNormals.a == 0)
+        clip(-1);
+
+    //This is the clever bit for back-face geometry. the depth of this vertex (input.Depth) is the back of the object...
+    //...while the value in the depth buffer is the depth from the front of the geometry we rendered before into the gbuffer!
+    //Thickness is easy to calculate.
+
+    float backDepth = input.Depth;
+    float frontDepth = tex2D(depthSampler, texCoord);
+    float thickness = (backDepth - frontDepth) * (FarClip - NearClip);
+
+    //This is the surface colour of the transparent object
+
+    float3 opaque = tex2D(transparencyLightbufferSampler, texCoord).rgb;
+
+    //This is the colour of the scene behind the object
+
+    float3 background = tex2D(lightbufferSample, texCoord).rgb;
+
+    //now blend them. Blending function varies per material
+
+    return Blend(opaque, background, thickness);</code></pre>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>shader</tag>
+        <tag>unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种树形数据结构</title>
+    <url>/2020/09/06/unity/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/</url>
+    <content><![CDATA[<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><ul>
+<li>一次等分存储</li>
+<li>一阶储存器</li>
+</ul>
+<h1 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h1><ul>
+<li>二维图像储存</li>
+<li>二次等分细分</li>
+</ul>
+<h1 id="八叉树"><a href="#八叉树" class="headerlink" title="八叉树"></a>八叉树</h1><ul>
+<li>三维空间数据储存体素</li>
+<li>三次等分细分</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>dataarchitecture</tag>
       </tags>
   </entry>
 </search>
