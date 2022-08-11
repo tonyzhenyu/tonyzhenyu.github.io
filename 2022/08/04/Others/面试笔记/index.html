@@ -7,15 +7,15 @@
   
   <title>面试笔记 | Ho&#39;s Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2022 0714 （IGG 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） 累积半透明抖动算法（时域数据）   uitool kit 简单讲讲大地形渲染">
+  <meta name="description" content="2022 0714 （IGG 天盟数码 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） depth peeling A-Buffer Multi-Laye">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试笔记">
 <meta property="og:url" content="http://tonyzhenyu.github.io/2022/08/04/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Ho&#39;s Website">
-<meta property="og:description" content="2022 0714 （IGG 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） 累积半透明抖动算法（时域数据）   uitool kit 简单讲讲大地形渲染">
+<meta property="og:description" content="2022 0714 （IGG 天盟数码 阿尔宙斯） urp中的绘制顺序是怎么样的？ 过渡绘制怎么解决？ unity 半透明的乱序如何解决 Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现 unity 半透明渲染技巧(1)：固定深度法 顺序无关的半透明混合（OIT） depth peeling A-Buffer Multi-Laye">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-04T12:24:29.000Z">
-<meta property="article:modified_time" content="2022-08-04T03:30:30.001Z">
+<meta property="article:modified_time" content="2022-08-11T15:05:16.921Z">
 <meta property="article:author" content="Tony Ho">
 <meta property="article:tag" content="resume">
 <meta name="twitter:card" content="summary">
@@ -93,13 +93,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2022-0714-（IGG-阿尔宙斯）"><a href="#2022-0714-（IGG-阿尔宙斯）" class="headerlink" title="2022 0714 （IGG 阿尔宙斯）"></a>2022 0714 （IGG 阿尔宙斯）</h2><ul>
+        <h2 id="2022-0714-（IGG-天盟数码-阿尔宙斯）"><a href="#2022-0714-（IGG-天盟数码-阿尔宙斯）" class="headerlink" title="2022 0714 （IGG 天盟数码 阿尔宙斯）"></a>2022 0714 （IGG 天盟数码 阿尔宙斯）</h2><ul>
 <li>urp中的绘制顺序是怎么样的？</li>
 <li>过渡绘制怎么解决？</li>
 <li>unity 半透明的乱序如何解决<ul>
 <li>Depth Peeling 深度剥离 深度剥离算法 OpenGL深度剥离算法（Depth Peeling）半透明实现</li>
 <li>unity 半透明渲染技巧(1)：固定深度法</li>
 <li>顺序无关的半透明混合（OIT）</li>
+<li>depth peeling</li>
+<li>A-Buffer</li>
+<li>Multi-Layer Alpha Blending</li>
+<li>Weighted Sum</li>
+<li>Weighted Average</li>
 <li>累积半透明抖动算法（时域数据）</li>
 </ul>
 </li>
@@ -138,14 +143,19 @@
 <li>为什么要用PBR？</li>
 <li>用什么工具做性能检测和测试？</li>
 </ul>
-<h2 id="2022-0803-劲舞团"><a href="#2022-0803-劲舞团" class="headerlink" title="2022 0803 (劲舞团)"></a>2022 0803 (劲舞团)</h2><ul>
+<h2 id="2022-0728-（GameAle）"><a href="#2022-0728-（GameAle）" class="headerlink" title="2022 0728 （GameAle）"></a>2022 0728 （GameAle）</h2><ul>
+<li>这个风来之国的效果能够实现吗？</li>
+<li>在水体渲染方面的一些内容会有什么想法？</li>
+<li>未来的规划是技术向的技术美术还是美术向的技术美术？</li>
+</ul>
+<h2 id="2022-0803-纵深乐琪"><a href="#2022-0803-纵深乐琪" class="headerlink" title="2022 0803 (纵深乐琪)"></a>2022 0803 (纵深乐琪)</h2><ul>
 <li>SRP batcher合并有哪些条件？</li>
 <li>URP 的灯光渲染pass是如何执行的？</li>
 <li>SSR 实现逻辑是什么？</li>
 <li>镜面反射的实现逻辑是什么？</li>
 <li>有实机在手机上测试过渲染性能嘛？用何种工具？</li>
 </ul>
-<h2 id="2022-0803-（欧美卡牌）"><a href="#2022-0803-（欧美卡牌）" class="headerlink" title="2022 0803 （欧美卡牌）"></a>2022 0803 （欧美卡牌）</h2><ul>
+<h2 id="2022-0803-（沐瞳-欧美卡牌）"><a href="#2022-0803-（沐瞳-欧美卡牌）" class="headerlink" title="2022 0803 （沐瞳 欧美卡牌）"></a>2022 0803 （沐瞳 欧美卡牌）</h2><ul>
 <li>简单讲一下URP里面的渲染管线？</li>
 <li>性能优化应该从哪一方面入手？大致讲一下</li>
 <li>SRP Batcher可以简单讲一下吗？</li>
@@ -162,11 +172,64 @@
 <li>list和dictionary的主要区别是什么？</li>
 <li>类和结构体主要的区别是什么？</li>
 </ul>
+<h2 id="2022-0803-（汇秦软件-测试题）"><a href="#2022-0803-（汇秦软件-测试题）" class="headerlink" title="2022 0803 （汇秦软件 测试题）"></a>2022 0803 （汇秦软件 测试题）</h2><ul>
+<li>美术向技术美术测试题：实现一个装在酒瓶里的眼睛</li>
+</ul>
+<h2 id="2022-0804-（呦尔哈-一面CNC）"><a href="#2022-0804-（呦尔哈-一面CNC）" class="headerlink" title="2022 0804 （呦尔哈 一面CNC）"></a>2022 0804 （呦尔哈 一面CNC）</h2><ul>
+<li>六号特工项目中使用到的烘焙光是哪种烘焙光方案？</li>
+<li>在项目中是自己自发的研究各种效果方案还是有人专门制定项目方案去实现？</li>
+<li>你对PBR渲染了解多少？</li>
+<li>URP线管的理解和应用做了哪些内容？为什么用到URP而不是SRP或者HDRP？他们的优劣势各是什么？</li>
+<li>你的职业生涯有做过哪些规划吗？未来的道路是怎么样？</li>
+<li>做一个满意的方案或者功能，哪一部分耗时间最长？大概花了多少时间？能详细讲讲吗？</li>
+<li>材质和shader这部分有做过哪些复杂的内容？具体的实现逻辑是怎么样的？</li>
+</ul>
+<h2 id="2022-0805-（呦尔哈-二面技术总监面试）"><a href="#2022-0805-（呦尔哈-二面技术总监面试）" class="headerlink" title="2022 0805 （呦尔哈 二面技术总监面试）"></a>2022 0805 （呦尔哈 二面技术总监面试）</h2><ul>
+<li>简单做一个自我介绍和描述一下过往的经历可以吗？</li>
+<li>做过哪些复杂的shader？raymarching的工作原理是怎样的？简单讲讲raymarching的高耗能如何降低耗能同时达到理想的渲染效果。</li>
+<li>pubg、apex、使命召唤、瓦洛兰特他们的效果你认为那个做的最好？简单讲讲为什么做的好？优缺点在哪里。</li>
+<li>可以简单讲讲三维中的变换矩阵吗？TRS试着写出来可以吗？</li>
+<li>数字媒体技术具体是学的什么？是更偏向于程序还是艺术？</li>
+<li>PBR原理大概了解多少可以讲一下吗？</li>
+<li>看了你做的layer material，如果在地形中产生非常大的splat mask，应该怎么去控制生成的layer mask 或者 layer material如何进行优化？</li>
+<li>c# 中dictionary的底层实现是怎么样的？</li>
+<li>对未来的发展有什么规划吗？</li>
+</ul>
+<h2 id="2022-0805-（英澈千年之旅）"><a href="#2022-0805-（英澈千年之旅）" class="headerlink" title="2022 0805 （英澈千年之旅）"></a>2022 0805 （英澈千年之旅）</h2><ul>
+<li>简单做个自我介绍可以吗？</li>
+<li>PBR渲染大概了解多少？</li>
+<li>这些游戏作品都是自己做的吗？当初选择的是做游戏gameplay方向，为何后来又选择了技术美术的方向呢？</li>
+<li>有用过shader graph吗？有没有尝试过进行shader graph的扩展？</li>
+<li>针对以下视频短片，你认为该短片中，渲染方面有哪些不足的点，或者优点，可以简单讲讲吗？</li>
+<li>场景方向的优化应该还会有什么？</li>
+</ul>
+<h2 id="2022-0811-上海育碧一面-三个面试官"><a href="#2022-0811-上海育碧一面-三个面试官" class="headerlink" title="2022 0811 (上海育碧一面 三个面试官)"></a>2022 0811 (上海育碧一面 三个面试官)</h2><ul>
+<li>看你作品有点多，有哪些比较能体现目前水平的一些作品可以讲讲吗？</li>
+<li>如果给美术讲解材质上的参数时候，应该怎么样讲解才能更加让他们理解？</li>
+<li>如果美术对材质参数调整怎么都不是想要的效果的时候应该怎么做？</li>
+<li>对PCG方面会有多少了解？会使用到houdini工具去深入做pcg方面的东西吗？</li>
+<li>你提到有做过绳子的物理模拟？更高级的做法方案是什么？那如果是布料方面的模拟应该要怎么做呢？</li>
+<li>在blender中做的pcg是使用blender中的geometry node的功能实现pcg？主要做了哪些内容？</li>
+<li>在urp线管中做了多少的扩展优化和修改？</li>
+<li>有了解过ecs和compute shader吗？ecs主要的好处在哪里？性能和速度高效的原因是什么？</li>
+<li>为什么要使用到pbr渲染，具体引入物理pbr渲染主要目的是什么？</li>
+<li>如果是有一个5x5的大地形，应该怎么增加或者修改实例化笔刷工具的功能？</li>
+<li>多层材质混合方面主要做了什么内容？surface input下面有一项metallic 参数，如果是普通terrain会需要到这个参数吗？还是有其他用途？</li>
+</ul>
+<h2 id="2022-0811（厦门真有趣游戏-香肠派对-）"><a href="#2022-0811（厦门真有趣游戏-香肠派对-）" class="headerlink" title="2022 0811（厦门真有趣游戏-香肠派对 ）"></a>2022 0811（厦门真有趣游戏-香肠派对 ）</h2><ul>
+<li>early-z 对于手机端是一个极好的技术，那么他对于手机端的内容有哪些个优化呢？针对于shader来说的话他主要有哪些点是优化的？</li>
+<li>移动端平台对于主机或者pc平台来说，主要有哪些区别？可以简单讲讲吗？</li>
+<li>空间的分区按照什么进行划分？那cbuffer的更新策略是怎么样的？</li>
+<li>假如一个性能反馈是“很卡”那应该如何判断是因为gpu端的压力？</li>
+<li>主线程和渲染线程在运行时的先后顺序是怎么样的？</li>
+<li>gpu如果直接绘制一个相当大的draw的时候会造成卡顿压力吗？</li>
+</ul>
+<p>显卡挖矿IDLE游戏<br>游戏<br>unraid 系统</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tonyzhenyu.github.io/2022/08/04/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" data-id="cl6ehdau20018c2p16k114cl2" class="article-share-link">分享</a>
+      <a data-url="http://tonyzhenyu.github.io/2022/08/04/Others/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/" data-id="cl6p69wzb0018c4ol07gze3fn" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resume/" rel="tag">resume</a></li></ul>
